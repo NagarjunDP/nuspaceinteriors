@@ -1,245 +1,211 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CheckCircle, Paintbrush, Layers, Award, Clock, PiggyBank } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const trustFeatures = [
     {
-        title: "End-to-End Turnkey Service",
-        description: "We handle everything from civil work to final styling decor.",
+        title: "End-to-End Turnkey Execution",
+        description: "We manage every stage from initial civil work to final styling, furniture placement, and key delivery.",
         icon: CheckCircle,
+        color: "#8B263E",
     },
     {
-        title: "100% Customised Designs",
-        description: "No templates. Every space is uniquely tailored to your personality.",
+        title: "100% Bespoke Interiors",
+        description: "No templated layouts or cookie-cutter designs. Every single space is uniquely tailored to your individual lifestyle.",
         icon: Paintbrush,
+        color: "#a03d52",
     },
     {
-        title: "Free 3D Visualisation",
-        description: "See your dream home in high fidelity before we even start building.",
+        title: "Photorealistic 3D Visuals",
+        description: "Experience your future space in high-definition 3D before a single hammer is raised or materials are cut.",
         icon: Layers,
+        color: "#1c4f6b",
     },
     {
-        title: "Award-Winning Team",
-        description: "Recognized for excellence in coastal and contemporary design.",
+        title: "Precision Workshop Quality",
+        description: "Custom modular joinery and teak/veneer furniture crafted with zero compromise on tolerances or material purity.",
         icon: Award,
+        color: "#6b4226",
     },
     {
-        title: "On-Time Project Delivery",
-        description: "We respect your time. Guaranteed handover within agreed timelines.",
+        title: "Guaranteed Timely Delivery",
+        description: "Disciplined scheduling with clear milestone tracking and on-time handover guaranteed across Bengaluru.",
         icon: Clock,
+        color: "#3a6b3a",
     },
     {
-        title: "Transparent Pricing",
-        description: "No hidden costs. Detailed breakdowns for complete peace of mind.",
+        title: "Transparent BOQ Costing",
+        description: "No hidden fees or unexpected costs mid-way. Detailed itemized estimates for complete financial peace of mind.",
         icon: PiggyBank,
+        color: "#5a4b8b",
     },
 ];
 
-const pressLogos = [
-    "Elle Decor",
-    "Architectural Digest India",
-    "Housing.com",
-    "The Better India",
-    "Better Interiors",
-];
+function useInView(threshold = 0.1) {
+    const ref = useRef<HTMLDivElement>(null);
+    const [inView, setInView] = useState(false);
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const obs = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+            { threshold }
+        );
+        obs.observe(el);
+        return () => obs.disconnect();
+    }, [threshold]);
+    return { ref, inView };
+}
 
 export default function Trust() {
-    const sectionRef = useRef(null);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(".trust-heading", {
-                scrollTrigger: {
-                    trigger: ".trust-heading",
-                    start: "top 85%",
-                },
-                y: 30,
-                duration: 1.2,
-                ease: "power3.out",
-            });
-
-            gsap.from(".trust-box", {
-                scrollTrigger: {
-                    trigger: ".trust-grid",
-                    start: "top 80%",
-                },
-                y: 40,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: "power2.out",
-            });
-
-            gsap.from(".press-row", {
-                scrollTrigger: {
-                    trigger: ".press-row",
-                    start: "top 90%",
-                },
-                y: 20,
-                duration: 1.5,
-                ease: "power3.out",
-            });
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
+    const { ref: sectionRef, inView } = useInView(0.1);
 
     return (
         <section
             id="trust"
             ref={sectionRef}
             style={{
-                padding: "10rem 2rem",
-                backgroundColor: "#1A1A2E", // Dark navy/teal
+                padding: "6rem 1.5rem",
+                backgroundColor: "#141312",
+                color: "#ffffff",
                 position: "relative",
                 overflow: "hidden",
             }}
         >
-            <div style={{ maxWidth: "1440px", margin: "0 auto" }}>
-                {/* Heading */}
-                <div className="trust-heading" style={{ textAlign: "center", marginBottom: "7rem" }}>
-                    <span
-                        style={{
-                            fontFamily: "var(--font-montserrat)",
-                            fontSize: "10px",
-                            fontWeight: 700,
-                            color: "#4A90A4",
-                            letterSpacing: "0.4em",
-                            textTransform: "uppercase",
-                            display: "block",
-                            marginBottom: "1.5rem",
-                        }}
-                    >
-                        Why Choose Us
-                    </span>
+            <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative" }}>
+
+                {/* ── Section Header ── */}
+                <div
+                    style={{
+                        textAlign: "center",
+                        marginBottom: "4.5rem",
+                        opacity: inView ? 1 : 0,
+                        transform: inView ? "none" : "translateY(30px)",
+                        transition: "opacity 0.8s ease, transform 0.8s ease",
+                    }}
+                >
+                    <div style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
+                        <span style={{ width: "2rem", height: "2px", backgroundColor: "#8B263E" }} />
+                        <span
+                            style={{
+                                fontFamily: "var(--font-sans)",
+                                fontSize: "0.72rem",
+                                fontWeight: 600,
+                                letterSpacing: "0.28em",
+                                textTransform: "uppercase",
+                                color: "#8B263E",
+                            }}
+                        >
+                            THE NUSPACE GUARANTEE
+                        </span>
+                        <span style={{ width: "2rem", height: "2px", backgroundColor: "#8B263E" }} />
+                    </div>
+
                     <h2
                         style={{
-                            fontFamily: "var(--font-cormorant)",
-                            fontSize: "clamp(3rem, 5vw, 4.5rem)",
-                            color: "#ffffff",
-                            fontStyle: "italic",
-                            lineHeight: "1.1",
+                            fontFamily: "var(--font-serif)",
+                            fontSize: "clamp(2.2rem, 5vw, 4.2rem)",
+                            color: "#FAF8F5",
+                            fontWeight: 500,
+                            lineHeight: "1.15",
                         }}
                     >
-                        Why Homeowners Choose <br /> Coastal Interio
+                        Why Clients Choose <br /> Nuspace Decor
                     </h2>
                 </div>
 
-                {/* Features Grid */}
+                {/* ── Features Grid ── */}
                 <div
-                    className="trust-grid"
                     style={{
                         display: "grid",
-                        gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
-                        gap: "2.5rem",
-                        marginBottom: "10rem",
+                        gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 300px), 1fr))",
+                        gap: "1.5rem",
                     }}
                 >
                     {trustFeatures.map((feature, idx) => (
-                        <div
+                        <TrustFeatureBox
                             key={idx}
-                            className="trust-box"
-                            style={{
-                                backgroundColor: "rgba(255,255,255,0.03)",
-                                padding: "4rem 3.5rem",
-                                borderRadius: "2rem",
-                                border: "1px solid rgba(255,255,255,0.05)",
-                                transition: "all 0.4s ease",
-                            }}
-                            onMouseEnter={(e) => {
-                                (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(255,255,255,0.05)";
-                                (e.currentTarget as HTMLElement).style.borderColor = "rgba(74, 144, 164, 0.2)";
-                            }}
-                            onMouseLeave={(e) => {
-                                (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(255,255,255,0.03)";
-                                (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.05)";
-                            }}
-                        >
-                            <div
-                                style={{
-                                    width: "3.5rem",
-                                    height: "3.5rem",
-                                    borderRadius: "1rem",
-                                    backgroundColor: "rgba(74, 144, 164, 0.1)",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    marginBottom: "2.5rem",
-                                }}
-                            >
-                                <feature.icon size={22} color="#4A90A4" strokeWidth={1.5} />
-                            </div>
-                            <h3
-                                style={{
-                                    fontFamily: "var(--font-cormorant)",
-                                    fontSize: "1.75rem",
-                                    color: "#ffffff",
-                                    marginBottom: "1.5rem",
-                                }}
-                            >
-                                {feature.title}
-                            </h3>
-                            <p
-                                style={{
-                                    fontFamily: "var(--font-dm-sans)",
-                                    fontSize: "1rem",
-                                    color: "rgba(255,255,255,0.5)",
-                                    lineHeight: "1.7",
-                                }}
-                            >
-                                {feature.description}
-                            </p>
-                        </div>
+                            feature={feature}
+                            delay={idx * 100}
+                            inView={inView}
+                        />
                     ))}
-                </div>
-
-                {/* Press Section */}
-                <div className="press-row" style={{ textAlign: "center" }}>
-                    <span
-                        style={{
-                            fontFamily: "var(--font-montserrat)",
-                            fontSize: "9px",
-                            fontWeight: 600,
-                            color: "rgba(255,255,255,0.3)",
-                            letterSpacing: "0.2em",
-                            textTransform: "uppercase",
-                            display: "block",
-                            marginBottom: "3.5rem",
-                        }}
-                    >
-                        As Featured In
-                    </span>
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            flexWrap: "wrap",
-                            gap: "5rem",
-                            alignItems: "center",
-                            opacity: 0.4,
-                            filter: "grayscale(1) invert(1)",
-                        }}
-                    >
-                        {pressLogos.map((logo, idx) => (
-                            <span
-                                key={idx}
-                                style={{
-                                    fontFamily: "var(--font-playfair)",
-                                    fontSize: "1.5rem",
-                                    fontWeight: 700,
-                                    color: "#ffffff",
-                                }}
-                            >
-                                {logo}
-                            </span>
-                        ))}
-                    </div>
                 </div>
             </div>
         </section>
+    );
+}
+
+function TrustFeatureBox({
+    feature,
+    delay,
+    inView,
+}: {
+    feature: typeof trustFeatures[0];
+    delay: number;
+    inView: boolean;
+}) {
+    const [hovered, setHovered] = useState(false);
+    const Icon = feature.icon;
+
+    return (
+        <div
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+            style={{
+                backgroundColor: hovered ? `${feature.color}15` : "rgba(255,255,255,0.03)",
+                padding: "2.5rem 2rem",
+                borderRadius: "1.25rem",
+                border: hovered ? `1px solid ${feature.color}50` : "1px solid rgba(255,255,255,0.08)",
+                transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                transform: hovered ? "translateY(-6px)" : inView ? "none" : "translateY(35px)",
+                opacity: inView ? 1 : 0,
+                transitionDelay: `${delay}ms`,
+            }}
+        >
+            <div
+                style={{
+                    width: "3rem",
+                    height: "3rem",
+                    borderRadius: "50%",
+                    backgroundColor: `${feature.color}25`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: "1.5rem",
+                    color: feature.color,
+                    transition: "transform 0.3s ease",
+                    transform: hovered ? "scale(1.1)" : "scale(1)",
+                }}
+            >
+                <Icon size={22} strokeWidth={1.8} />
+            </div>
+
+            <h3
+                style={{
+                    fontFamily: "var(--font-serif)",
+                    fontSize: "1.5rem",
+                    color: "#ffffff",
+                    marginBottom: "0.85rem",
+                    fontWeight: 500,
+                    lineHeight: 1.25,
+                }}
+            >
+                {feature.title}
+            </h3>
+
+            <p
+                style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: "0.9rem",
+                    color: "rgba(255,255,255,0.68)",
+                    lineHeight: "1.65",
+                    margin: 0,
+                }}
+            >
+                {feature.description}
+            </p>
+        </div>
     );
 }

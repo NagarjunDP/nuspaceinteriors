@@ -2,31 +2,54 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, Play, Instagram, Linkedin, Facebook, Twitter } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import gsap from "gsap";
+import { getCdnUrl } from "@/lib/cdn";
+
+// ── 6 real hero-quality photos from the largest files ──
+const HERO_SLIDES = [
+  getCdnUrl("/work/residential/residential_01.jpeg"),
+  getCdnUrl("/work/living_room/living_room_01.jpeg"),
+  getCdnUrl("/work/bedroom/bedroom_01.jpeg"),
+  getCdnUrl("/work/kitchen/kitchen_01.jpeg"),
+  getCdnUrl("/work/commercial/commercial_01.jpeg"),
+  getCdnUrl("/work/turnkey/turnkey_01.jpeg"),
+];
+
+// ── Floating thumbnail strip (the best 8 photos from diverse categories) ──
+const FLOATING_THUMBS = [
+  getCdnUrl("/work/living_room/living_room_02.jpeg"),
+  getCdnUrl("/work/bedroom/bedroom_02.jpeg"),
+  getCdnUrl("/work/kitchen/kitchen_02.jpeg"),
+  getCdnUrl("/work/bathroom/bathroom_01.jpeg"),
+  getCdnUrl("/work/dining/dining_01.jpeg"),
+  getCdnUrl("/work/renovation/renovation_01.jpeg"),
+  getCdnUrl("/work/wardrobe/wardrobe_01.jpeg"),
+  getCdnUrl("/work/commercial/commercial_02.jpeg"),
+];
 
 export default function Hero() {
-  const heroRef = useRef(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Auto-advance slides
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((s) => (s + 1) % HERO_SLIDES.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  // GSAP entrance
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".hero-content > *", {
-        y: 60,
-        opacity: 0,
-        duration: 1.8,
-        stagger: 0.2,
-        ease: "power4.out",
-        delay: 0.5
-      });
-
-      gsap.from(".hero-video-frame", {
-        scale: 0.9,
-        opacity: 0,
-        duration: 2.2,
-        ease: "expo.out",
-        delay: 0.2
+      gsap.from(".hero-badge", { y: -30, opacity: 0, duration: 1.2, ease: "power3.out", delay: 0.2 });
+      gsap.from(".hero-title-text", { y: 55, opacity: 0, duration: 1.6, stagger: 0.14, ease: "power4.out", delay: 0.4 });
+      gsap.from(".hero-subtext", { y: 30, opacity: 0, duration: 1.4, ease: "power3.out", delay: 0.7 });
+      gsap.from(".hero-cta-group", { y: 20, opacity: 0, duration: 1.2, ease: "power3.out", delay: 0.9 });
+      gsap.from(".hero-stats", { y: 20, opacity: 0, duration: 1.2, ease: "power3.out", delay: 1.1 });
+      gsap.from(".hero-thumb", {
+        y: 30, opacity: 0, duration: 0.7, stagger: 0.07, ease: "power3.out", delay: 1.3,
       });
     }, heroRef);
     return () => ctx.revert();
@@ -40,303 +63,261 @@ export default function Hero() {
         position: "relative",
         minHeight: "100vh",
         width: "100%",
-        backgroundColor: "#0F0F0F",
+        backgroundColor: "#141312",
         overflow: "hidden",
         display: "flex",
         alignItems: "center",
-        padding: "8rem 2rem 4rem"
+        justifyContent: "center",
+        padding: "8rem 2rem 5rem",
       }}
     >
-      {/* Background Grain/Texture Overlay */}
-      <div style={{
-        position: "absolute",
-        inset: 0,
-        opacity: 0.03,
-        pointerEvents: "none",
-        backgroundImage: `url("https://www.transparenttextures.com/patterns/asfalt-dark.png")`
-      }}></div>
+      {/* ── Crossfade Background Slideshow (real photos) ── */}
+      {HERO_SLIDES.map((src, idx) => (
+        <div
+          key={src}
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 1,
+            opacity: idx === currentSlide ? 1 : 0,
+            transition: "opacity 1.4s ease-in-out",
+          }}
+        >
+          <Image
+            src={src}
+            alt="Nuspace Decor interior project"
+            fill
+            priority={idx === 0}
+            sizes="100vw"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          />
+        </div>
+      ))}
 
-      <div style={{
-        maxWidth: "1440px",
-        margin: "0 auto",
-        width: "100%",
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        gap: "4rem",
-        alignItems: "center",
-        zIndex: 10
-      }} className="hero-container">
+      {/* ── Dark gradient overlay ── */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 2,
+          background:
+            "linear-gradient(180deg, rgba(20,19,18,0.72) 0%, rgba(20,19,18,0.38) 45%, rgba(20,19,18,0.88) 100%)",
+        }}
+      />
 
-        {/* Left Content - Editorial */}
-        <div className="hero-content" style={{
-          flex: "1 1 500px",
+      {/* ── Content ── */}
+      <div
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          width: "100%",
           display: "flex",
           flexDirection: "column",
-          gap: "3rem",
-          textAlign: "left"
-        }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-              <span style={{ width: "2.5rem", height: "1px", backgroundColor: "#f3cc5e" }}></span>
-              <span style={{
-                fontFamily: "var(--font-montserrat)",
-                color: "#f3cc5e",
-                letterSpacing: "0.5em",
-                fontSize: "10px",
-                fontWeight: 500,
-                textTransform: "uppercase"
-              }}>
-                Est. 2012 / Bengaluru
+          alignItems: "center",
+          textAlign: "center",
+          zIndex: 10,
+          position: "relative",
+          gap: "1.75rem",
+        }}
+      >
+        {/* Badge */}
+        <div
+          className="hero-badge"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.75rem",
+            padding: "0.45rem 1.4rem",
+            borderRadius: "9999px",
+            backgroundColor: "rgba(139, 38, 62, 0.22)",
+            border: "1px solid rgba(139, 38, 62, 0.55)",
+            backdropFilter: "blur(12px)",
+          }}
+        >
+          <Sparkles size={13} color="#8B263E" />
+          <span
+            style={{
+              fontFamily: "var(--font-sans)",
+              fontSize: "0.68rem",
+              fontWeight: 600,
+              letterSpacing: "0.32em",
+              textTransform: "uppercase",
+              color: "#ffffff",
+            }}
+          >
+            NUSPACE DECOR — EST. 2017 BENGALURU
+          </span>
+        </div>
+
+        {/* Headline */}
+        <h1
+          style={{
+            color: "#ffffff",
+            fontFamily: "var(--font-serif)",
+            fontSize: "clamp(3rem, 7vw, 6rem)",
+            fontWeight: 500,
+            lineHeight: 1.06,
+            letterSpacing: "-0.02em",
+            maxWidth: "1050px",
+            margin: 0,
+          }}
+        >
+          <span className="hero-title-text" style={{ display: "block" }}>
+            DREAMS TO PERFECTION
+          </span>
+          <span
+            className="hero-title-text"
+            style={{
+              display: "block",
+              fontStyle: "italic",
+              fontWeight: 400,
+              color: "#FAF8F5",
+              fontSize: "0.82em",
+            }}
+          >
+            Bespoke Interior Design Studio, Bengaluru
+          </span>
+        </h1>
+
+        {/* Subtext */}
+        <p
+          className="hero-subtext"
+          style={{
+            color: "rgba(250,248,245,0.82)",
+            fontSize: "clamp(1rem, 2vw, 1.28rem)",
+            fontWeight: 300,
+            maxWidth: "720px",
+            lineHeight: 1.7,
+            margin: "0 auto",
+          }}
+        >
+          From initial concept to turnkey handover — we craft residential and commercial interiors
+          that define the way you live, entertain, and work.
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="hero-cta-group"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "1.1rem",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <a href="#portfolio" className="btn-primary">
+            <span>View Our Work</span>
+            <ArrowRight size={15} />
+          </a>
+          <a href="#contact" className="btn-outline-white">
+            <span>Book a Consultation</span>
+          </a>
+        </div>
+
+        {/* Stats bar */}
+        <div
+          className="hero-stats"
+          style={{
+            marginTop: "3.5rem",
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "2rem",
+            width: "100%",
+            maxWidth: "820px",
+            borderTop: "1px solid rgba(255,255,255,0.12)",
+            paddingTop: "2.25rem",
+          }}
+        >
+          {[
+            { value: "2017", label: "Studio Founded" },
+            { value: "150+", label: "Projects Completed" },
+            { value: "Turnkey", label: "End-to-End Execution" },
+          ].map((stat) => (
+            <div key={stat.value} style={{ textAlign: "center" }}>
+              <span style={{ display: "block", color: "#8B263E", fontFamily: "var(--font-serif)", fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 600 }}>
+                {stat.value}
+              </span>
+              <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                {stat.label}
               </span>
             </div>
-            <h1 style={{
-              color: "#ffffff",
-              fontFamily: "var(--font-cormorant)",
-              fontStyle: "italic",
-              lineHeight: "1.0",
-              fontSize: "clamp(3.5rem, 8vw, 7rem)",
-              fontWeight: 500,
-              margin: 0,
-              maxWidth: "900px"
-            }} className="hero-title">
-              Turning <br /> Dreams into <br /> <span style={{ color: "#f3cc5e" }}>Reality.</span>
-            </h1>
-          </div>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "3rem", maxWidth: "480px" }}>
-            <p style={{
-              color: "rgba(255, 255, 255, 0.5)",
-              fontSize: "clamp(1rem, 2vw, 1.25rem)",
-              fontWeight: 300,
-              lineHeight: "1.7"
-            }} className="hero-description">
-              Architectural interior design for those who value the transition from urban energy to coastal calm.
-            </p>
-
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "2rem" }} className="hero-actions">
-              <button
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                style={{
-                  padding: "1.25rem 3rem",
-                  borderRadius: "100px",
-                  backgroundColor: isHovered ? "#f3cc5e" : "transparent",
-                  color: isHovered ? "#000000" : "#ffffff",
-                  border: "1px solid rgba(255, 255, 255, 0.15)",
-                  fontFamily: "var(--font-montserrat)",
-                  fontSize: "9px",
-                  fontWeight: 600,
-                  letterSpacing: "0.3em",
-                  textTransform: "uppercase",
-                  cursor: "pointer",
-                  transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1rem"
-                }}
-              >
-                Initiate Project
-                <ArrowUpRight size={14} />
-              </button>
-
-              <button style={{
-                background: "none",
-                border: "none",
-                display: "flex",
-                alignItems: "center",
-                gap: "1rem",
-                cursor: "pointer",
-                padding: "1rem 0"
-              }}
-                onMouseEnter={(e) => e.currentTarget.style.opacity = "1"}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = "0.7"}
-              >
-                <div style={{
-                  width: "2.5rem",
-                  height: "1px",
-                  backgroundColor: "#f3cc5e"
-                }}></div>
-                <span style={{
-                  fontFamily: "var(--font-montserrat)",
-                  fontSize: "9px",
-                  fontWeight: 500,
-                  color: "#ffffff",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  opacity: 0.7
-                }}>View Showreel</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Social Icons */}
-          <div style={{
-            marginTop: "1rem",
-            display: "flex",
-            gap: "2.5rem",
-            alignItems: "center"
-          }}>
-            {[Instagram, Linkedin, Twitter].map((Icon, i) => (
-              <Icon key={i} size={16} color="rgba(255,255,255,0.3)" style={{ cursor: "pointer", transition: "color 0.3s ease" }}
-                onMouseEnter={(e: any) => e.currentTarget.style.color = "#f3cc5e"}
-                onMouseLeave={(e: any) => e.currentTarget.style.color = "rgba(255,255,255,0.3)"}
-              />
-            ))}
-          </div>
+          ))}
         </div>
 
-        {/* Right Content - Cinematic Video Frame */}
-        <div className="hero-video-frame" style={{
-          flex: "1 1 400px",
-          position: "relative",
-          minHeight: "500px",
-          maxHeight: "750px"
-        }}>
-          <div style={{
-            position: "relative",
-            width: "100%",
-            height: "100%",
-            borderRadius: "3rem",
-            overflow: "hidden",
-            border: "1px solid rgba(255, 255, 255, 0.05)",
-            boxShadow: "0 60px 120px -30px rgba(0,0,0,0.6)",
-            aspectRatio: "4/5"
-          }}>
-            <video
-              ref={videoRef}
-              autoPlay
-              loop
-              muted
-              playsInline
+        {/* ── Horizontal real photo strip ── */}
+        <div
+          style={{
+            display: "flex",
+            gap: "0.6rem",
+            overflowX: "auto",
+            paddingBottom: "0.25rem",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            maxWidth: "100%",
+          }}
+        >
+          {FLOATING_THUMBS.map((src, i) => (
+            <div
+              key={i}
+              className="hero-thumb"
               style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                opacity: 0.8
+                position: "relative",
+                width: "90px",
+                height: "60px",
+                borderRadius: "8px",
+                overflow: "hidden",
+                flexShrink: 0,
+                border: "1.5px solid rgba(255,255,255,0.15)",
+                transition: "transform 0.3s ease, border-color 0.3s ease",
+                cursor: "pointer",
               }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.06)";
+                e.currentTarget.style.borderColor = "#8B263E";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
+              }}
+              onClick={() => { const idx = i % HERO_SLIDES.length; setCurrentSlide(idx); }}
             >
-              <source src="/assets/videos/Video-582.mp4" type="video/mp4" />
-            </video>
-
-            {/* Video Overlay Info */}
-            <div style={{
-              position: "absolute",
-              bottom: "clamp(2rem, 5vw, 4rem)",
-              left: "clamp(2rem, 5vw, 4rem)",
-              right: "clamp(2rem, 5vw, 4rem)",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-end"
-            }} className="video-overlay">
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                <span style={{ color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-montserrat)", fontSize: "8px", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase" }}>Current Feature</span>
-                <h3 style={{ color: "#ffffff", fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontSize: "1.5rem", fontWeight: 400 }}>Coastal Minimalist</h3>
-              </div>
-              <div style={{
-                width: "3.5rem",
-                height: "3.5rem",
-                borderRadius: "100%",
-                backgroundColor: "rgba(255,255,255,0.1)",
-                backdropFilter: "blur(10px)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid rgba(255,255,255,0.1)"
-              }}>
-                <Play size={16} color="#ffffff" fill="#ffffff" />
-              </div>
+              <Image
+                src={src}
+                alt="Nuspace interior"
+                fill
+                sizes="90px"
+                style={{ objectFit: "cover" }}
+                loading="lazy"
+              />
             </div>
-          </div>
-
-          {/* Floating Decorative Elements */}
-          <div style={{
-            position: "absolute",
-            top: "-1.5rem",
-            right: "2rem",
-            width: "100px",
-            height: "100px",
-            borderRadius: "100%",
-            border: "1px solid rgba(243, 204, 94, 0.2)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "rgba(15, 15, 15, 0.5)",
-            backdropFilter: "blur(5px)"
-          }} className="decorative-circle">
-            <div style={{
-              width: "70px",
-              height: "70px",
-              borderRadius: "100%",
-              border: "1px solid rgba(243, 204, 94, 0.1)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}>
-              <span style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", color: "#f3cc5e", fontSize: "1.25rem" }}>C.I.</span>
-            </div>
-          </div>
+          ))}
         </div>
 
-      </div>
-
-      {/* Bottom Scroll Indicator */}
-      <div style={{
-        position: "absolute",
-        bottom: "2.5rem",
-        left: "2rem",
-        display: "flex",
-        alignItems: "center",
-        gap: "1.5rem"
-      }}>
-        <span style={{
-          fontFamily: "var(--font-montserrat)",
-          color: "rgba(255, 255, 255, 0.2)",
-          fontSize: "9px",
-          fontWeight: 600,
-          letterSpacing: "0.4em",
-          textTransform: "uppercase"
-        }}>Scroll</span>
-        <div style={{ width: "40px", height: "1px", backgroundColor: "rgba(255,255,255,0.1)" }}>
-          <div className="scroll-progress-line" style={{ width: "20%", height: "1px", backgroundColor: "#f3cc5e" }}></div>
+        {/* Slide indicators */}
+        <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.5rem" }}>
+          {HERO_SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              style={{
+                width: i === currentSlide ? "1.6rem" : "0.4rem",
+                height: "4px",
+                borderRadius: "9999px",
+                backgroundColor: i === currentSlide ? "#8B263E" : "rgba(255,255,255,0.35)",
+                border: "none",
+                cursor: "pointer",
+                transition: "width 0.4s ease, background-color 0.3s ease",
+                padding: 0,
+              }}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 968px) {
-          section {
-            height: auto !important;
-            min-height: 100vh !important;
-            padding: 10rem 1.5rem 6rem !important;
-          }
-          .hero-container {
-            flex-direction: column !important;
-            gap: 5rem !important;
-          }
-          .hero-content {
-            flex: 1 1 auto !important;
-            align-items: center !important;
-            text-align: center !important;
-          }
-          .hero-title {
-            font-size: 4rem !important;
-          }
-          .hero-description {
-            max-width: 100% !important;
-          }
-          .hero-actions {
-            justify-content: center !important;
-          }
-          .hero-video-frame {
-            width: 100% !important;
-            flex: 1 1 auto !important;
-            min-height: 0 !important;
-          }
-          .decorative-circle {
-            right: 1rem !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

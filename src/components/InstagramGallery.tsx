@@ -47,7 +47,7 @@ export default function InstagramGallery() {
                             textTransform: "uppercase",
                         }}
                     >
-                        @coastal_interio
+                        @nuspacedecor
                     </span>
                 </div>
 

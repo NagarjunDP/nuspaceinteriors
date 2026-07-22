@@ -1,68 +1,33 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { getCdnUrl } from "@/lib/cdn";
 
 const stats = [
-    { label: "Projects Delivered", value: 150, suffix: "+" },
-    { label: "Years of Excellence", value: 8, suffix: "+" },
-    { label: "Client Satisfaction", value: 100, suffix: "%" },
+    { label: "Founded", value: "2017" },
+    { label: "Based in", value: "Bengaluru" },
+    { label: "Execution", value: "End-to-End" },
 ];
 
-export default function About() {
-    const sectionRef = useRef(null);
-    const imageRef = useRef(null);
-    const textRef = useRef(null);
-    const statsRef = useRef(null);
-
+function useInView(threshold = 0.1) {
+    const ref = useRef<HTMLDivElement>(null);
+    const [inView, setInView] = useState(false);
     useEffect(() => {
-        const ctx = gsap.context(() => {
-            // Fade-in-left animation for the image
-            gsap.from(imageRef.current, {
-                scrollTrigger: {
-                    trigger: imageRef.current,
-                    start: "top 80%",
-                },
-                x: -100,
-                duration: 1.5,
-                ease: "power4.out",
-            });
+        const el = ref.current;
+        if (!el) return;
+        const obs = new IntersectionObserver(
+            ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+            { threshold }
+        );
+        obs.observe(el);
+        return () => obs.disconnect();
+    }, [threshold]);
+    return { ref, inView };
+}
 
-            // Staggered fade-up for text content
-            gsap.from(".about-text-content > *", {
-                scrollTrigger: {
-                    trigger: textRef.current,
-                    start: "top 80%",
-                },
-                y: 50,
-                duration: 1.2,
-                stagger: 0.2,
-                ease: "power3.out",
-            });
-
-            // Animated count-up for stats
-            const statItems = gsap.utils.toArray(".stat-value");
-            statItems.forEach((stat: any) => {
-                const value = parseInt(stat.getAttribute("data-value"));
-                gsap.to(stat, {
-                    scrollTrigger: {
-                        trigger: stat,
-                        start: "top 90%",
-                    },
-                    innerText: value,
-                    duration: 2,
-                    snap: { innerText: 1 },
-                    ease: "power1.inOut",
-                });
-            });
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
+export default function About() {
+    const { ref: sectionRef, inView } = useInView(0.08);
 
     return (
         <section
@@ -70,131 +35,165 @@ export default function About() {
             ref={sectionRef}
             style={{
                 position: "relative",
-                padding: "10rem 2rem",
-                backgroundColor: "#FDFDFB",
+                padding: "5rem 1.25rem",
+                backgroundColor: "#FAF8F5",
                 overflow: "hidden",
             }}
         >
             <div
                 style={{
-                    maxWidth: "1440px",
+                    maxWidth: "1280px",
                     margin: "0 auto",
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-                    gap: "6rem",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))",
+                    gap: "3.5rem",
                     alignItems: "center",
                 }}
             >
-                {/* Left Side: Tall Editorial Photo */}
+                {/* Left Side: Real Studio/Work Image */}
                 <div
-                    ref={imageRef}
                     style={{
                         position: "relative",
-                        height: "800px",
-                        borderRadius: "1rem",
+                        aspectRatio: "4 / 4.8",
+                        maxHeight: "600px",
+                        borderRadius: "1.5rem",
                         overflow: "hidden",
-                        boxShadow: "0 40px 80px -20px rgba(0,0,0,0.1)",
+                        boxShadow: "0 25px 50px -15px rgba(28, 27, 26, 0.15)",
+                        opacity: inView ? 1 : 0,
+                        transform: inView ? "none" : "translateX(-40px)",
+                        transition: "opacity 0.9s ease, transform 0.9s ease",
                     }}
                 >
                     <Image
-                        src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1000"
-                        alt="Minimalist coastal living room"
+                        src={getCdnUrl("/work/living_room/living_room_01.jpeg")}
+                        alt="Nuspace Decor Interior Design Studio Lounge Bengaluru"
                         fill
+                        sizes="(max-width: 768px) 100vw, 600px"
                         style={{ objectFit: "cover" }}
+                        priority
                     />
+                    <div
+                        style={{
+                            position: "absolute",
+                            bottom: "1.25rem",
+                            left: "1.25rem",
+                            right: "1.25rem",
+                            backgroundColor: "rgba(20, 19, 18, 0.88)",
+                            backdropFilter: "blur(12px)",
+                            padding: "0.85rem 1.25rem",
+                            borderRadius: "1rem",
+                            color: "#ffffff",
+                            border: "1px solid rgba(255,255,255,0.15)",
+                        }}
+                    >
+                        <span style={{ fontSize: "0.68rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#8B263E", fontWeight: 600, display: "block" }}>
+                            NUSPACE STUDIO BENGALURU
+                        </span>
+                        <span style={{ fontFamily: "var(--font-serif)", fontSize: "1.1rem", fontStyle: "italic" }}>
+                            Craftsmanship & Spatial Harmony
+                        </span>
+                    </div>
                 </div>
 
                 {/* Right Side: Brand Story */}
-                <div ref={textRef} className="about-text-content" style={{ paddingRight: "4rem" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "2rem" }}>
-                        <span style={{ width: "2.5rem", height: "1px", backgroundColor: "#4A90A4" }}></span>
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        opacity: inView ? 1 : 0,
+                        transform: inView ? "none" : "translateY(30px)",
+                        transition: "opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s",
+                    }}
+                >
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.25rem" }}>
+                        <span style={{ width: "2rem", height: "2px", backgroundColor: "#8B263E" }} />
                         <span
                             style={{
-                                fontFamily: "var(--font-montserrat)",
-                                color: "#4A90A4",
-                                letterSpacing: "0.5em",
-                                fontSize: "10px",
+                                fontFamily: "var(--font-sans)",
+                                color: "#8B263E",
+                                letterSpacing: "0.25em",
+                                fontSize: "0.72rem",
                                 fontWeight: 600,
                                 textTransform: "uppercase",
                             }}
                         >
-                            Our Philosophy
+                            ABOUT NUSPACE DECOR
                         </span>
                     </div>
 
                     <h2
                         style={{
-                            fontFamily: "var(--font-cormorant)",
-                            fontSize: "clamp(3rem, 5vw, 5rem)",
-                            lineHeight: "1.1",
-                            color: "#2C2C2C",
-                            marginBottom: "3rem",
-                            fontStyle: "italic",
+                            fontFamily: "var(--font-serif)",
+                            fontSize: "clamp(2.2rem, 4vw, 4rem)",
+                            lineHeight: "1.12",
+                            color: "#1C1B1A",
+                            marginBottom: "1.5rem",
+                            fontWeight: 500,
                         }}
                     >
-                        Where Every Space <br /> Tells a Story.
+                        Spaces That <br /> Feel Like You.
                     </h2>
 
                     <p
                         style={{
-                            fontSize: "1.25rem",
-                            color: "#2C2C2C",
-                            lineHeight: "1.8",
-                            marginBottom: "4rem",
-                            opacity: 0.8,
+                            fontSize: "1.05rem",
+                            color: "#1C1B1A",
+                            lineHeight: "1.75",
+                            marginBottom: "1.25rem",
+                            opacity: 0.82,
                         }}
                     >
-                        At Coastal Interio, we believe your home is a reflection of your soul.
-                        We blend the breezy serenity of coastal living with the warmth of Indian
-                        craftsmanship — creating spaces that are timeless, liveable, and deeply personal.
+                        Nuspace Design Studio is a Bengaluru-based boutique interior practice founded in 2017.
+                        We craft bespoke residential and commercial environments that seamlessly balance architectural functionality, luxury aesthetics, and client identity.
                     </p>
 
-                    {/* Stat Counters */}
+                    <p
+                        style={{
+                            fontSize: "0.95rem",
+                            color: "#1C1B1A",
+                            lineHeight: "1.75",
+                            marginBottom: "2rem",
+                            opacity: 0.72,
+                        }}
+                    >
+                        We approach each design journey as a thoughtful collaboration between:
+                        <strong style={{ display: "block", color: "#8B263E", marginTop: "0.5rem", fontWeight: 600, letterSpacing: "0.05em" }}>
+                            People + Space + Material + Light + Function
+                        </strong>
+                    </p>
+
+                    {/* Stat Cards */}
                     <div
-                        ref={statsRef}
                         style={{
                             display: "grid",
                             gridTemplateColumns: "repeat(3, 1fr)",
-                            gap: "2rem",
-                            borderTop: "1px solid rgba(0,0,0,0.05)",
-                            paddingTop: "3rem",
+                            gap: "1rem",
+                            borderTop: "1px solid rgba(28, 27, 26, 0.12)",
+                            paddingTop: "1.5rem",
                         }}
                     >
                         {stats.map((stat, idx) => (
-                            <div key={idx} style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                                <div style={{ display: "flex", alignItems: "baseline" }}>
-                                    <span
-                                        className="stat-value"
-                                        data-value={stat.value}
-                                        style={{
-                                            fontFamily: "var(--font-cormorant)",
-                                            fontSize: "3rem",
-                                            fontWeight: 500,
-                                            color: "#4A90A4",
-                                        }}
-                                    >
-                                        0
-                                    </span>
-                                    <span
-                                        style={{
-                                            fontFamily: "var(--font-cormorant)",
-                                            fontSize: "1.5rem",
-                                            fontWeight: 500,
-                                            color: "#4A90A4",
-                                        }}
-                                    >
-                                        {stat.suffix}
-                                    </span>
-                                </div>
+                            <div key={idx} style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
                                 <span
                                     style={{
-                                        fontFamily: "var(--font-montserrat)",
-                                        fontSize: "9px",
+                                        fontFamily: "var(--font-serif)",
+                                        fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
                                         fontWeight: 600,
-                                        color: "#2C2C2C",
-                                        letterSpacing: "0.1em",
+                                        color: "#8B263E",
+                                        lineHeight: 1,
+                                    }}
+                                >
+                                    {stat.value}
+                                </span>
+                                <span
+                                    style={{
+                                        fontFamily: "var(--font-sans)",
+                                        fontSize: "0.68rem",
+                                        fontWeight: 600,
+                                        color: "#1C1B1A",
+                                        letterSpacing: "0.12em",
                                         textTransform: "uppercase",
-                                        opacity: 0.5,
+                                        opacity: 0.6,
                                     }}
                                 >
                                     {stat.label}
@@ -203,30 +202,6 @@ export default function About() {
                         ))}
                     </div>
                 </div>
-            </div>
-
-            {/* Sandy Wave Divider */}
-            <div
-                style={{
-                    position: "absolute",
-                    bottom: "-1px",
-                    left: 0,
-                    width: "100%",
-                    lineHeight: 0,
-                    zIndex: 1,
-                }}
-            >
-                <svg
-                    viewBox="0 0 1440 120"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{ width: "100%", height: "auto" }}
-                >
-                    <path
-                        d="M0 120L60 110C120 100 240 80 360 73.3C480 66.7 600 73.3 720 80C840 86.7 960 93.3 1080 86.7C1200 80 1320 60 1380 50L1440 40V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-                        fill="#F5ECD7"
-                    />
-                </svg>
             </div>
         </section>
     );

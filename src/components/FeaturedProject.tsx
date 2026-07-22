@@ -244,7 +244,7 @@ export default function FeaturedProject() {
                                 marginBottom: "1.5rem",
                             }}
                         >
-                            The Serene Retreat <br /> — Kochi Villa
+                            The Serene Retreat <br /> — Indiranagar Villa
                         </h2>
                         <p
                             style={{
@@ -255,8 +255,8 @@ export default function FeaturedProject() {
                                 marginBottom: "2.5rem",
                             }}
                         >
-                            A 4BHK coastal villa redesigned with locally sourced cane furniture,
-                            hand-plastered lime walls, and panoramic ocean-view living spaces.
+                            A 4BHK luxury villa redesigned with locally sourced teak furniture,
+                            hand-crafted veneers, and panoramic open-plan living spaces.
                             Every room breathes calm.
                         </p>
 

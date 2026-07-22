@@ -16,19 +16,38 @@ const playfairDisplay = Playfair_Display({
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-dm-sans",
 });
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
-  title: "Coastal Interio | Crafting Spaces That Breathe",
-  description: "Bespoke interior design for residential homes in India. Elevate your living rooms, kitchens, and bedrooms with a touch of coastal luxury.",
+  title: "Nuspace Decor | Luxury Interior Design Studio Bengaluru",
+  description: "Nuspace Decor is a boutique interior design studio in Bengaluru specializing in bespoke residential, commercial, renovation, and turnkey interiors. Dreams to Perfection.",
+  keywords: [
+    "Nuspace Decor",
+    "Interior designers in Bangalore",
+    "Interior design company in Bangalore",
+    "Interior designers in Bengaluru",
+    "Interior design studio Bangalore",
+    "Residential interior designers Bangalore",
+    "Commercial interior designers Bangalore",
+    "Turnkey interior design Bangalore",
+    "Home interior design Bangalore",
+    "Renovation and remodeling Bangalore"
+  ],
+  openGraph: {
+    title: "Nuspace Decor | Dreams to Perfection | Luxury Interiors Bengaluru",
+    description: "Bespoke residential & commercial interior design studio in Bengaluru. Experience luxury, functionality, and timeless aesthetics.",
+    type: "website",
+    locale: "en_IN",
+    siteName: "Nuspace Decor",
+  },
 };
 
 export default function RootLayout({
@@ -36,8 +55,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "InteriorDesignBusiness",
+    "name": "Nuspace Decor",
+    "alternateName": "Nuspace Design Studio",
+    "description": "Bespoke residential and commercial interior design studio specializing in luxury homes, renovation, and turnkey execution in Bengaluru.",
+    "foundingDate": "2017",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vinayaka Layout, Abbigere",
+      "addressLocality": "Bengaluru",
+      "addressRegion": "Karnataka",
+      "postalCode": "560090",
+      "addressCountry": "IN"
+    },
+    "telephone": "+919886527878",
+    "email": "nuspacedecor@gmail.com",
+    "taxID": "29DVLPP6022C1ZH",
+    "priceRange": "$$$$"
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${cormorantGaramond.variable} ${playfairDisplay.variable} ${dmSans.variable} ${montserrat.variable} cinematic-grain`}
       >
@@ -46,3 +92,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -8,13 +8,13 @@ const testimonials = [
     {
         name: "Priya R.",
         city: "Bangalore",
-        text: "Coastal Interio completely transformed our apartment in Bangalore. From the 3D walkthrough to the final reveal — it was flawless. Our home now feels like a 5-star resort every single day.",
+        text: "Nuspace Decor completely transformed our apartment in Bangalore. From the 3D walkthrough to the final reveal — it was flawless. Our home now feels like a 5-star resort every single day.",
         rating: 5,
     },
     {
         name: "Arjun M.",
-        city: "Kochi",
-        text: "Their attention to detail is unmatched. They perfectly captured the breezy coastal vibe we wanted for our holiday home. Professional, creative, and highly recommended!",
+        city: "Bengaluru",
+        text: "Their attention to detail is unmatched. They perfectly captured the luxurious, serene vibe we wanted for our home. Professional, creative, and highly recommended!",
         rating: 5,
     },
     {

@@ -10,7 +10,7 @@ const steps = [
         question: "What vibe do you love?",
         key: "vibe",
         options: [
-            { label: "Coastal", image: "https://images.unsplash.com/photo-1544450547-2434c4423759?auto=format&fit=crop&q=80&w=400" },
+            { label: "Contemporary", image: "https://images.unsplash.com/photo-1544450547-2434c4423759?auto=format&fit=crop&q=80&w=400" },
             { label: "Modern", image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=400" },
             { label: "Classic", image: "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=400" },
             { label: "Bohemian", image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80&w=400" },
@@ -251,7 +251,7 @@ export default function Quiz() {
                                 marginBottom: "1.5rem",
                             }}
                         >
-                            Your Style is Coastal Modern!
+                            Your Style is Luxury Contemporary!
                         </h2>
                         <p
                             style={{

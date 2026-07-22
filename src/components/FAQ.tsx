@@ -1,40 +1,36 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Plus, Minus } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
     {
         question: "How long does a full home interior project take?",
-        answer: "Typically, a full home project takes between 45 to 90 days, depending on the scope of work, material selections, and site conditions. We provide a detailed project timeline during the design phase.",
+        answer: "Typically, a full residential or commercial project takes between 45 to 90 days, depending on spatial scope, material selection, and custom modular workshop fabrication timelines.",
     },
     {
-        question: "Do you offer 3D design before starting work?",
-        answer: "Yes! High-fidelity 3D visualisations are a core part of our design process. You'll be able to walk through your future home virtually before we even start the execution on-site.",
+        question: "Do you offer 3D design visualizations before execution?",
+        answer: "Yes! Photorealistic 3D visualisations and 2D floor plans are a core part of our design workflow at Nuspace Decor. You approve every material texture and lighting detail before site execution.",
     },
     {
-        question: "What areas do you serve in India?",
-        answer: "Our primary design studio is in Bangalore, but we handle luxury residential and commercial projects across major Indian cities including Kochi, Goa, Mumbai, and Hyderabad.",
+        question: "What location does Nuspace Decor serve?",
+        answer: "Nuspace Decor is based in Bengaluru, Karnataka (Abbigere studio). We execute luxury residential, villa, penthouse, and commercial turnkey interiors across all prime areas in Bengaluru.",
     },
     {
-        question: "Can I customise materials and finishes?",
-        answer: "Absolutely. We pride ourselves on offering 100% customisation. From the type of wood to the specific fabric of your upholstery, every detail is chosen by you with our expert guidance.",
+        question: "Can I customize furniture, wardrobes, and kitchens?",
+        answer: "Absoluty. We specialize in 100% bespoke craftsmanship. From custom teak joinery to modular kitchen cabinets and custom upholstered headboards, every element is made for your space.",
     },
     {
-        question: "What is your pricing structure?",
-        answer: "Our pricing is transparent and depends on the scope of work, quality of materials, and complexity of the design. We offer both design-only and turnkey execution packages.",
+        question: "What is your pricing and BOQ structure?",
+        answer: "Our pricing is 100% transparent. We provide an itemized Bill of Quantities (BOQ) covering materials, civil work, electricals, and finishing with zero hidden charges.",
     },
     {
-        question: "Do you handle government approvals and permits?",
-        answer: "Yes, for commercial projects or significant structural changes in residential villas, our team manages the necessary approvals from local municipal authorities.",
+        question: "What services are included in your turnkey management?",
+        answer: "Our turnkey management covers initial consultation, 3D designs, material selection, off-site workshop manufacturing, site civil work, false ceiling, lighting, painting, and final deep cleaning with handover.",
     },
     {
-        question: "Can I see your previous work before hiring you?",
-        answer: "We would love to show you! You can explore our digital portfolio here, or schedule a visit to one of our ongoing sites or completed projects to see our quality firsthand.",
-    },
-    {
-        question: "Do you offer post-completion support?",
-        answer: "Yes, Coastal Interio offers a comprehensive warranty on all our work. We also provide maintenance services and post-completion support to ensure your space stays perfect.",
+        question: "Do you offer post-completion support and warranty?",
+        answer: "Yes, Nuspace Decor offers comprehensive warranties on custom joinery and hardware. We also provide post-completion walkthroughs and maintenance support for complete client peace of mind.",
     },
 ];
 
@@ -45,23 +41,46 @@ export default function FAQ() {
         <section
             id="faq"
             style={{
-                padding: "10rem 2rem",
-                backgroundColor: "#FDFDFB",
+                padding: "8rem 2rem",
+                backgroundColor: "#FAF8F5",
             }}
         >
             <div style={{ maxWidth: "800px", margin: "0 auto" }}>
                 {/* Heading */}
-                <div style={{ textAlign: "center", marginBottom: "6rem" }}>
-                    <h2
+                <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+                    <div
                         style={{
-                            fontFamily: "var(--font-cormorant)",
-                            fontSize: "clamp(2.5rem, 4vw, 3.5rem)",
-                            color: "#2C2C2C",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "0.75rem",
                             marginBottom: "1rem",
-                            fontStyle: "italic",
                         }}
                     >
-                        Got Questions? We've Got Answers.
+                        <span style={{ width: "2rem", height: "2px", backgroundColor: "#8B263E" }}></span>
+                        <span
+                            style={{
+                                fontFamily: "var(--font-sans)",
+                                fontSize: "0.75rem",
+                                fontWeight: 600,
+                                letterSpacing: "0.25em",
+                                textTransform: "uppercase",
+                                color: "#8B263E",
+                            }}
+                        >
+                            FREQUENTLY ASKED QUESTIONS
+                        </span>
+                        <span style={{ width: "2rem", height: "2px", backgroundColor: "#8B263E" }}></span>
+                    </div>
+
+                    <h2
+                        style={{
+                            fontFamily: "var(--font-serif)",
+                            fontSize: "clamp(2.2rem, 4vw, 3.5rem)",
+                            color: "#1C1B1A",
+                            fontWeight: 500,
+                        }}
+                    >
+                        Everything You Need to Know
                     </h2>
                 </div>
 
@@ -71,8 +90,8 @@ export default function FAQ() {
                         <div
                             key={idx}
                             style={{
-                                borderBottom: "1px solid rgba(0,0,0,0.05)",
-                                paddingBottom: "1rem",
+                                borderBottom: "1px solid rgba(28, 27, 26, 0.1)",
+                                paddingBottom: "0.5rem",
                             }}
                         >
                             <button
@@ -82,7 +101,7 @@ export default function FAQ() {
                                     display: "flex",
                                     justifyContent: "space-between",
                                     alignItems: "center",
-                                    padding: "1.5rem 0",
+                                    padding: "1.25rem 0",
                                     background: "none",
                                     border: "none",
                                     cursor: "pointer",
@@ -91,10 +110,10 @@ export default function FAQ() {
                             >
                                 <span
                                     style={{
-                                        fontFamily: "var(--font-cormorant)",
-                                        fontSize: "1.5rem",
+                                        fontFamily: "var(--font-serif)",
+                                        fontSize: "1.35rem",
                                         fontWeight: 500,
-                                        color: openIndex === idx ? "#4A90A4" : "#2C2C2C",
+                                        color: openIndex === idx ? "#8B263E" : "#1C1B1A",
                                         transition: "color 0.3s ease",
                                     }}
                                 >
@@ -103,8 +122,8 @@ export default function FAQ() {
                                 <div
                                     style={{
                                         transform: openIndex === idx ? "rotate(180deg)" : "rotate(0deg)",
-                                        transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
-                                        color: openIndex === idx ? "#4A90A4" : "#2C2C2C",
+                                        transition: "transform 0.3s ease",
+                                        color: openIndex === idx ? "#8B263E" : "#1C1B1A",
                                     }}
                                 >
                                     <ChevronDown size={20} />
@@ -121,11 +140,12 @@ export default function FAQ() {
                             >
                                 <p
                                     style={{
-                                        fontFamily: "var(--font-dm-sans)",
-                                        fontSize: "1rem",
-                                        color: "rgba(44,44,44,0.6)",
+                                        fontFamily: "var(--font-sans)",
+                                        fontSize: "0.95rem",
+                                        color: "rgba(28, 27, 26, 0.75)",
                                         lineHeight: "1.7",
-                                        paddingBottom: "2rem",
+                                        paddingBottom: "1.5rem",
+                                        margin: 0,
                                     }}
                                 >
                                     {faq.answer}
@@ -138,3 +158,4 @@ export default function FAQ() {
         </section>
     );
 }
+

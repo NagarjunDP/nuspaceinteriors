@@ -1,8 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
+import { Menu, X, ArrowRight } from "lucide-react";
+import { getCdnUrl } from "@/lib/cdn";
+
+const NAV_LINKS = ["Home", "About", "Services", "Philosophy", "Process", "Portfolio", "Team", "Contact"];
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -10,7 +13,7 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
+            setIsScrolled(window.scrollY > 40);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
@@ -24,196 +27,209 @@ export default function Navbar() {
                 left: 0,
                 width: "100%",
                 zIndex: 1000,
-                padding: isScrolled ? "1rem 1.5rem" : "1.5rem 1.5rem",
-                backgroundColor: isScrolled ? "rgba(255, 255, 255, 0.9)" : "transparent",
-                backdropFilter: isScrolled ? "blur(20px)" : "none",
-                borderBottom: isScrolled ? "1px solid rgba(0,0,0,0.05)" : "none",
-                transition: "all 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+                padding: isScrolled ? "0.6rem 2rem" : "1.25rem 2.5rem",
+                backgroundColor: isScrolled ? "rgba(20, 19, 18, 0.96)" : "transparent",
+                backdropFilter: isScrolled ? "blur(20px) saturate(180%)" : "none",
+                borderBottom: isScrolled ? "1px solid rgba(255, 255, 255, 0.07)" : "none",
+                transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                boxSizing: "border-box",
             }}
             className="navbar-main"
         >
-            {/* Logo */}
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+            {/* ── Real Logo ── */}
+            <a
+                href="#"
+                style={{
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    flexShrink: 0,
+                }}
+            >
                 <div
-                    className="logo-container"
                     style={{
                         position: "relative",
-                        width: "80px",
-                        height: "80px",
-                        filter: isScrolled
-                            ? "drop-shadow(0 0 15px rgba(74, 144, 164, 0.3))"
-                            : "drop-shadow(0 0 20px rgba(255, 255, 255, 0.4))",
-                        transition: "all 0.6s ease"
+                        width: isScrolled ? "52px" : "62px",
+                        height: isScrolled ? "52px" : "62px",
+                        borderRadius: "10px",
+                        overflow: "hidden",
+                        flexShrink: 0,
+                        transition: "width 0.4s ease, height 0.4s ease",
                     }}
                 >
                     <Image
-                        src="/assets/images/logo.png"
-                        alt="Coastal Interio Logo"
+                        src={getCdnUrl("/nuspacelogo.jpeg")}
+                        alt="Nuspace Decor"
                         fill
-                        style={{ objectFit: "contain" }}
+                        sizes="64px"
+                        style={{ objectFit: "cover", objectPosition: "center" }}
+                        priority
                     />
                 </div>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                    <h1
-                        style={{
-                            fontFamily: "var(--font-cormorant)",
-                            fontSize: "1.75rem",
-                            fontWeight: 700,
-                            color: isScrolled ? "#2C2C2C" : "#ffffff",
-                            margin: 0,
-                            lineHeight: 1,
-                            transition: "color 0.4s ease",
-                        }}
-                    >
-                        Coastal Interio.
-                    </h1>
-                    <span
-                        style={{
-                            fontFamily: "var(--font-montserrat)",
-                            fontSize: "8px",
-                            fontWeight: 600,
-                            letterSpacing: "0.4em",
-                            textTransform: "uppercase",
-                            color: isScrolled ? "rgba(44,44,44,0.4)" : "rgba(255,255,255,0.4)",
-                            marginTop: "0.25rem",
-                            transition: "color 0.4s ease",
-                        }}
-                    >
-                        Luxury Design Studio
-                    </span>
-                </div>
-            </div>
+            </a>
 
-            {/* Desktop Links */}
+            {/* ── Desktop Nav Links ── */}
             <div
-                style={{
-                    display: "flex",
-                    gap: "3rem",
-                    alignItems: "center",
-                }}
+                style={{ display: "flex", gap: "2.25rem", alignItems: "center" }}
                 className="desktop-links"
             >
-                {["Home", "About", "Services", "Portfolio", "Process", "Contact"].map((link) => (
+                {NAV_LINKS.map((link) => (
                     <a
                         key={link}
                         href={`#${link.toLowerCase()}`}
                         style={{
-                            fontFamily: "var(--font-montserrat)",
-                            fontSize: "10px",
-                            fontWeight: 700,
-                            color: isScrolled ? "#2C2C2C" : "#ffffff",
+                            fontFamily: "var(--font-sans)",
+                            fontSize: "0.72rem",
+                            fontWeight: 500,
+                            color: "#ffffff",
                             textDecoration: "none",
-                            letterSpacing: "0.2em",
+                            letterSpacing: "0.14em",
                             textTransform: "uppercase",
-                            opacity: 0.8,
-                            transition: "all 0.4s ease",
+                            opacity: 0.82,
+                            transition: "all 0.25s ease",
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
-                        onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.8")}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.opacity = "1";
+                            e.currentTarget.style.color = "#ce3a55";
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.opacity = "0.82";
+                            e.currentTarget.style.color = "#ffffff";
+                        }}
                     >
                         {link}
                     </a>
                 ))}
 
-                <button
+                <a
+                    href="#contact"
+                    className="btn-primary"
                     style={{
-                        padding: "1rem 2rem",
-                        borderRadius: "100px",
-                        backgroundColor: isScrolled ? "#4A90A4" : "rgba(255,255,255,0.1)",
-                        backdropFilter: isScrolled ? "none" : "blur(10px)",
-                        color: "#ffffff",
-                        border: isScrolled ? "none" : "1px solid rgba(255,255,255,0.2)",
-                        fontFamily: "var(--font-montserrat)",
-                        fontSize: "10px",
-                        fontWeight: 700,
-                        letterSpacing: "0.2em",
-                        textTransform: "uppercase",
-                        cursor: "pointer",
-                        transition: "all 0.4s ease",
+                        padding: "0.7rem 1.4rem",
+                        fontSize: "0.72rem",
+                        borderRadius: "9999px",
+                        letterSpacing: "0.1em",
+                        flexShrink: 0,
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = isScrolled ? "#3d7a8b" : "rgba(255,255,255,0.2)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = isScrolled ? "#4A90A4" : "rgba(255,255,255,0.1)")}
                 >
-                    Book Consultation
-                </button>
+                    <span>Start Your Project</span>
+                    <ArrowRight size={13} />
+                </a>
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <div
+            {/* ── Mobile Hamburger ── */}
+            <button
                 className="mobile-toggle"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 style={{
                     cursor: "pointer",
                     display: "none",
-                    position: "relative",
-                    zIndex: 1000,
+                    background: "none",
+                    border: "none",
+                    padding: "0.5rem",
+                    zIndex: 1001,
                 }}
             >
-                {isMenuOpen ? (
-                    <X size={28} color="#ffffff" />
-                ) : (
-                    <Menu size={28} color={isScrolled ? "#2C2C2C" : "#ffffff"} />
-                )}
-            </div>
+                {isMenuOpen ? <X size={26} color="#ffffff" /> : <Menu size={26} color="#ffffff" />}
+            </button>
 
-            {/* Mobile Menu Overlay */}
+            {/* ── Mobile Full-Screen Drawer ── */}
             <div
                 style={{
                     position: "fixed",
                     top: 0,
                     left: 0,
                     width: "100%",
-                    height: "100vh",
-                    backgroundColor: "#1A1A2E",
+                    height: "100dvh",
+                    backgroundColor: "#141312",
                     zIndex: 999,
-                    display: isMenuOpen ? "flex" : "none",
+                    display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: "2.5rem",
-                    transition: "all 0.5s ease",
-                    opacity: isMenuOpen ? 1 : 0,
-                    pointerEvents: isMenuOpen ? "auto" : "none",
+                    gap: "1.75rem",
+                    transform: isMenuOpen ? "translateX(0)" : "translateX(100%)",
+                    transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+                    overflowY: "auto",
+                    padding: "2rem 1.5rem",
                 }}
             >
-                {["Home", "About", "Services", "Portfolio", "Process", "Contact"].map((link) => (
+                {/* Logo in drawer */}
+                <div
+                    style={{
+                        position: "relative",
+                        width: "80px",
+                        height: "80px",
+                        borderRadius: "14px",
+                        overflow: "hidden",
+                        marginBottom: "0.25rem",
+                    }}
+                >
+                    <Image
+                        src={getCdnUrl("/nuspacelogo.jpeg")}
+                        alt="Nuspace Decor"
+                        fill
+                        sizes="80px"
+                        style={{ objectFit: "cover" }}
+                    />
+                </div>
+
+                <span
+                    style={{
+                        textTransform: "uppercase",
+                        letterSpacing: "0.35em",
+                        fontSize: "0.6rem",
+                        color: "#8B263E",
+                        fontWeight: 600,
+                    }}
+                >
+                    NUSPACE DECOR — BENGALURU
+                </span>
+
+                {NAV_LINKS.map((link) => (
                     <a
                         key={link}
                         href={`#${link.toLowerCase()}`}
                         onClick={() => setIsMenuOpen(false)}
                         style={{
-                            fontFamily: "var(--font-cormorant)",
-                            fontSize: "2.5rem",
+                            fontFamily: "var(--font-serif)",
+                            fontSize: "2rem",
                             fontWeight: 500,
-                            color: "#ffffff",
+                            color: "#FAF8F5",
                             textDecoration: "none",
-                            fontStyle: "italic",
+                            letterSpacing: "0.04em",
+                            transition: "color 0.25s ease",
                         }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = "#8B263E")}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = "#FAF8F5")}
                     >
                         {link}
                     </a>
                 ))}
-                <button
+
+                <a
+                    href="#contact"
                     onClick={() => setIsMenuOpen(false)}
+                    className="btn-primary"
+                    style={{ marginTop: "0.75rem", padding: "1rem 2.5rem" }}
+                >
+                    Start Your Project
+                </a>
+
+                <div
                     style={{
-                        marginTop: "2rem",
-                        padding: "1.25rem 3rem",
-                        borderRadius: "100px",
-                        backgroundColor: "#4A90A4",
-                        color: "#ffffff",
-                        border: "none",
-                        fontFamily: "var(--font-montserrat)",
-                        fontSize: "11px",
-                        fontWeight: 700,
-                        letterSpacing: "0.2em",
-                        textTransform: "uppercase",
+                        fontSize: "0.7rem",
+                        color: "rgba(255,255,255,0.4)",
+                        letterSpacing: "0.04em",
+                        textAlign: "center",
                     }}
                 >
-                    Book Now
-                </button>
+                    +91 98865 27878 · nuspacedecor@gmail.com
+                </div>
             </div>
 
             <style jsx>{`
@@ -225,14 +241,7 @@ export default function Navbar() {
             display: block !important;
           }
           .navbar-main {
-            padding: 0.5rem 1rem !important;
-          }
-          .logo-container {
-            width: 50px !important;
-            height: 50px !important;
-          }
-          h1 {
-            font-size: 1.25rem !important;
+            padding: 0.6rem 1.25rem !important;
           }
         }
       `}</style>

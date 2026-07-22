@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { Phone, Mail, MapPin, Instagram, Facebook, Youtube, Share2, ArrowRight, Lock } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Phone, Mail, MapPin, ArrowRight, Lock, MessageCircle, FileText, CheckCircle2 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
@@ -9,6 +9,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ContactForm() {
     const sectionRef = useRef(null);
+    const [submitted, setSubmitted] = useState(false);
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        email: "",
+        projectType: "Residential",
+        location: "",
+        budget: "",
+        timeline: "",
+        message: "",
+    });
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -17,9 +28,9 @@ export default function ContactForm() {
                     trigger: sectionRef.current,
                     start: "top 70%",
                 },
-                x: -50,
+                x: -40,
                 opacity: 0,
-                duration: 1.5,
+                duration: 1.4,
                 ease: "power4.out",
             });
 
@@ -28,15 +39,20 @@ export default function ContactForm() {
                     trigger: sectionRef.current,
                     start: "top 70%",
                 },
-                x: 50,
+                x: 40,
                 opacity: 0,
-                duration: 1.5,
+                duration: 1.4,
                 ease: "power4.out",
             });
         }, sectionRef);
 
         return () => ctx.revert();
     }, []);
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setSubmitted(true);
+    };
 
     return (
         <section
@@ -46,156 +62,339 @@ export default function ContactForm() {
                 width: "100%",
                 display: "flex",
                 flexWrap: "wrap",
-                backgroundColor: "#ffffff",
+                backgroundColor: "#1C1B1A",
+                color: "#ffffff",
+                position: "relative",
             }}
         >
-            {/* Left Side: Info */}
+            {/* Left Side: Brand Info & Direct Contact */}
             <div
                 className="contact-left"
                 style={{
-                    flex: "1 1 50%",
-                    backgroundColor: "#4A90A4", // Ocean Blue
-                    padding: "8rem 4rem",
+                    flex: "1 1 450px",
+                    backgroundColor: "#141312",
+                    padding: "7rem 4rem",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
-                    color: "#ffffff",
+                    borderRight: "1px solid rgba(255, 255, 255, 0.08)",
                 }}
             >
-                <div style={{ maxWidth: "500px", margin: "0 auto" }}>
+                <div style={{ maxWidth: "480px", margin: "0 auto", width: "100%" }}>
+                    <div
+                        style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "0.75rem",
+                            marginBottom: "1.5rem",
+                        }}
+                    >
+                        <span style={{ width: "2rem", height: "2px", backgroundColor: "#8B263E" }}></span>
+                        <span
+                            style={{
+                                fontFamily: "var(--font-sans)",
+                                fontSize: "0.75rem",
+                                fontWeight: 600,
+                                letterSpacing: "0.25em",
+                                textTransform: "uppercase",
+                                color: "#8B263E",
+                            }}
+                        >
+                            CONNECT WITH NUSPACE
+                        </span>
+                    </div>
+
                     <h2
                         style={{
-                            fontFamily: "var(--font-cormorant)",
-                            fontSize: "3.5rem",
-                            lineHeight: "1.1",
+                            fontFamily: "var(--font-serif)",
+                            fontSize: "clamp(2.5rem, 4vw, 3.8rem)",
+                            lineHeight: "1.12",
+                            marginBottom: "1.5rem",
+                            color: "#FAF8F5",
+                        }}
+                    >
+                        Let's Create <br /> Your Space.
+                    </h2>
+
+                    <p
+                        style={{
+                            color: "rgba(255,255,255,0.75)",
+                            fontSize: "1.05rem",
+                            lineHeight: 1.7,
                             marginBottom: "3rem",
                         }}
                     >
-                        Let's Design Your <br /> Dream Space
-                    </h2>
+                        Tell us about your project and let's start turning your vision into a space designed for the way you live and experience it.
+                    </p>
 
-                    <div style={{ display: "flex", flexDirection: "column", gap: "2.5rem", marginBottom: "5rem" }}>
-                        <div style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
-                            <MapPin size={24} color="rgba(255,255,255,0.6)" />
-                            <div>
-                                <h4 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.5rem" }}>Our Studio</h4>
-                                <p style={{ opacity: 0.8, fontWeight: 400 }}>Coastal Interio Studio, Indiranagar, Bangalore, India</p>
-                            </div>
-                        </div>
-                        <div style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
-                            <Phone size={24} color="rgba(255,255,255,0.6)" />
-                            <div>
-                                <h4 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.5rem" }}>Call Us</h4>
-                                <p style={{ opacity: 0.8, fontWeight: 400 }}>+91 98XXX XXXXX</p>
-                            </div>
-                        </div>
-                        <div style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
-                            <Mail size={24} color="rgba(255,255,255,0.6)" />
-                            <div>
-                                <h4 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.5rem" }}>Email Us</h4>
-                                <p style={{ opacity: 0.8, fontWeight: 400 }}>hello@coastalinterio.in</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style={{ display: "flex", gap: "1.5rem" }}>
-                        {[Instagram, Facebook, Youtube, Share2].map((Icon, idx) => (
+                    <div style={{ display: "flex", flexDirection: "column", gap: "2rem", marginBottom: "3rem" }}>
+                        {/* Call */}
+                        <a
+                            href="tel:+919886527878"
+                            style={{ textDecoration: "none", color: "#ffffff", display: "flex", gap: "1.25rem", alignItems: "flex-start" }}
+                        >
                             <div
-                                key={idx}
                                 style={{
                                     width: "3rem",
                                     height: "3rem",
-                                    borderRadius: "100%",
-                                    border: "1px solid rgba(255,255,255,0.2)",
+                                    borderRadius: "50%",
+                                    backgroundColor: "rgba(139, 38, 62, 0.2)",
                                     display: "flex",
                                     alignItems: "center",
                                     justifyContent: "center",
-                                    cursor: "pointer",
-                                    transition: "all 0.3s ease",
+                                    color: "#8B263E",
+                                    flexShrink: 0,
                                 }}
-                                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.1)")}
-                                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
                             >
-                                <Icon size={18} />
+                                <Phone size={20} />
                             </div>
-                        ))}
+                            <div>
+                                <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.15em", display: "block" }}>Call Us Directly</span>
+                                <strong style={{ fontSize: "1.15rem", color: "#ffffff" }}>+91 98865 27878</strong>
+                            </div>
+                        </a>
+
+                        {/* WhatsApp */}
+                        <a
+                            href="https://wa.me/919886527878?text=Hi%20Nuspace%20Decor,%20I%20would%20like%20to%20discuss%20my%20interior%20design%20project."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ textDecoration: "none", color: "#ffffff", display: "flex", gap: "1.25rem", alignItems: "flex-start" }}
+                        >
+                            <div
+                                style={{
+                                    width: "3rem",
+                                    height: "3rem",
+                                    borderRadius: "50%",
+                                    backgroundColor: "rgba(37, 211, 102, 0.2)",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    color: "#25D366",
+                                    flexShrink: 0,
+                                }}
+                            >
+                                <MessageCircle size={20} />
+                            </div>
+                            <div>
+                                <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.15em", display: "block" }}>WhatsApp Instant Chat</span>
+                                <strong style={{ fontSize: "1.15rem", color: "#25D366" }}>+91 98865 27878</strong>
+                            </div>
+                        </a>
+
+                        {/* Email */}
+                        <a
+                            href="mailto:nuspacedecor@gmail.com"
+                            style={{ textDecoration: "none", color: "#ffffff", display: "flex", gap: "1.25rem", alignItems: "flex-start" }}
+                        >
+                            <div
+                                style={{
+                                    width: "3rem",
+                                    height: "3rem",
+                                    borderRadius: "50%",
+                                    backgroundColor: "rgba(139, 38, 62, 0.2)",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    color: "#8B263E",
+                                    flexShrink: 0,
+                                }}
+                            >
+                                <Mail size={20} />
+                            </div>
+                            <div>
+                                <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.15em", display: "block" }}>Email Inquiry</span>
+                                <strong style={{ fontSize: "1.15rem", color: "#ffffff" }}>nuspacedecor@gmail.com</strong>
+                            </div>
+                        </a>
+
+                        {/* Studio Location */}
+                        <div style={{ display: "flex", gap: "1.25rem", alignItems: "flex-start" }}>
+                            <div
+                                style={{
+                                    width: "3rem",
+                                    height: "3rem",
+                                    borderRadius: "50%",
+                                    backgroundColor: "rgba(255,255,255,0.06)",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    color: "#ffffff",
+                                    flexShrink: 0,
+                                }}
+                            >
+                                <MapPin size={20} />
+                            </div>
+                            <div>
+                                <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.15em", display: "block" }}>Studio Location</span>
+                                <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.85)", margin: 0, lineHeight: 1.5 }}>
+                                    Vinayaka Layout, Abbigere, Bengaluru, Karnataka – 560090
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Business Registration */}
+                        <div style={{ display: "flex", gap: "1.25rem", alignItems: "center", paddingTop: "1rem", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                            <FileText size={18} color="rgba(255,255,255,0.4)" />
+                            <span style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.5)", letterSpacing: "0.05em" }}>
+                                GSTIN: <strong style={{ color: "rgba(255,255,255,0.8)" }}>29DVLPP6022C1ZH</strong>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Right Side: Form */}
+            {/* Right Side: Lead Generation Form */}
             <div
                 className="contact-right"
                 style={{
-                    flex: "1 1 50%",
-                    padding: "8rem 4rem",
+                    flex: "1 1 550px",
+                    padding: "7rem 4rem",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
+                    backgroundColor: "#1C1B1A",
                 }}
             >
                 <div style={{ maxWidth: "600px", margin: "0 auto", width: "100%" }}>
-                    <form style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5rem" }}>
-                        <div style={{ gridColumn: "span 2" }}>
-                            <label style={{ display: "block", fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.75rem", color: "#2C2C2C" }}>Full Name</label>
-                            <input type="text" placeholder="John Doe" style={{ width: "100%", padding: "1.25rem", borderRadius: "0.5rem", border: "1px solid rgba(0,0,0,0.1)", fontFamily: "var(--font-dm-sans)" }} />
-                        </div>
-                        <div>
-                            <label style={{ display: "block", fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.75rem", color: "#2C2C2C" }}>Phone Number</label>
-                            <input type="tel" placeholder="+91 XXXXX XXXXX" style={{ width: "100%", padding: "1.25rem", borderRadius: "0.5rem", border: "1px solid rgba(0,0,0,0.1)", fontFamily: "var(--font-dm-sans)" }} />
-                        </div>
-                        <div>
-                            <label style={{ display: "block", fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.75rem", color: "#2C2C2C" }}>Email Address</label>
-                            <input type="email" placeholder="john@example.com" style={{ width: "100%", padding: "1.25rem", borderRadius: "0.5rem", border: "1px solid rgba(0,0,0,0.1)", fontFamily: "var(--font-dm-sans)" }} />
-                        </div>
-                        <div style={{ gridColumn: "span 2" }}>
-                            <label style={{ display: "block", fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.75rem", color: "#2C2C2C" }}>Type of Space</label>
-                            <select style={{ width: "100%", padding: "1.25rem", borderRadius: "0.5rem", border: "1px solid rgba(0,0,0,0.1)", fontFamily: "var(--font-dm-sans)", backgroundColor: "#ffffff" }}>
-                                <option>Apartment</option>
-                                <option>Villa</option>
-                                <option>Office</option>
-                                <option>Commercial</option>
-                            </select>
-                        </div>
-                        <div style={{ gridColumn: "span 2" }}>
-                            <label style={{ display: "block", fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.75rem", color: "#2C2C2C" }}>Tell us about your project</label>
-                            <textarea rows={4} placeholder="Describe your vision..." style={{ width: "100%", padding: "1.25rem", borderRadius: "0.5rem", border: "1px solid rgba(0,0,0,0.1)", fontFamily: "var(--font-dm-sans)", resize: "none" }} />
-                        </div>
-
-                        <button
+                    {submitted ? (
+                        <div
                             style={{
-                                gridColumn: "span 2",
-                                padding: "1.5rem",
-                                borderRadius: "0.5rem",
-                                backgroundColor: "#4A90A4",
-                                color: "#ffffff",
-                                border: "none",
-                                fontFamily: "var(--font-montserrat)",
-                                fontSize: "11px",
-                                fontWeight: 700,
-                                letterSpacing: "0.2em",
-                                textTransform: "uppercase",
-                                cursor: "pointer",
-                                marginTop: "1rem",
+                                backgroundColor: "rgba(139, 38, 62, 0.15)",
+                                border: "1px solid #8B263E",
+                                borderRadius: "1.5rem",
+                                padding: "4rem 3rem",
+                                textAlign: "center",
                                 display: "flex",
+                                flexDirection: "column",
                                 alignItems: "center",
-                                justifyContent: "center",
-                                gap: "1rem",
-                                transition: "all 0.3s ease",
+                                gap: "1.5rem",
                             }}
-                            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#3d7a8b")}
-                            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#4A90A4")}
                         >
-                            Request Free Consultation
-                            <ArrowRight size={16} />
-                        </button>
-                        <div style={{ gridColumn: "span 2", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", opacity: 0.4, marginTop: "1rem" }}>
-                            <Lock size={12} />
-                            <span style={{ fontSize: "10px", fontWeight: 600 }}>Your information is 100% private. No spam, ever.</span>
+                            <CheckCircle2 size={48} color="#8B263E" />
+                            <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", color: "#ffffff", margin: 0 }}>
+                                Project Inquiry Received
+                            </h3>
+                            <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.05rem", lineHeight: 1.6 }}>
+                                Thank you for contacting Nuspace Decor. Our design leadership team will review your requirements and get in touch with you shortly.
+                            </p>
+                            <button
+                                onClick={() => setSubmitted(false)}
+                                className="btn-secondary"
+                                style={{ color: "#ffffff", borderColor: "rgba(255,255,255,0.3)" }}
+                            >
+                                Submit Another Inquiry
+                            </button>
                         </div>
-                    </form>
+                    ) : (
+                        <form onSubmit={handleSubmit} style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5rem" }}>
+                            <div style={{ gridColumn: "span 1" }}>
+                                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "0.5rem", color: "rgba(255,255,255,0.8)" }}>Full Name *</label>
+                                <input
+                                    type="text"
+                                    required
+                                    placeholder="Your Name"
+                                    value={formData.name}
+                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                    style={{ width: "100%", padding: "1rem 1.25rem", borderRadius: "0.75rem", backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "#ffffff", fontFamily: "var(--font-sans)", outline: "none" }}
+                                />
+                            </div>
+
+                            <div style={{ gridColumn: "span 1" }}>
+                                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "0.5rem", color: "rgba(255,255,255,0.8)" }}>Phone Number *</label>
+                                <input
+                                    type="tel"
+                                    required
+                                    placeholder="+91 98865 27878"
+                                    value={formData.phone}
+                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                    style={{ width: "100%", padding: "1rem 1.25rem", borderRadius: "0.75rem", backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "#ffffff", fontFamily: "var(--font-sans)", outline: "none" }}
+                                />
+                            </div>
+
+                            <div style={{ gridColumn: "span 1" }}>
+                                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "0.5rem", color: "rgba(255,255,255,0.8)" }}>Email Address *</label>
+                                <input
+                                    type="email"
+                                    required
+                                    placeholder="name@example.com"
+                                    value={formData.email}
+                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                    style={{ width: "100%", padding: "1rem 1.25rem", borderRadius: "0.75rem", backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "#ffffff", fontFamily: "var(--font-sans)", outline: "none" }}
+                                />
+                            </div>
+
+                            <div style={{ gridColumn: "span 1" }}>
+                                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "0.5rem", color: "rgba(255,255,255,0.8)" }}>Project Type</label>
+                                <select
+                                    value={formData.projectType}
+                                    onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
+                                    style={{ width: "100%", padding: "1rem 1.25rem", borderRadius: "0.75rem", backgroundColor: "#141312", border: "1px solid rgba(255,255,255,0.15)", color: "#ffffff", fontFamily: "var(--font-sans)", outline: "none" }}
+                                >
+                                    <option value="Residential">Residential</option>
+                                    <option value="Commercial">Commercial</option>
+                                    <option value="Renovation">Renovation</option>
+                                    <option value="Turnkey Project">Turnkey Project</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div style={{ gridColumn: "span 1" }}>
+                                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "0.5rem", color: "rgba(255,255,255,0.8)" }}>Location / Area in Bengaluru</label>
+                                <input
+                                    type="text"
+                                    placeholder="e.g. Indiranagar, Sadashivanagar"
+                                    value={formData.location}
+                                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                                    style={{ width: "100%", padding: "1rem 1.25rem", borderRadius: "0.75rem", backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "#ffffff", fontFamily: "var(--font-sans)", outline: "none" }}
+                                />
+                            </div>
+
+                            <div style={{ gridColumn: "span 1" }}>
+                                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "0.5rem", color: "rgba(255,255,255,0.8)" }}>Approximate Budget</label>
+                                <input
+                                    type="text"
+                                    placeholder="e.g. ₹15L - ₹30L+"
+                                    value={formData.budget}
+                                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                                    style={{ width: "100%", padding: "1rem 1.25rem", borderRadius: "0.75rem", backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "#ffffff", fontFamily: "var(--font-sans)", outline: "none" }}
+                                />
+                            </div>
+
+                            <div style={{ gridColumn: "span 2" }}>
+                                <label style={{ display: "block", fontSize: "0.75rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: "0.5rem", color: "rgba(255,255,255,0.8)" }}>Project Details / Message</label>
+                                <textarea
+                                    rows={4}
+                                    placeholder="Tell us about your space, timeline, and vision..."
+                                    value={formData.message}
+                                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                    style={{ width: "100%", padding: "1rem 1.25rem", borderRadius: "0.75rem", backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", color: "#ffffff", fontFamily: "var(--font-sans)", resize: "none", outline: "none" }}
+                                />
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="btn-primary"
+                                style={{
+                                    gridColumn: "span 2",
+                                    padding: "1.2rem",
+                                    justifyContent: "center",
+                                    marginTop: "0.5rem",
+                                }}
+                            >
+                                <span>Start a Conversation</span>
+                                <ArrowRight size={18} />
+                            </button>
+
+                            <div style={{ gridColumn: "span 2", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem", color: "rgba(255,255,255,0.4)" }}>
+                                <Lock size={12} />
+                                <span style={{ fontSize: "0.75rem" }}>Your privacy is guaranteed. No unsolicited marketing.</span>
+                            </div>
+                        </form>
+                    )}
                 </div>
             </div>
         </section>
     );
 }
+
