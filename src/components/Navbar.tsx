@@ -62,7 +62,7 @@ export default function Navbar() {
                 >
                     <Image
                         src={getCdnUrl("/nuspacelogo.jpeg")}
-                        alt="Nuspace Decor"
+                        alt="Nuspace Creations"
                         fill
                         sizes="64px"
                         style={{ objectFit: "cover", objectPosition: "center" }}
@@ -171,7 +171,7 @@ export default function Navbar() {
                 >
                     <Image
                         src={getCdnUrl("/nuspacelogo.jpeg")}
-                        alt="Nuspace Decor"
+                        alt="Nuspace Creations"
                         fill
                         sizes="80px"
                         style={{ objectFit: "cover" }}
@@ -187,7 +187,7 @@ export default function Navbar() {
                         fontWeight: 600,
                     }}
                 >
-                    NUSPACE DECOR — BENGALURU
+                    NUSPACE CREATIONS — BENGALURU
                 </span>
 
                 {NAV_LINKS.map((link) => (

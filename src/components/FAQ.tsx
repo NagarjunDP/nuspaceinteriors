@@ -10,11 +10,11 @@ const faqs = [
     },
     {
         question: "Do you offer 3D design visualizations before execution?",
-        answer: "Yes! Photorealistic 3D visualisations and 2D floor plans are a core part of our design workflow at Nuspace Decor. You approve every material texture and lighting detail before site execution.",
+        answer: "Yes! Photorealistic 3D visualisations and 2D floor plans are a core part of our design workflow at Nuspace Creations. You approve every material texture and lighting detail before site execution.",
     },
     {
-        question: "What location does Nuspace Decor serve?",
-        answer: "Nuspace Decor is based in Bengaluru, Karnataka (Abbigere studio). We execute luxury residential, villa, penthouse, and commercial turnkey interiors across all prime areas in Bengaluru.",
+        question: "What location does Nuspace Creations serve?",
+        answer: "Nuspace Creations is based in Bengaluru, Karnataka (Abbigere studio). We execute luxury residential, villa, penthouse, and commercial turnkey interiors across all prime areas in Bengaluru.",
     },
     {
         question: "Can I customize furniture, wardrobes, and kitchens?",
@@ -30,7 +30,7 @@ const faqs = [
     },
     {
         question: "Do you offer post-completion support and warranty?",
-        answer: "Yes, Nuspace Decor offers comprehensive warranties on custom joinery and hardware. We also provide post-completion walkthroughs and maintenance support for complete client peace of mind.",
+        answer: "Yes, Nuspace Creations offers comprehensive warranties on custom joinery and hardware. We also provide post-completion walkthroughs and maintenance support for complete client peace of mind.",
     },
 ];
 

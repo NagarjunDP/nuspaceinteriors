@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Compass, Eye, Layers, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { Compass, Eye, Layers, ShieldCheck, Quote } from "lucide-react";
+import { getCdnUrl } from "@/lib/cdn";
 
 const principles = [
     {
@@ -58,20 +60,47 @@ export default function Philosophy() {
             id="philosophy"
             ref={ref}
             style={{
-                padding: "6rem 1.5rem",
+                padding: "7rem 1.5rem",
                 backgroundColor: "#141312",
                 color: "#ffffff",
                 position: "relative",
                 overflow: "hidden",
             }}
         >
-            {/* Radial glow */}
-            <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(ellipse 70% 60% at 50% 100%, rgba(139,38,62,0.07) 0%, transparent 70%)", pointerEvents: "none" }} />
+            {/* Background Moody Interior Image */}
+            <div
+                style={{
+                    position: "absolute",
+                    inset: 0,
+                    zIndex: 0,
+                    opacity: 0.22,
+                    filter: "contrast(110%) brightness(85%)",
+                }}
+            >
+                <Image
+                    src={getCdnUrl("/work/living_room/living_room_01.jpeg")}
+                    alt="Moody Interior Atmosphere"
+                    fill
+                    sizes="100vw"
+                    style={{ objectFit: "cover", objectPosition: "center" }}
+                />
+            </div>
 
-            <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative" }}>
+            {/* Dark gradient overlay for high contrast */}
+            <div
+                style={{
+                    position: "absolute",
+                    inset: 0,
+                    zIndex: 1,
+                    background: "linear-gradient(180deg, rgba(20,19,18,0.92) 0%, rgba(20,19,18,0.78) 50%, rgba(20,19,18,0.95) 100%)",
+                    pointerEvents: "none",
+                }}
+            />
+
+            <div style={{ maxWidth: "1240px", margin: "0 auto", position: "relative", zIndex: 2 }}>
 
                 {/* ── Header ── */}
-                <div style={{ textAlign: "center", marginBottom: "4rem", opacity: inView ? 1 : 0, transform: inView ? "none" : "translateY(32px)", transition: "opacity 0.9s ease, transform 0.9s ease" }}>
+                <div style={{ textAlign: "center", marginBottom: "3rem", opacity: inView ? 1 : 0, transform: inView ? "none" : "translateY(32px)", transition: "opacity 0.9s ease, transform 0.9s ease" }}>
                     <div style={{ display: "inline-flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
                         <span style={{ width: "2rem", height: "2px", backgroundColor: "#8B263E" }} />
                         <span style={{ fontFamily: "var(--font-sans)", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", color: "#8B263E" }}>
@@ -83,7 +112,13 @@ export default function Philosophy() {
                         Designed for Living.{" "}
                         <em style={{ fontStyle: "italic", color: "rgba(250,248,245,0.7)" }}>Crafted for Life.</em>
                     </h2>
-                    <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "1rem", maxWidth: "560px", margin: "0 auto", lineHeight: 1.7 }}>
+                    
+                    {/* Emotional Pull-Quote */}
+                    <p style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", color: "#FAF8F5", fontSize: "clamp(1.1rem, 2vw, 1.4rem)", maxWidth: "680px", margin: "0 auto 1rem", opacity: 0.9, lineHeight: 1.5 }}>
+                        &ldquo;We don&apos;t design rooms. We design the way you&apos;ll remember them.&rdquo;
+                    </p>
+
+                    <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.95rem", maxWidth: "560px", margin: "0 auto", lineHeight: 1.7 }}>
                         Our four founding principles guide every decision — from your first conversation to the final handover.
                     </p>
                 </div>
@@ -99,7 +134,7 @@ export default function Philosophy() {
                     {principles.map((p, idx) => {
                         const Icon = p.icon;
                         return (
-                            <PhilosophyCard key={p.number} p={p} Icon={Icon} delay={idx * 110} inView={inView} />
+                            <PhilosophyCard key={p.number} p={p} Icon={Icon} delay={idx * 200} inView={inView} />
                         );
                     })}
                 </div>
@@ -108,18 +143,18 @@ export default function Philosophy() {
                 <div
                     style={{
                         marginTop: "4rem",
-                        borderTop: "1px solid rgba(255,255,255,0.07)",
+                        borderTop: "1px solid rgba(255,255,255,0.1)",
                         paddingTop: "3rem",
                         textAlign: "center",
                         opacity: inView ? 1 : 0,
                         transition: "opacity 1s ease 0.7s",
                     }}
                 >
-                    <blockquote style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)", color: "rgba(255,255,255,0.75)", maxWidth: "780px", margin: "0 auto", lineHeight: 1.5 }}>
-                        &ldquo;A Nuspace Decor project is not a renovation — it is an orchestration of light, material, and lived experience.&rdquo;
+                    <blockquote style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)", color: "rgba(255,255,255,0.85)", maxWidth: "780px", margin: "0 auto", lineHeight: 1.5 }}>
+                        &ldquo;A Nuspace Creations project is not a renovation — it is an orchestration of light, material, and lived experience.&rdquo;
                     </blockquote>
                     <p style={{ marginTop: "1.25rem", color: "#8B263E", fontSize: "0.78rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-                        — Nuspace Decor, Est. 2017
+                        — Nuspace Creations, Est. 2015
                     </p>
                 </div>
             </div>
@@ -145,25 +180,27 @@ function PhilosophyCard({
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             style={{
-                backgroundColor: hovered ? `${p.color}18` : "rgba(255,255,255,0.03)",
-                border: hovered ? `1px solid ${p.color}66` : "1px solid rgba(255,255,255,0.08)",
+                backgroundColor: hovered ? "rgba(20, 19, 18, 0.85)" : "rgba(255,255,255,0.06)",
+                backdropFilter: "blur(16px)",
+                border: hovered ? `1px solid ${p.color}` : "1px solid rgba(255,255,255,0.12)",
+                boxShadow: hovered ? `0 20px 40px -10px ${p.color}40` : "0 15px 30px -10px rgba(0,0,0,0.5)",
                 borderRadius: "1.25rem",
                 padding: "2.5rem 2rem",
                 display: "flex",
                 flexDirection: "column",
                 gap: "1.25rem",
-                transition: "all 0.4s cubic-bezier(0.16,1,0.3,1)",
-                transform: hovered ? "translateY(-6px)" : inView ? "none" : "translateY(40px)",
+                transition: "all 0.45s cubic-bezier(0.16,1,0.3,1)",
+                transform: hovered ? "translateY(-8px)" : inView ? "none" : "translateY(35px)",
                 opacity: inView ? 1 : 0,
                 transitionDelay: `${delay}ms`,
                 cursor: "default",
             }}
         >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div style={{ width: "3rem", height: "3rem", borderRadius: "12px", backgroundColor: `${p.color}25`, display: "flex", alignItems: "center", justifyContent: "center", color: p.color, transition: "background 0.3s" }}>
+                <div style={{ width: "3rem", height: "3rem", borderRadius: "12px", backgroundColor: `${p.color}35`, display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", transition: "background 0.3s" }}>
                     <Icon size={22} strokeWidth={1.75} />
                 </div>
-                <span style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: 700, color: hovered ? p.color : "rgba(255,255,255,0.15)", transition: "color 0.3s" }}>
+                <span style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", fontWeight: 700, color: hovered ? p.color : "rgba(255,255,255,0.22)", transition: "color 0.3s" }}>
                     {p.number}
                 </span>
             </div>
@@ -172,12 +209,12 @@ function PhilosophyCard({
                 {p.title}
             </h3>
 
-            <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.9rem", lineHeight: 1.7, margin: 0 }}>
+            <p style={{ color: "rgba(255,255,255,0.78)", fontSize: "0.9rem", lineHeight: 1.7, margin: 0 }}>
                 {p.description}
             </p>
 
             {/* Accent bottom bar */}
-            <div style={{ height: "2px", backgroundColor: p.color, borderRadius: "9999px", width: hovered ? "100%" : "2rem", transition: "width 0.4s ease", marginTop: "auto" }} />
+            <div style={{ height: "2px", backgroundColor: p.color, borderRadius: "9999px", width: hovered ? "100%" : "2.5rem", transition: "width 0.4s ease", marginTop: "auto" }} />
         </div>
     );
 }

@@ -276,7 +276,7 @@ export default function ContactForm() {
                                 Project Inquiry Received
                             </h3>
                             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.05rem", lineHeight: 1.6 }}>
-                                Thank you for contacting Nuspace Decor. Our design leadership team will review your requirements and get in touch with you shortly.
+                                Thank you for contacting Nuspace Creations. Our design leadership team will review your requirements and get in touch with you shortly.
                             </p>
                             <button
                                 onClick={() => setSubmitted(false)}

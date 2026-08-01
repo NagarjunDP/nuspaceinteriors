@@ -111,7 +111,7 @@ export default function Trust() {
                             lineHeight: "1.15",
                         }}
                     >
-                        Why Clients Choose <br /> Nuspace Decor
+                        Why Clients Choose <br /> Nuspace Creations
                     </h2>
                 </div>
 

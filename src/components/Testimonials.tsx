@@ -8,7 +8,7 @@ const testimonials = [
     {
         name: "Priya R.",
         city: "Bangalore",
-        text: "Nuspace Decor completely transformed our apartment in Bangalore. From the 3D walkthrough to the final reveal — it was flawless. Our home now feels like a 5-star resort every single day.",
+        text: "Nuspace Creations completely transformed our apartment in Bangalore. From the 3D walkthrough to the final reveal — it was flawless. Our home now feels like a 5-star resort every single day.",
         rating: 5,
     },
     {

@@ -47,7 +47,7 @@ export default function InstagramGallery() {
                             textTransform: "uppercase",
                         }}
                     >
-                        @nuspacedecor
+                        @nuspacecreations
                     </span>
                 </div>
 

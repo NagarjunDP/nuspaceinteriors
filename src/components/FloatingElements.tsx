@@ -18,7 +18,7 @@ export default function FloatingElements() {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    const whatsappUrl = "https://wa.me/919886527878?text=Hi%20Nuspace%20Decor,%20I%20would%20like%20to%20discuss%20my%20interior%20design%20project.";
+    const whatsappUrl = "https://wa.me/919886527878?text=Hi%20Nuspace%20Creations,%20I%20would%20like%20to%20discuss%20my%20interior%20design%20project.";
 
     return (
         <>
@@ -27,7 +27,8 @@ export default function FloatingElements() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Chat on WhatsApp with Nuspace Decor"
+                aria-label="Chat on WhatsApp with Nuspace Creations"
+                className="whatsapp-float-btn"
                 style={{
                     position: "fixed",
                     bottom: "2.5rem",
@@ -50,6 +51,7 @@ export default function FloatingElements() {
             >
                 <MessageCircle size={26} color="#ffffff" />
                 <div
+                    className="whatsapp-float-label"
                     style={{
                         position: "absolute",
                         right: "115%",
@@ -66,13 +68,14 @@ export default function FloatingElements() {
                         pointerEvents: "none",
                     }}
                 >
-                    Chat with Nuspace Decor
+                    Chat with Nuspace Creations
                 </div>
             </a>
 
             {/* Scroll to Top Button */}
             <div
                 onClick={scrollToTop}
+                className="scroll-top-btn"
                 style={{
                     position: "fixed",
                     bottom: "7rem",
@@ -129,7 +132,7 @@ export default function FloatingElements() {
                         gap: "0.75rem",
                     }}
                 >
-                    Start Your Project With Nuspace Decor
+                    Start Your Project With Nuspace Creations
                 </a>
             </div>
 
@@ -137,6 +140,21 @@ export default function FloatingElements() {
         @media (max-width: 768px) {
           .mobile-cta-bar {
             display: flex !important;
+          }
+          .whatsapp-float-btn {
+            bottom: 4.25rem !important;
+            right: 1.25rem !important;
+            width: 3.25rem !important;
+            height: 3.25rem !important;
+          }
+          .whatsapp-float-label {
+            display: none !important;
+          }
+          .scroll-top-btn {
+            bottom: 8.25rem !important;
+            right: 1.25rem !important;
+            width: 2.75rem !important;
+            height: 2.75rem !important;
           }
         }
       `}</style>

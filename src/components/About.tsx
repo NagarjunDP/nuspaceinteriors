@@ -5,7 +5,8 @@ import Image from "next/image";
 import { getCdnUrl } from "@/lib/cdn";
 
 const stats = [
-    { label: "Founded", value: "2017" },
+    { label: "Founded", value: "2015" },
+    { label: "Projects Delivered", value: "350+" },
     { label: "Based in", value: "Bengaluru" },
     { label: "Execution", value: "End-to-End" },
 ];
@@ -66,7 +67,7 @@ export default function About() {
                 >
                     <Image
                         src={getCdnUrl("/work/living_room/living_room_01.jpeg")}
-                        alt="Nuspace Decor Interior Design Studio Lounge Bengaluru"
+                        alt="Nuspace Creations Interior Design Studio Lounge Bengaluru"
                         fill
                         sizes="(max-width: 768px) 100vw, 600px"
                         style={{ objectFit: "cover" }}
@@ -87,7 +88,7 @@ export default function About() {
                         }}
                     >
                         <span style={{ fontSize: "0.68rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#8B263E", fontWeight: 600, display: "block" }}>
-                            NUSPACE STUDIO BENGALURU
+                            NUSPACE CREATIONS STUDIO BENGALURU
                         </span>
                         <span style={{ fontFamily: "var(--font-serif)", fontSize: "1.1rem", fontStyle: "italic" }}>
                             Craftsmanship & Spatial Harmony
@@ -117,7 +118,7 @@ export default function About() {
                                 textTransform: "uppercase",
                             }}
                         >
-                            ABOUT NUSPACE DECOR
+                            ABOUT NUSPACE CREATIONS
                         </span>
                     </div>
 
@@ -143,7 +144,7 @@ export default function About() {
                             opacity: 0.82,
                         }}
                     >
-                        Nuspace Design Studio is a Bengaluru-based boutique interior practice founded in 2017.
+                        Nuspace Creations is a Bengaluru-based boutique interior practice founded in 2015.
                         We craft bespoke residential and commercial environments that seamlessly balance architectural functionality, luxury aesthetics, and client identity.
                     </p>
 
@@ -164,9 +165,10 @@ export default function About() {
 
                     {/* Stat Cards */}
                     <div
+                        className="about-stats-grid"
                         style={{
                             display: "grid",
-                            gridTemplateColumns: "repeat(3, 1fr)",
+                            gridTemplateColumns: "repeat(4, 1fr)",
                             gap: "1rem",
                             borderTop: "1px solid rgba(28, 27, 26, 0.12)",
                             paddingTop: "1.5rem",
@@ -177,7 +179,7 @@ export default function About() {
                                 <span
                                     style={{
                                         fontFamily: "var(--font-serif)",
-                                        fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
+                                        fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
                                         fontWeight: 600,
                                         color: "#8B263E",
                                         lineHeight: 1,
@@ -188,10 +190,10 @@ export default function About() {
                                 <span
                                     style={{
                                         fontFamily: "var(--font-sans)",
-                                        fontSize: "0.68rem",
+                                        fontSize: "0.66rem",
                                         fontWeight: 600,
                                         color: "#1C1B1A",
-                                        letterSpacing: "0.12em",
+                                        letterSpacing: "0.1em",
                                         textTransform: "uppercase",
                                         opacity: 0.6,
                                     }}
@@ -203,6 +205,15 @@ export default function About() {
                     </div>
                 </div>
             </div>
+
+            <style jsx>{`
+                @media (max-width: 640px) {
+                    .about-stats-grid {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                        gap: 1.25rem 1rem !important;
+                    }
+                }
+            `}</style>
         </section>
     );
 }

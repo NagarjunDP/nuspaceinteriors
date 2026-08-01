@@ -128,7 +128,7 @@ export default function Portfolio() {
             Spaces We&apos;ve Transformed
           </h2>
           <p style={{ color: "rgba(28,27,26,0.7)", fontSize: "1rem", maxWidth: "560px", margin: "0 auto", lineHeight: 1.65 }}>
-            Every project is a bespoke story of craft, material, and light — delivered across Bengaluru since 2017.
+            Every project is a bespoke story of craft, material, and light — delivered across Bengaluru since 2015.
           </p>
         </div>
 
@@ -339,7 +339,7 @@ export default function Portfolio() {
           >
             <Image
               src={lightbox}
-              alt="Nuspace Decor project"
+              alt="Nuspace Creations project"
               fill
               sizes="90vw"
               style={{ objectFit: "contain" }}

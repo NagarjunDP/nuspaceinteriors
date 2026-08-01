@@ -85,7 +85,7 @@ export default function Hero() {
         >
           <Image
             src={src}
-            alt="Nuspace Decor interior project"
+            alt="Nuspace Creations interior project"
             fill
             priority={idx === 0}
             sizes="100vw"
@@ -148,7 +148,7 @@ export default function Hero() {
               color: "#ffffff",
             }}
           >
-            NUSPACE DECOR — EST. 2017 BENGALURU
+            NUSPACE CREATIONS — EST. 2015 BENGALURU
           </span>
         </div>
 
@@ -178,7 +178,7 @@ export default function Hero() {
               fontSize: "0.82em",
             }}
           >
-            Bespoke Interior Design Studio, Bengaluru
+            Crafting Timeless Interiors, Bengaluru
           </span>
         </h1>
 
@@ -218,34 +218,42 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Stats bar */}
+        {/* Minimal Stat Strip */}
         <div
           className="hero-stats"
           style={{
-            marginTop: "3.5rem",
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "2rem",
+            marginTop: "2.5rem",
             width: "100%",
-            maxWidth: "820px",
+            maxWidth: "900px",
             borderTop: "1px solid rgba(255,255,255,0.12)",
-            paddingTop: "2.25rem",
+            borderBottom: "1px solid rgba(255,255,255,0.12)",
+            padding: "1rem 0",
           }}
         >
-          {[
-            { value: "2017", label: "Studio Founded" },
-            { value: "150+", label: "Projects Completed" },
-            { value: "Turnkey", label: "End-to-End Execution" },
-          ].map((stat) => (
-            <div key={stat.value} style={{ textAlign: "center" }}>
-              <span style={{ display: "block", color: "#8B263E", fontFamily: "var(--font-serif)", fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 600 }}>
-                {stat.value}
-              </span>
-              <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.7rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                {stat.label}
-              </span>
-            </div>
-          ))}
+          <div className="hero-stat-strip">
+            {[
+              "350+ Projects Delivered",
+              "Est. 2015",
+              "Bengaluru-Based",
+              "End-to-End Execution",
+            ].map((item, idx) => (
+              <div key={item} className="hero-stat-item">
+                <span
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: "0.72rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.16em",
+                    textTransform: "uppercase",
+                    color: "rgba(255, 255, 255, 0.88)",
+                  }}
+                >
+                  {item}
+                </span>
+                {idx < 3 && <span className="hero-stat-divider" />}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* ── Horizontal real photo strip ── */}
@@ -287,7 +295,7 @@ export default function Hero() {
             >
               <Image
                 src={src}
-                alt="Nuspace interior"
+                alt="Nuspace Creations interior"
                 fill
                 sizes="90px"
                 style={{ objectFit: "cover" }}
@@ -318,6 +326,40 @@ export default function Hero() {
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        .hero-stat-strip {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1.25rem;
+        }
+        .hero-stat-item {
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+        }
+        .hero-stat-divider {
+          width: 1px;
+          height: 12px;
+          background-color: rgba(255, 255, 255, 0.25);
+          display: inline-block;
+        }
+        @media (max-width: 640px) {
+          .hero-stat-strip {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.75rem 1rem !important;
+            text-align: center !important;
+          }
+          .hero-stat-item {
+            justify-content: center !important;
+          }
+          .hero-stat-divider {
+            display: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

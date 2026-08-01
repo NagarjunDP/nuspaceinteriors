@@ -27,10 +27,10 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Nuspace Decor | Luxury Interior Design Studio Bengaluru",
-  description: "Nuspace Decor is a boutique interior design studio in Bengaluru specializing in bespoke residential, commercial, renovation, and turnkey interiors. Dreams to Perfection.",
+  title: "Nuspace Creations | Luxury Interior Design Studio Bengaluru",
+  description: "Nuspace Creations is a boutique interior design studio in Bengaluru specializing in bespoke residential, commercial, renovation, and turnkey interiors. Dreams to Perfection.",
   keywords: [
-    "Nuspace Decor",
+    "Nuspace Creations",
     "Interior designers in Bangalore",
     "Interior design company in Bangalore",
     "Interior designers in Bengaluru",
@@ -42,11 +42,11 @@ export const metadata: Metadata = {
     "Renovation and remodeling Bangalore"
   ],
   openGraph: {
-    title: "Nuspace Decor | Dreams to Perfection | Luxury Interiors Bengaluru",
+    title: "Nuspace Creations | Dreams to Perfection | Luxury Interiors Bengaluru",
     description: "Bespoke residential & commercial interior design studio in Bengaluru. Experience luxury, functionality, and timeless aesthetics.",
     type: "website",
     locale: "en_IN",
-    siteName: "Nuspace Decor",
+    siteName: "Nuspace Creations",
   },
 };
 
@@ -58,10 +58,10 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "InteriorDesignBusiness",
-    "name": "Nuspace Decor",
-    "alternateName": "Nuspace Design Studio",
+    "name": "Nuspace Creations",
+    "alternateName": "Nuspace Creations Studio",
     "description": "Bespoke residential and commercial interior design studio specializing in luxury homes, renovation, and turnkey execution in Bengaluru.",
-    "foundingDate": "2017",
+    "foundingDate": "2015",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Vinayaka Layout, Abbigere",

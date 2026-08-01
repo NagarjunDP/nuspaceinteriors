@@ -27,8 +27,8 @@ export default function Footer() {
                         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
                             <div
                                 style={{
-                                    width: "36px",
-                                    height: "36px",
+                                    width: "38px",
+                                    height: "38px",
                                     borderRadius: "50%",
                                     backgroundColor: "#8B263E",
                                     display: "flex",
@@ -37,14 +37,15 @@ export default function Footer() {
                                     color: "#ffffff",
                                     fontWeight: 700,
                                     fontFamily: "var(--font-cormorant)",
-                                    fontSize: "1.1rem",
+                                    fontSize: "0.95rem",
+                                    letterSpacing: "0.05em",
                                 }}
                             >
-                                N
+                                NC
                             </div>
                             <div>
                                 <h2 style={{ fontFamily: "var(--font-cormorant)", fontSize: "1.5rem", fontWeight: 700, margin: 0, lineHeight: 1 }}>
-                                    NUSPACE DECOR
+                                    NUSPACE CREATIONS
                                 </h2>
                                 <span style={{ fontFamily: "var(--font-sans)", fontSize: "7px", fontWeight: 600, letterSpacing: "0.4em", textTransform: "uppercase", color: "#8B263E" }}>
                                     DREAMS TO PERFECTION
@@ -53,7 +54,7 @@ export default function Footer() {
                         </div>
 
                         <p style={{ color: "rgba(255, 255, 255, 0.65)", fontSize: "0.925rem", lineHeight: "1.7", margin: 0 }}>
-                            Bespoke interior design studio specializing in luxury residential & commercial spaces across Bengaluru. Est. 2017.
+                            Bespoke interior design studio specializing in luxury residential & commercial spaces across Bengaluru. Est. 2015.
                         </p>
                     </div>
 
@@ -139,10 +140,10 @@ export default function Footer() {
                     }}
                 >
                     <span>
-                        © {new Date().getFullYear()} Nuspace Decor. All Rights Reserved.
+                        © {new Date().getFullYear()} Nuspace Creations. All Rights Reserved.
                     </span>
                     <div style={{ display: "flex", gap: "1.5rem" }}>
-                        <span>Est. 2017 Bengaluru</span>
+                        <span>Est. 2015 Bengaluru</span>
                         <span>Bespoke Interior Studio</span>
                     </div>
                 </div>

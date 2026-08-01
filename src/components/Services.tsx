@@ -96,7 +96,7 @@ export default function Services() {
                         <span style={{ width: "2rem", height: "2px", backgroundColor: "#8B263E" }} />
                     </div>
                     <h2 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(2.2rem, 5vw, 4.2rem)", color: "#FAF8F5", marginBottom: "1rem", fontWeight: 500, lineHeight: 1.1 }}>
-                        Bespoke Interior Services
+                        Interior Solutions, Engineered for Living
                     </h2>
                     <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "1rem", maxWidth: "600px", margin: "0 auto", lineHeight: 1.7 }}>
                         From initial spatial planning to custom furniture craftsmanship and turnkey site delivery.

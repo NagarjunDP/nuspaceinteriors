@@ -28,7 +28,7 @@ export const projectsData: Project[] = [
       "/images/about/about_studio.png"
     ],
     overview: "A sprawling 4,500 sq.ft luxury private residence crafted with customized teakwood paneling, Italian Statuario marble walls, and floor-to-ceiling glass connections to lush garden surroundings.",
-    designStory: "Designed for a modern family in Indiranagar, this residence harmonizes indoor luxury with tropical greenery. Nuspace Decor executed end-to-end custom furniture, spatial planning, and layered architectural lighting.",
+    designStory: "Designed for a modern family in Indiranagar, this residence harmonizes indoor luxury with tropical greenery. Nuspace Creations executed end-to-end custom furniture, spatial planning, and layered architectural lighting.",
     materials: ["Burma Teakwood", "Statuario Marble", "Fluted Glass", "Custom Brushed Brass", "Bouclé Upholstery"],
     featured: true,
   },
@@ -45,7 +45,7 @@ export const projectsData: Project[] = [
       "/images/about/about_studio.png"
     ],
     overview: "A refined boutique corporate studio featuring fluted wooden acoustic paneling, polished terrazzo flooring, and ambient line lighting designed to elevate brand identity.",
-    designStory: "Nuspace Decor transformed this 3,200 sq.ft commercial space into an immersive work environment. The interior balances quiet focus areas with open, collaborative lounge spaces.",
+    designStory: "Nuspace Creations transformed this 3,200 sq.ft commercial space into an immersive work environment. The interior balances quiet focus areas with open, collaborative lounge spaces.",
     materials: ["Fluted Walnut", "Black Nero Marquina Granite", "Terrazzo", "Architectural LED Strips"],
     featured: true,
   },
@@ -62,7 +62,7 @@ export const projectsData: Project[] = [
       "/images/portfolio/project-01/cover.png"
     ],
     overview: "A total layout overhaul of a 3,800 sq.ft penthouse into a sanctuary of minimalist warmth, customized modular wardrobes, and integrated Smart Home automation.",
-    designStory: "Stripping away compartmentalized walls, Nuspace Decor created fluid open sightlines between the living, dining, and outdoor deck areas while upgrading all civil, electrical, and cabinetry systems.",
+    designStory: "Stripping away compartmentalized walls, Nuspace Creations created fluid open sightlines between the living, dining, and outdoor deck areas while upgrading all civil, electrical, and cabinetry systems.",
     materials: ["White Oak", "Quartz Surfaces", "Linen Drapery", "Matte Black Metalwork"],
     featured: true,
   },
@@ -79,7 +79,7 @@ export const projectsData: Project[] = [
       "/images/portfolio/project-02/cover.png"
     ],
     overview: "Complete turnkey design, procurement, civil execution, and styling delivered within a strict 90-day timeline with zero snag compromise.",
-    designStory: "From conceptual 3D renders to final handover, every custom wardrobe, modular kitchen unit, and false ceiling detail was crafted in Nuspace's precision workshop.",
+    designStory: "From conceptual 3D renders to final handover, every custom wardrobe, modular kitchen unit, and false ceiling detail was crafted in Nuspace Creations' precision workshop.",
     materials: ["Veneer Paneling", "Italian Travertine", "Custom Metal Elements", "Acoustic Insulation"],
     featured: true,
   }
