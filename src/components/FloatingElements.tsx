@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, PhoneCall } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function FloatingElements() {
@@ -19,6 +19,7 @@ export default function FloatingElements() {
     };
 
     const whatsappUrl = "https://wa.me/919886527878?text=Hi%20Nuspace%20Creations,%20I%20would%20like%20to%20discuss%20my%20interior%20design%20project.";
+    const phoneUrl = "tel:+919886527878";
 
     return (
         <>
@@ -81,13 +82,61 @@ export default function FloatingElements() {
                 </div>
             </a>
 
+            {/* Floating Direct Call Button (Positioned Directly Above WhatsApp) */}
+            <a
+                href={phoneUrl}
+                aria-label="Call Nuspace Creations directly at +91 98865 27878"
+                className="call-float-btn"
+                style={{
+                    position: "fixed",
+                    bottom: "7rem",
+                    right: "2.5rem",
+                    width: "3.75rem",
+                    height: "3.75rem",
+                    backgroundColor: "#8B263E",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: "0 15px 35px rgba(139, 38, 62, 0.45)",
+                    zIndex: 999,
+                    cursor: "pointer",
+                    transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                    textDecoration: "none",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+                <PhoneCall size={24} color="#ffffff" strokeWidth={1.75} />
+                <div
+                    className="call-float-label"
+                    style={{
+                        position: "absolute",
+                        right: "115%",
+                        backgroundColor: "#141312",
+                        border: "1px solid rgba(255, 255, 255, 0.15)",
+                        padding: "0.6rem 1.1rem",
+                        borderRadius: "9999px",
+                        boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+                        whiteSpace: "nowrap",
+                        fontFamily: "var(--font-sans)",
+                        fontSize: "0.8rem",
+                        fontWeight: 600,
+                        color: "#ffffff",
+                        pointerEvents: "none",
+                    }}
+                >
+                    Call +91 98865 27878
+                </div>
+            </a>
+
             {/* Scroll to Top Button */}
             <div
                 onClick={scrollToTop}
                 className="scroll-top-btn"
                 style={{
                     position: "fixed",
-                    bottom: "7rem",
+                    bottom: "11.5rem",
                     right: "2.5rem",
                     width: "3rem",
                     height: "3rem",
@@ -127,7 +176,7 @@ export default function FloatingElements() {
                 className="mobile-cta-bar"
             >
                 <a
-                    href="#contact"
+                    href="tel:+919886527878"
                     style={{
                         color: "#ffffff",
                         fontFamily: "var(--font-sans)",
@@ -141,7 +190,8 @@ export default function FloatingElements() {
                         gap: "0.75rem",
                     }}
                 >
-                    Start Your Project With Nuspace Creations
+                    <PhoneCall size={16} />
+                    Call Us Now: +91 98865 27878
                 </a>
             </div>
 
@@ -156,11 +206,18 @@ export default function FloatingElements() {
             width: 3.25rem !important;
             height: 3.25rem !important;
           }
-          .whatsapp-float-label {
+          .call-float-btn {
+            bottom: calc(8.5rem + env(safe-area-inset-bottom)) !important;
+            right: 1.25rem !important;
+            width: 3.25rem !important;
+            height: 3.25rem !important;
+          }
+          .whatsapp-float-label,
+          .call-float-label {
             display: none !important;
           }
           .scroll-top-btn {
-            bottom: calc(8.5rem + env(safe-area-inset-bottom)) !important;
+            bottom: calc(12.25rem + env(safe-area-inset-bottom)) !important;
             right: 1.25rem !important;
             width: 2.75rem !important;
             height: 2.75rem !important;
@@ -170,4 +227,3 @@ export default function FloatingElements() {
         </>
     );
 }
-

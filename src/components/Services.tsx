@@ -155,7 +155,7 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Services Cards Grid — Luxury Pristine Light Cards */}
+        {/* Services Cards Grid — Refined Small Icon Badge Treatment */}
         <div
           style={{
             display: "grid",
@@ -257,7 +257,7 @@ function ServiceCard({
           backgroundImage: `url(${service.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: hovered ? 0.18 : 0.08,
+          opacity: hovered ? 0.16 : 0.07,
           transform: hovered ? "scale(1.06)" : "scale(1)",
           transition: "opacity 0.55s ease, transform 0.55s ease",
         }}
@@ -272,22 +272,6 @@ function ServiceCard({
         }}
       />
 
-      {/* ── Ghosted Large Background Line Icon (6% Opacity) ── */}
-      <div
-        style={{
-          position: "absolute",
-          top: "1.5rem",
-          right: "1.5rem",
-          opacity: hovered ? 0.15 : 0.06,
-          color: "#141312",
-          pointerEvents: "none",
-          transition: "opacity 0.4s ease, transform 0.4s ease",
-          transform: hovered ? "scale(1.1) rotate(4deg)" : "scale(1)",
-        }}
-      >
-        <Icon size={96} strokeWidth={1} />
-      </div>
-
       {/* ── Card Content ── */}
       <div
         style={{
@@ -301,20 +285,46 @@ function ServiceCard({
         }}
       >
         <div>
-          {/* Large Thin Serif Outline Index Number */}
+          {/* Header Row: Index Number + Refined Small Icon Badge */}
           <div
             style={{
-              fontFamily: "var(--font-serif)",
-              fontSize: "3.5rem",
-              fontWeight: 300,
-              lineHeight: 1,
-              color: "transparent",
-              WebkitTextStroke: hovered ? "1.5px #8B263E" : "1.5px #C5A059",
-              transition: "all 0.3s ease",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
               marginBottom: "1.25rem",
             }}
           >
-            {service.number}
+            <div
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "3.5rem",
+                fontWeight: 300,
+                lineHeight: 1,
+                color: "transparent",
+                WebkitTextStroke: hovered ? "1.5px #8B263E" : "1.5px #C5A059",
+                transition: "all 0.3s ease",
+              }}
+            >
+              {service.number}
+            </div>
+
+            <div
+              style={{
+                width: "2.75rem",
+                height: "2.75rem",
+                borderRadius: "50%",
+                backgroundColor: "#F7F4EE",
+                border: "1px solid rgba(0, 0, 0, 0.08)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.04)",
+                transition: "transform 0.3s ease, backgroundColor 0.3s ease",
+                transform: hovered ? "scale(1.08)" : "scale(1)",
+              }}
+            >
+              <Icon size={20} strokeWidth={1.5} color="#8B263E" />
+            </div>
           </div>
 
           <h3
