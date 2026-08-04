@@ -53,7 +53,7 @@ export default function TrustedPartners() {
       id="partners"
       ref={ref}
       style={{
-        padding: "clamp(4rem, 8vw, 8rem) 1.5rem",
+        padding: "clamp(4.5rem, 8vw, 8.5rem) 0",
         backgroundColor: "#FAF8F5",
         position: "relative",
         overflow: "hidden",
@@ -61,7 +61,7 @@ export default function TrustedPartners() {
         borderBottom: "1px solid rgba(28, 27, 26, 0.08)",
       }}
     >
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1350px", margin: "0 auto", padding: "0 1.5rem" }}>
         
         {/* Section Header */}
         <div
@@ -127,82 +127,52 @@ export default function TrustedPartners() {
           </p>
         </div>
 
-        {/* Desktop 5-Col x 2-Row Grid (Visible >= 768px) */}
-        <div
-          className="partners-desktop-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)",
-            gap: "1.25rem",
-            opacity: inView ? 1 : 0,
-            transform: inView ? "none" : "translateY(30px)",
-            transition: "opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s",
-          }}
-        >
-          {partners.map((partner, idx) => (
-            <PartnerCard key={idx} partner={partner} />
+      </div>
+
+      {/* ── Continuous Infinite Auto-Scroll Marquee Flow (Vivid Full Color) ── */}
+      <div className="partners-continuous-marquee">
+        <div className="marquee-track">
+          {/* Duplicate partners 3 times for seamless 60fps infinite marquee loop */}
+          {[...partners, ...partners, ...partners].map((partner, idx) => (
+            <div key={idx} className="marquee-item">
+              <PartnerCard partner={partner} />
+            </div>
           ))}
         </div>
-
-        {/* Mobile Horizontal Auto-Scroll Marquee (Visible < 768px) */}
-        <div className="partners-mobile-marquee">
-          <div className="marquee-track">
-            {/* Render 2 sets for continuous infinite loop */}
-            {[...partners, ...partners].map((partner, idx) => (
-              <div key={idx} className="marquee-item">
-                <PartnerCard partner={partner} isMobile />
-              </div>
-            ))}
-          </div>
-        </div>
-
       </div>
 
       <style jsx>{`
-        .partners-desktop-grid {
-          display: grid;
-        }
-        .partners-mobile-marquee {
-          display: none;
+        .partners-continuous-marquee {
           overflow: hidden;
           width: 100%;
-          mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-          -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+          mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+          -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+          padding: 0.5rem 0;
         }
 
         .marquee-track {
           display: flex;
-          gap: 1rem;
+          gap: 1.25rem;
           width: max-content;
-          animation: marquee 25s linear infinite;
+          animation: marquee-flow 32s linear infinite;
           will-change: transform;
         }
 
-        .marquee-track:hover,
-        .marquee-track:active {
+        .marquee-track:hover {
           animation-play-state: paused;
         }
 
         .marquee-item {
-          width: 200px;
+          width: 220px;
           flex-shrink: 0;
         }
 
-        @keyframes marquee {
+        @keyframes marquee-flow {
           0% {
             transform: translate3d(0, 0, 0);
           }
           100% {
-            transform: translate3d(-50%, 0, 0);
-          }
-        }
-
-        @media (max-width: 767px) {
-          .partners-desktop-grid {
-            display: none !important;
-          }
-          .partners-mobile-marquee {
-            display: block !important;
+            transform: translate3d(-33.3333%, 0, 0);
           }
         }
       `}</style>
@@ -210,7 +180,7 @@ export default function TrustedPartners() {
   );
 }
 
-function PartnerCard({ partner, isMobile }: { partner: Partner; isMobile?: boolean }) {
+function PartnerCard({ partner }: { partner: Partner }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -218,19 +188,20 @@ function PartnerCard({ partner, isMobile }: { partner: Partner; isMobile?: boole
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        backgroundColor: "#F3EFEA",
+        backgroundColor: "#FFFFFF",
         borderRadius: "1rem",
-        border: hovered ? "1px solid rgba(139, 38, 62, 0.4)" : "1px solid rgba(28, 27, 26, 0.12)",
-        height: isMobile ? "90px" : "100px",
-        padding: "1rem 1.25rem",
+        border: hovered ? "1px solid #8B263E" : "1px solid rgba(0, 0, 0, 0.08)",
+        height: "105px",
+        padding: "1rem 1.35rem",
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
-        boxShadow: hovered ? "0 12px 28px -6px rgba(28, 27, 26, 0.12)" : "none",
-        transform: hovered ? "scale(1.04)" : "scale(1)",
-        transition: "all 150ms cubic-bezier(0.16, 1, 0.3, 1)",
+        boxShadow: hovered
+          ? "0 14px 32px -6px rgba(139, 38, 62, 0.18)"
+          : "0 4px 14px rgba(0, 0, 0, 0.04)",
+        transform: hovered ? "translateY(-4px) scale(1.03)" : "scale(1)",
+        transition: "all 200ms cubic-bezier(0.16, 1, 0.3, 1)",
         cursor: "pointer",
       }}
     >
@@ -239,8 +210,8 @@ function PartnerCard({ partner, isMobile }: { partner: Partner; isMobile?: boole
           position: "relative",
           width: "100%",
           height: "100%",
-          filter: hovered ? "grayscale(0%) opacity(1)" : "grayscale(100%) opacity(0.7)",
-          transition: "filter 150ms ease, opacity 150ms ease",
+          filter: "none",
+          opacity: 1,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -250,7 +221,7 @@ function PartnerCard({ partner, isMobile }: { partner: Partner; isMobile?: boole
           src={partner.logo}
           alt={`${partner.name} - Nuspace Creations Trusted Material Partner`}
           fill
-          sizes="200px"
+          sizes="220px"
           style={{ objectFit: "contain" }}
         />
       </div>
