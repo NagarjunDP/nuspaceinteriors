@@ -4,11 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { getCdnUrl } from "@/lib/cdn";
 
+import { Calendar, Award, MapPin, Compass } from "lucide-react";
+
 const stats = [
-    { label: "Founded", value: "2015" },
-    { label: "Projects Delivered", value: "350+" },
-    { label: "Based in", value: "Bengaluru" },
-    { label: "Execution", value: "End-to-End" },
+    { label: "Founded", value: "2015", icon: Calendar },
+    { label: "Projects Delivered", value: "350+", icon: Award },
+    { label: "Based in", value: "Bengaluru", icon: MapPin },
+    { label: "Execution", value: "End-to-End", icon: Compass },
 ];
 
 function useInView(threshold = 0.1) {
@@ -36,7 +38,7 @@ export default function About() {
             ref={sectionRef}
             style={{
                 position: "relative",
-                padding: "5rem 1.25rem",
+                padding: "clamp(4rem, 8vw, 8rem) 1.5rem",
                 backgroundColor: "#FAF8F5",
                 overflow: "hidden",
             }}
@@ -125,7 +127,7 @@ export default function About() {
                     <h2
                         style={{
                             fontFamily: "var(--font-serif)",
-                            fontSize: "clamp(2.2rem, 4vw, 4rem)",
+                            fontSize: "clamp(2.2rem, 4.5vw, 4rem)",
                             lineHeight: "1.12",
                             color: "#1C1B1A",
                             marginBottom: "1.5rem",
@@ -163,7 +165,7 @@ export default function About() {
                         </strong>
                     </p>
 
-                    {/* Stat Cards */}
+                    {/* Stat Cards with Charcoal Badge Icons */}
                     <div
                         className="about-stats-grid"
                         style={{
@@ -174,34 +176,51 @@ export default function About() {
                             paddingTop: "1.5rem",
                         }}
                     >
-                        {stats.map((stat, idx) => (
-                            <div key={idx} style={{ display: "flex", flexDirection: "column", gap: "0.2rem" }}>
-                                <span
-                                    style={{
-                                        fontFamily: "var(--font-serif)",
-                                        fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
-                                        fontWeight: 600,
-                                        color: "#8B263E",
-                                        lineHeight: 1,
-                                    }}
-                                >
-                                    {stat.value}
-                                </span>
-                                <span
-                                    style={{
-                                        fontFamily: "var(--font-sans)",
-                                        fontSize: "0.66rem",
-                                        fontWeight: 600,
-                                        color: "#1C1B1A",
-                                        letterSpacing: "0.1em",
-                                        textTransform: "uppercase",
-                                        opacity: 0.6,
-                                    }}
-                                >
-                                    {stat.label}
-                                </span>
-                            </div>
-                        ))}
+                        {stats.map((stat, idx) => {
+                            const IconComponent = stat.icon;
+                            return (
+                                <div key={idx} style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                                    <div
+                                        style={{
+                                            width: "2.75rem",
+                                            height: "2.75rem",
+                                            borderRadius: "50%",
+                                            backgroundColor: "#1C1B1A",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            marginBottom: "0.35rem",
+                                        }}
+                                    >
+                                        <IconComponent size={18} color="#8B263E" strokeWidth={1.5} />
+                                    </div>
+                                    <span
+                                        style={{
+                                            fontFamily: "var(--font-serif)",
+                                            fontSize: "clamp(1.5rem, 2.5vw, 2.2rem)",
+                                            fontWeight: 600,
+                                            color: "#8B263E",
+                                            lineHeight: 1,
+                                        }}
+                                    >
+                                        {stat.value}
+                                    </span>
+                                    <span
+                                        style={{
+                                            fontFamily: "var(--font-sans)",
+                                            fontSize: "0.66rem",
+                                            fontWeight: 600,
+                                            color: "#1C1B1A",
+                                            letterSpacing: "0.1em",
+                                            textTransform: "uppercase",
+                                            opacity: 0.6,
+                                        }}
+                                    >
+                                        {stat.label}
+                                    </span>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>

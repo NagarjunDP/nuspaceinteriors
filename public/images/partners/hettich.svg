@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70" fill="none">
+  <g transform="translate(10, 10)">
+    <!-- Hettich German Blue Box Emblem -->
+    <rect x="5" y="10" width="38" height="32" rx="4" fill="#003399"/>
+    <path d="M12 18 L12 34 M12 26 L22 26 M22 18 L22 34" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="30" cy="26" r="3.5" fill="#FFCC00"/>
+    
+    <!-- Text Wordmark -->
+    <text x="52" y="32" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="22" fill="#003399" letter-spacing="-0.5">Hettich</text>
+    <text x="53" y="44" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="7.5" fill="#1C1B1A" letter-spacing="1.8">TECHNIK FÜR MÖBEL</text>
+  </g>
+</svg>

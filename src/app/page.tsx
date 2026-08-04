@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import TrustedPartners from "@/components/TrustedPartners";
 import Philosophy from "@/components/Philosophy";
 import VisionMission from "@/components/VisionMission";
 import Process from "@/components/Process";
@@ -20,6 +21,7 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
+      <TrustedPartners />
       <Philosophy />
       <VisionMission />
       <Process />

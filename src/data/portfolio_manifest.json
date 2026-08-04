@@ -1,7 +1,6 @@
 {
   "residential": [
     "/work/residential/residential_01.jpeg",
-    "/work/residential/residential_02.jpeg",
     "/work/residential/residential_03.jpeg",
     "/work/residential/residential_04.jpeg",
     "/work/residential/residential_05.jpeg",
@@ -31,7 +30,6 @@
   ],
   "kitchen": [
     "/work/kitchen/kitchen_01.jpeg",
-    "/work/kitchen/kitchen_02.jpeg",
     "/work/kitchen/kitchen_03.jpeg",
     "/work/kitchen/kitchen_04.jpeg",
     "/work/kitchen/kitchen_05.jpeg",
@@ -80,7 +78,6 @@
     "/work/commercial/commercial_08.jpeg"
   ],
   "renovation": [
-    "/work/renovation/renovation_01.jpeg",
     "/work/renovation/renovation_02.jpeg",
     "/work/renovation/renovation_03.jpeg",
     "/work/renovation/renovation_04.jpeg",
@@ -90,7 +87,6 @@
     "/work/renovation/renovation_08.jpeg"
   ],
   "turnkey": [
-    "/work/turnkey/turnkey_01.jpeg",
     "/work/turnkey/turnkey_02.jpeg",
     "/work/turnkey/turnkey_03.jpeg",
     "/work/turnkey/turnkey_04.jpeg",

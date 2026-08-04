@@ -7,10 +7,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import { getCdnUrl } from "@/lib/cdn";
+import manifest from "@/data/portfolio_manifest.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── All 80 real photos from python-segregated folders ───────────────────────
 const CATEGORIES = [
   { id: "all",         label: "All Work" },
   { id: "residential", label: "Residential" },
@@ -25,27 +25,14 @@ const CATEGORIES = [
   { id: "turnkey",     label: "Turnkey" },
 ];
 
-function buildPhotos(cat: string, count: number) {
-  return Array.from({ length: count }, (_, i) => ({
-    id: `${cat}_${String(i + 1).padStart(2, "0")}`,
-    src: getCdnUrl(`/work/${cat}/${cat}_${String(i + 1).padStart(2, "0")}.jpeg`),
+const ALL_PHOTOS = Object.entries(manifest).flatMap(([cat, paths]) =>
+  paths.map((path, idx) => ({
+    id: `${cat}_${idx + 1}`,
+    src: getCdnUrl(path),
     category: cat,
     label: cat.replace("_", " ").replace(/\b\w/g, (c) => c.toUpperCase()),
-  }));
-}
-
-const ALL_PHOTOS = [
-  ...buildPhotos("residential", 8),
-  ...buildPhotos("living_room", 8),
-  ...buildPhotos("bedroom", 8),
-  ...buildPhotos("kitchen", 8),
-  ...buildPhotos("bathroom", 8),
-  ...buildPhotos("dining", 8),
-  ...buildPhotos("wardrobe", 8),
-  ...buildPhotos("commercial", 8),
-  ...buildPhotos("renovation", 8),
-  ...buildPhotos("turnkey", 8),
-];
+  }))
+);
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("all");

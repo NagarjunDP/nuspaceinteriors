@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70" fill="none">
+  <g transform="translate(10, 10)">
+    <!-- Greenlam Leaf Arc Emblem -->
+    <path d="M10 38 C10 18, 25 8, 40 8 C40 25, 30 40, 10 38 Z" fill="#2E7D32"/>
+    <path d="M18 36 C24 24, 34 16, 40 8" stroke="#A5D6A7" stroke-width="2"/>
+    
+    <!-- Text Wordmark -->
+    <text x="50" y="30" font-family="'Montserrat', sans-serif" font-weight="800" font-size="20" fill="#1C1B1A" letter-spacing="0.5">GREENLAM</text>
+    <text x="51" y="42" font-family="'Montserrat', sans-serif" font-weight="600" font-size="7" fill="#2E7D32" letter-spacing="2">SURFACE SOLUTIONS</text>
+  </g>
+</svg>

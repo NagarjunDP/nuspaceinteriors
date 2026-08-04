@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight, MapPin, Maximize2, Users } from "lucide-react";
+import { getCdnUrl } from "@/lib/cdn";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
@@ -93,8 +94,8 @@ export default function FeaturedProject() {
                 >
                     {/* After Image (Background) */}
                     <Image
-                        src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=1200"
-                        alt="After - Contemporary Living Room"
+                        src={getCdnUrl("/work/renovation/renovation_01.jpeg")}
+                        alt="After - Contemporary Living Room Transformation"
                         fill
                         style={{ objectFit: "cover" }}
                     />
@@ -109,7 +110,7 @@ export default function FeaturedProject() {
                             borderRadius: "100px",
                             color: "#ffffff",
                             fontSize: "10px",
-                            fontFamily: "var(--font-montserrat)",
+                            fontFamily: "var(--font-sans)",
                             fontWeight: 600,
                             textTransform: "uppercase",
                             letterSpacing: "0.1em",
@@ -137,8 +138,8 @@ export default function FeaturedProject() {
                             height: "100%"
                         }}>
                             <Image
-                                src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=1200"
-                                alt="Before - Outdated Space"
+                                src={getCdnUrl("/work/renovation/renovation_02.jpeg")}
+                                alt="Before - Original Layout"
                                 fill
                                 style={{ objectFit: "cover" }}
                             />

@@ -66,7 +66,7 @@ export default function Trust() {
             id="trust"
             ref={sectionRef}
             style={{
-                padding: "6rem 1.5rem",
+                padding: "clamp(4rem, 8vw, 8rem) 1.5rem",
                 backgroundColor: "#141312",
                 color: "#ffffff",
                 position: "relative",
@@ -169,17 +169,17 @@ function TrustFeatureBox({
                     width: "3rem",
                     height: "3rem",
                     borderRadius: "50%",
-                    backgroundColor: `${feature.color}25`,
+                    backgroundColor: "#1C1B1A",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     marginBottom: "1.5rem",
-                    color: feature.color,
+                    color: "#8B263E",
                     transition: "transform 0.3s ease",
                     transform: hovered ? "scale(1.1)" : "scale(1)",
                 }}
             >
-                <Icon size={22} strokeWidth={1.8} />
+                <Icon size={20} strokeWidth={1.5} color="#8B263E" />
             </div>
 
             <h3

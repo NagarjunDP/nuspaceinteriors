@@ -29,7 +29,7 @@ export default function Team() {
       id="team"
       ref={containerRef}
       style={{
-        padding: "7rem 1.5rem",
+        padding: "clamp(4rem, 8vw, 8rem) 1.5rem",
         backgroundColor: "#1C1B1A",
         color: "#ffffff",
         position: "relative",
@@ -126,7 +126,7 @@ export default function Team() {
           >
             <Image
               src={getCdnUrl("/founder.jpeg")}
-              alt="Prashanth - Founder & CEO, Nuspace Creations"
+              alt="Prashant - Founder & CEO, Nuspace Creations"
               fill
               sizes="(max-width: 768px) 100vw, 550px"
               style={{
@@ -188,7 +188,7 @@ export default function Team() {
                   lineHeight: 1.1,
                 }}
               >
-                Prashanth
+                Prashant
               </h3>
               <span
                 style={{
@@ -208,7 +208,7 @@ export default function Team() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", color: "rgba(255, 255, 255, 0.8)", fontSize: "0.98rem", lineHeight: 1.75 }}>
               <p style={{ margin: 0 }}>
-                Prashanth founded Nuspace Creations in 2015 with a simple belief — that a space should feel like the person living in it, not like a showroom.
+                Prashant founded Nuspace Creations in 2015 with a simple belief — that a space should feel like the person living in it, not like a showroom.
               </p>
               <p style={{ margin: 0 }}>
                 Over the last decade, that belief has shaped 350+ homes and commercial spaces across Bengaluru, each one built around a single principle: design that is timeless, deeply personal, and executed without compromise. His approach blends architectural precision with an obsessive attention to material, light, and craftsmanship — turning ideas into spaces people don&apos;t just live in, but feel at home in.
