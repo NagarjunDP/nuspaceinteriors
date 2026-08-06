@@ -16,7 +16,6 @@ const CATEGORIES = [
   { id: "living_room", label: "Living Room" },
   { id: "bedroom",     label: "Bedroom" },
   { id: "kitchen",     label: "Kitchen" },
-  { id: "bathroom",    label: "Bathroom" },
   { id: "dining",      label: "Dining" },
   { id: "wardrobe",    label: "Wardrobe" },
   { id: "commercial",  label: "Commercial" },
