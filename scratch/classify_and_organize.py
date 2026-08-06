@@ -104,8 +104,9 @@ def main():
             top_idx = torch.argmax(probs).item()
             best_cat = CATEGORIES[top_idx]
             best_score = probs[top_idx].item()
+            img_hash = get_hash(img_path)
 
-            classified[best_cat].append((best_score, img_path))
+            classified[best_cat].append((best_score, img_path, img_hash))
             print(f"   [{idx+1:03d}/{len(unique_candidates)}] {img_path.name[:28]:28s} -> {best_cat:12s} ({best_score:.2f})")
         except Exception as e:
             print(f"⚠️ Error processing {img_path}: {e}")
@@ -132,8 +133,7 @@ def main():
 
         # First pick from this category's sorted predictions
         picks = []
-        for score, img_path in classified[cat]:
-            h = get_hash(img_path)
+        for score, img_path, h in classified[cat]:
             if h not in used_hashes and len(picks) < target:
                 used_hashes.add(h)
                 picks.append(img_path)
@@ -141,8 +141,7 @@ def main():
         # If still under target, pick from candidates of other categories that aren't used yet
         if len(picks) < target:
             for other_cat in CATEGORIES:
-                for score, img_path in classified[other_cat]:
-                    h = get_hash(img_path)
+                for score, img_path, h in classified[other_cat]:
                     if h not in used_hashes and len(picks) < target:
                         used_hashes.add(h)
                         picks.append(img_path)
