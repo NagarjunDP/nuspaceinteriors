@@ -9,19 +9,20 @@ interface Partner {
   name: string;
   category: string;
   logo: string;
+  bg?: string;
 }
 
 const partners: Partner[] = [
   { name: "Greenply", category: "Plywood & Veneers", logo: getCdnUrl("/images/partners/greenply.svg") },
-  { name: "CenturyPly", category: "Plywood & Laminates", logo: getCdnUrl("/images/partners/centuryply.svg") },
-  { name: "Merino", category: "Surface Laminates", logo: getCdnUrl("/images/partners/merino.svg") },
-  { name: "Greenlam", category: "Architectural Cladding", logo: getCdnUrl("/images/partners/greenlam.svg") },
+  { name: "CenturyPly", category: "Plywood & Laminates", logo: getCdnUrl("/images/partners/centuryply.png") },
+  { name: "Merino", category: "Surface Laminates", logo: getCdnUrl("/images/partners/merino.png") },
+  { name: "Greenlam", category: "Architectural Cladding", logo: getCdnUrl("/images/partners/greenlam.png") },
   { name: "Hettich", category: "German Hardware", logo: getCdnUrl("/images/partners/hettich.svg") },
-  { name: "Action Tesa", category: "HDMR & MDF Boards", logo: getCdnUrl("/images/partners/actiontesa.svg") },
+  { name: "Action Tesa", category: "HDMR & MDF Boards", logo: getCdnUrl("/images/partners/actiontesa.png") },
   { name: "Häfele", category: "Architectural Fittings", logo: getCdnUrl("/images/partners/hafele.svg") },
-  { name: "Ebco", category: "Furniture Accessories", logo: getCdnUrl("/images/partners/ebco.svg") },
-  { name: "Asian Paints", category: "Paints & Coatings", logo: getCdnUrl("/images/partners/asianpaints.svg") },
-  { name: "Saint-Gobain", category: "High Performance Glass", logo: getCdnUrl("/images/partners/saintgobain.svg") },
+  { name: "Ebco", category: "Furniture Accessories", logo: getCdnUrl("/images/partners/ebco.avif"), bg: "#0B1E36" },
+  { name: "Asian Paints", category: "Paints & Coatings", logo: getCdnUrl("/images/partners/asianpaints.avif") },
+  { name: "Saint-Gobain", category: "High Performance Glass", logo: getCdnUrl("/images/partners/saintgobain.png") },
 ];
 
 function useInView(threshold = 0.1) {
@@ -182,15 +183,21 @@ export default function TrustedPartners() {
 
 function PartnerCard({ partner }: { partner: Partner }) {
   const [hovered, setHovered] = useState(false);
+  const cardBg = partner.bg || "#FFFFFF";
+  const isDark = cardBg !== "#FFFFFF";
 
   return (
     <div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        backgroundColor: "#FFFFFF",
+        backgroundColor: cardBg,
         borderRadius: "1rem",
-        border: hovered ? "1px solid #8B263E" : "1px solid rgba(0, 0, 0, 0.08)",
+        border: hovered
+          ? "1px solid #8B263E"
+          : isDark
+          ? "1px solid rgba(255, 255, 255, 0.12)"
+          : "1px solid rgba(0, 0, 0, 0.08)",
         height: "105px",
         padding: "1rem 1.35rem",
         display: "flex",
@@ -198,7 +205,9 @@ function PartnerCard({ partner }: { partner: Partner }) {
         justifyContent: "center",
         position: "relative",
         boxShadow: hovered
-          ? "0 14px 32px -6px rgba(139, 38, 62, 0.18)"
+          ? "0 14px 32px -6px rgba(139, 38, 62, 0.28)"
+          : isDark
+          ? "0 4px 14px rgba(0, 0, 0, 0.3)"
           : "0 4px 14px rgba(0, 0, 0, 0.04)",
         transform: hovered ? "translateY(-4px) scale(1.03)" : "scale(1)",
         transition: "all 200ms cubic-bezier(0.16, 1, 0.3, 1)",
@@ -221,6 +230,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
           src={partner.logo}
           alt={`${partner.name} - Nuspace Creations Trusted Material Partner`}
           fill
+          unoptimized
           sizes="220px"
           style={{ objectFit: "contain" }}
         />

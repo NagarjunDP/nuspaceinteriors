@@ -52,19 +52,20 @@ export default function Navbar() {
                 <div
                     style={{
                         position: "relative",
-                        width: isScrolled ? "52px" : "62px",
-                        height: isScrolled ? "52px" : "62px",
-                        borderRadius: "10px",
+                        width: isScrolled ? "68px" : "84px",
+                        height: isScrolled ? "68px" : "84px",
+                        borderRadius: "12px",
                         overflow: "hidden",
                         flexShrink: 0,
                         transition: "width 0.4s ease, height 0.4s ease",
+                        boxShadow: "0 4px 14px rgba(0, 0, 0, 0.15)",
                     }}
                 >
                     <Image
-                        src={getCdnUrl("/nuspacelogo.jpeg")}
+                        src={getCdnUrl("/nuspacelogo.png")}
                         alt="Nuspace Creations"
                         fill
-                        sizes="64px"
+                        sizes="100px"
                         style={{ objectFit: "cover", objectPosition: "center" }}
                         priority
                     />
@@ -162,18 +163,19 @@ export default function Navbar() {
                 <div
                     style={{
                         position: "relative",
-                        width: "80px",
-                        height: "80px",
-                        borderRadius: "14px",
+                        width: "100px",
+                        height: "100px",
+                        borderRadius: "16px",
                         overflow: "hidden",
                         marginBottom: "0.25rem",
+                        boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
                     }}
                 >
                     <Image
-                        src={getCdnUrl("/nuspacelogo.jpeg")}
+                        src={getCdnUrl("/nuspacelogo.png")}
                         alt="Nuspace Creations"
                         fill
-                        sizes="80px"
+                        sizes="100px"
                         style={{ objectFit: "cover" }}
                     />
                 </div>
