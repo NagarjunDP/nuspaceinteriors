@@ -1,6 +1,5 @@
 /**
- * Helper to convert image paths to web relative paths.
- * Next.js & Vercel serve all public/ files directly via Vercel Edge CDN.
+ * Helper to convert image paths to jsDelivr CDN URLs for GitHub repository assets.
  */
 export function getCdnUrl(path: string): string {
   if (!path) return path;
@@ -8,5 +7,6 @@ export function getCdnUrl(path: string): string {
 
   // Clean leading slash
   const cleanPath = path.startsWith("/") ? path.slice(1) : path;
-  return `/${cleanPath}`;
+  return `https://cdn.jsdelivr.net/gh/NagarjunDP/nuspaceinteriors@main/public/${cleanPath}`;
 }
+

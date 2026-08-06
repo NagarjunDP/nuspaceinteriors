@@ -3,6 +3,7 @@
 import { X, MapPin, Calendar, Tag, Layers, CheckCircle } from "lucide-react";
 import Image from "next/image";
 import { Project } from "@/data/projects";
+import { getCdnUrl } from "@/lib/cdn";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -71,7 +72,7 @@ export default function ProjectModal({ project, onClose, onNext, onPrev }: Proje
         {/* Modal Hero Image */}
         <div style={{ position: "relative", width: "100%", height: "450px" }}>
           <Image
-            src={project.coverImage}
+            src={getCdnUrl(project.coverImage)}
             alt={project.title}
             fill
             style={{ objectFit: "cover" }}
@@ -204,7 +205,7 @@ export default function ProjectModal({ project, onClose, onNext, onPrev }: Proje
               {project.gallery.map((imgUrl, i) => (
                 <div key={i} style={{ position: "relative", height: "260px", borderRadius: "1rem", overflow: "hidden" }}>
                   <Image
-                    src={imgUrl}
+                    src={getCdnUrl(imgUrl)}
                     alt={`${project.title} gallery photo ${i + 1}`}
                     fill
                     style={{ objectFit: "cover" }}
