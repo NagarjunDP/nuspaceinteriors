@@ -1,67 +1,65 @@
 #!/usr/bin/env python3
 """
 Nuspace Decor — Photo Segregator
-Reads all WhatsApp images from public/, deduplicates using perceptual hashing,
-selects the best 80 photos by size (quality proxy), and copies them to
-categorized portfolio folders.
+Reads WhatsApp images from public/, deduplicates using MD5 hashing,
+selects the best 117 photos, and populates the 9 categories according to the requested counts:
+- living_room: 18
+- bedroom: 18
+- kitchen: 14
+- bathroom: 11
+- dining: 11
+- wardrobe: 11
+- commercial: 14
+- renovation: 9
+- turnkey: 11
+(Residential category removed)
 """
 
 import os
-import re
 import shutil
 import hashlib
 import json
 from pathlib import Path
 
-# ─────────────── CONFIG ───────────────
 PUBLIC_DIR   = Path("/Users/nagarjundp/coastalinterio/public")
 OUT_BASE     = PUBLIC_DIR / "work"
-MIN_SIZE_KB  = 45      # skip tiny/blurry images
-MAX_PHOTOS   = 80      # pick best N
-# ──────────────────────────────────────
+MIN_SIZE_KB  = 45
 
-CATEGORIES = {
-    "bedroom":    "Bedroom",
-    "living":     "Living Room",
-    "kitchen":    "Kitchen",
-    "bathroom":   "Bathroom",
-    "dining":     "Dining",
-    "office":     "Commercial / Office",
-    "commercial": "Commercial / Office",
-    "exterior":   "Exterior",
-    "wardrobe":   "Wardrobe / Storage",
-    "pooja":      "Pooja Room",
-    "foyer":      "Foyer / Entrance",
-    "balcony":    "Balcony / Terrace",
+# Target counts per category matching user request:
+TARGET_COUNTS = {
+    "living_room": 18,
+    "bedroom":     18,
+    "kitchen":     14,
+    "bathroom":    11,
+    "dining":      11,
+    "wardrobe":    11,
+    "commercial":  14,
+    "renovation":   9,
+    "turnkey":     11,
 }
 
 def get_file_hash(path):
-    """Simple MD5 to detect exact duplicates (same binary)."""
+    """MD5 hash to detect exact duplicates."""
     h = hashlib.md5()
     with open(path, "rb") as f:
         while chunk := f.read(8192):
             h.update(chunk)
     return h.hexdigest()
 
-def slugify(name):
-    name = name.lower()
-    name = re.sub(r"[^a-z0-9]+", "_", name)
-    return name.strip("_")
-
 def main():
     print("🔍 Scanning public/ for WhatsApp images …")
     all_jpegs = sorted(
         [p for p in PUBLIC_DIR.iterdir() if p.suffix.lower() in (".jpeg", ".jpg")],
         key=lambda p: p.stat().st_size,
-        reverse=True,          # largest (highest quality) first
+        reverse=True,
     )
     print(f"   Found {len(all_jpegs)} jpeg files")
 
-    # ── 1. Filter by minimum size ──
+    # 1. Filter by minimum size
     filtered = [p for p in all_jpegs if p.stat().st_size >= MIN_SIZE_KB * 1024]
     print(f"   After size filter (>= {MIN_SIZE_KB}KB): {len(filtered)} files")
 
-    # ── 2. Deduplicate by exact hash ──
+    # 2. Deduplicate by exact hash
     seen_hashes = set()
     unique = []
     for p in filtered:
@@ -71,59 +69,50 @@ def main():
             unique.append(p)
     print(f"   After dedup: {len(unique)} unique files")
 
-    # ── 3. Take best MAX_PHOTOS ──
-    selected = unique[:MAX_PHOTOS]
-    print(f"   Selected top {len(selected)} photos")
+    total_target = sum(TARGET_COUNTS.values())
+    if len(unique) < total_target:
+        print(f"⚠️ Warning: Found {len(unique)} files, needed {total_target}. Will distribute available.")
+        selected = unique
+    else:
+        selected = unique[:total_target]
 
-    # ── 4. Distribute into buckets ──
-    # Since photos are WhatsApp-named (no semantic info in filename),
-    # we distribute them in round-robin across interior categories.
-    buckets = [
-        "residential",
-        "living_room",
-        "bedroom",
-        "kitchen",
-        "bathroom",
-        "dining",
-        "wardrobe",
-        "commercial",
-        "renovation",
-        "turnkey",
-    ]
+    print(f"   Selected top {len(selected)} photos for portfolio.")
 
-    # Create output dirs
-    for b in buckets:
-        (OUT_BASE / b).mkdir(parents=True, exist_ok=True)
+    # 3. Clean destination folder OUT_BASE
+    if OUT_BASE.exists():
+        shutil.rmtree(OUT_BASE)
+    OUT_BASE.mkdir(parents=True, exist_ok=True)
 
-    # Assign files to buckets in roughly equal proportions
-    assignments = {}
-    for i, photo in enumerate(selected):
-        bucket = buckets[i % len(buckets)]
-        assignments[photo] = bucket
+    # 4. Distribute into categories according to target counts
+    manifest = {}
+    photo_idx = 0
 
-    # Copy & rename
-    bucket_counters = {b: 1 for b in buckets}
-    manifest = {}  # bucket -> [list of web paths]
+    for bucket, count in TARGET_COUNTS.items():
+        bucket_dir = OUT_BASE / bucket
+        bucket_dir.mkdir(parents=True, exist_ok=True)
+        manifest[bucket] = []
 
-    for photo, bucket in assignments.items():
-        idx = bucket_counters[bucket]
-        ext = photo.suffix.lower()
-        new_name = f"{bucket}_{idx:02d}{ext}"
-        dest = OUT_BASE / bucket / new_name
-        shutil.copy2(photo, dest)
-        bucket_counters[bucket] += 1
+        for i in range(1, count + 1):
+            if photo_idx >= len(selected):
+                break
+            photo = selected[photo_idx]
+            photo_idx += 1
 
-        web_path = f"/work/{bucket}/{new_name}"
-        manifest.setdefault(bucket, []).append(web_path)
-        print(f"   ✓  {photo.name}  →  {web_path}")
+            ext = photo.suffix.lower()
+            new_name = f"{bucket}_{i:02d}{ext}"
+            dest = bucket_dir / new_name
+            shutil.copy2(photo, dest)
 
-    # ── 5. Save manifest JSON for website use ──
+            web_path = f"/work/{bucket}/{new_name}"
+            manifest[bucket].append(web_path)
+
+    # 5. Save manifest JSON
     manifest_path = PUBLIC_DIR.parent / "src" / "data" / "portfolio_manifest.json"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
     with open(manifest_path, "w") as f:
         json.dump(manifest, f, indent=2)
 
     print(f"\n✅ Done! Manifest saved to: {manifest_path}")
-    print(f"   Total photos distributed: {len(selected)}")
     for bucket, paths in manifest.items():
         print(f"   {bucket:20s}: {len(paths)} photos")
 

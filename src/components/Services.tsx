@@ -13,7 +13,7 @@ const services = [
     icon: Home,
     accent: "#8B263E",
     highlights: ["Bespoke Villa Interiors", "Corporate Executive Offices", "Retail & Hospitality Design"],
-    src: getCdnUrl("/work/residential/residential_01.jpeg"),
+    src: getCdnUrl("/work/living_room/living_room_01.jpeg"),
   },
   {
     id: "renovation",

@@ -9,7 +9,7 @@ import { getCdnUrl } from "@/lib/cdn";
 // ── 3 Luxury Full-Bleed Background Slides (Ken Burns Zoom) ──
 const HERO_SLIDES = [
   getCdnUrl("/work/living_room/living_room_01.jpeg"),
-  getCdnUrl("/work/residential/residential_01.jpeg"),
+  getCdnUrl("/work/living_room/living_room_03.jpeg"),
   getCdnUrl("/work/bedroom/bedroom_01.jpeg"),
 ];
 

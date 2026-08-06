@@ -13,7 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const CATEGORIES = [
   { id: "all",         label: "All Work" },
-  { id: "residential", label: "Residential" },
   { id: "living_room", label: "Living Room" },
   { id: "bedroom",     label: "Bedroom" },
   { id: "kitchen",     label: "Kitchen" },

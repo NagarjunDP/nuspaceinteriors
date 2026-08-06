@@ -1,12 +1,4 @@
 {
-  "residential": [
-    "/work/residential/residential_01.jpeg",
-    "/work/residential/residential_03.jpeg",
-    "/work/residential/residential_04.jpeg",
-    "/work/residential/residential_05.jpeg",
-    "/work/residential/residential_06.jpeg",
-    "/work/residential/residential_07.jpeg"
-  ],
   "living_room": [
     "/work/living_room/living_room_01.jpeg",
     "/work/living_room/living_room_02.jpeg",
@@ -15,7 +7,17 @@
     "/work/living_room/living_room_05.jpeg",
     "/work/living_room/living_room_06.jpeg",
     "/work/living_room/living_room_07.jpeg",
-    "/work/living_room/living_room_08.jpeg"
+    "/work/living_room/living_room_08.jpeg",
+    "/work/living_room/living_room_09.jpeg",
+    "/work/living_room/living_room_10.jpeg",
+    "/work/living_room/living_room_11.jpeg",
+    "/work/living_room/living_room_12.jpeg",
+    "/work/living_room/living_room_13.jpeg",
+    "/work/living_room/living_room_14.jpeg",
+    "/work/living_room/living_room_15.jpeg",
+    "/work/living_room/living_room_16.jpeg",
+    "/work/living_room/living_room_17.jpeg",
+    "/work/living_room/living_room_18.jpeg"
   ],
   "bedroom": [
     "/work/bedroom/bedroom_01.jpeg",
@@ -25,16 +27,33 @@
     "/work/bedroom/bedroom_05.jpeg",
     "/work/bedroom/bedroom_06.jpeg",
     "/work/bedroom/bedroom_07.jpeg",
-    "/work/bedroom/bedroom_08.jpeg"
+    "/work/bedroom/bedroom_08.jpeg",
+    "/work/bedroom/bedroom_09.jpeg",
+    "/work/bedroom/bedroom_10.jpeg",
+    "/work/bedroom/bedroom_11.jpeg",
+    "/work/bedroom/bedroom_12.jpeg",
+    "/work/bedroom/bedroom_13.jpeg",
+    "/work/bedroom/bedroom_14.jpeg",
+    "/work/bedroom/bedroom_15.jpeg",
+    "/work/bedroom/bedroom_16.jpeg",
+    "/work/bedroom/bedroom_17.jpeg",
+    "/work/bedroom/bedroom_18.jpeg"
   ],
   "kitchen": [
     "/work/kitchen/kitchen_01.jpeg",
+    "/work/kitchen/kitchen_02.jpeg",
     "/work/kitchen/kitchen_03.jpeg",
     "/work/kitchen/kitchen_04.jpeg",
     "/work/kitchen/kitchen_05.jpeg",
     "/work/kitchen/kitchen_06.jpeg",
     "/work/kitchen/kitchen_07.jpeg",
-    "/work/kitchen/kitchen_08.jpeg"
+    "/work/kitchen/kitchen_08.jpeg",
+    "/work/kitchen/kitchen_09.jpeg",
+    "/work/kitchen/kitchen_10.jpeg",
+    "/work/kitchen/kitchen_11.jpeg",
+    "/work/kitchen/kitchen_12.jpeg",
+    "/work/kitchen/kitchen_13.jpeg",
+    "/work/kitchen/kitchen_14.jpeg"
   ],
   "bathroom": [
     "/work/bathroom/bathroom_01.jpeg",
@@ -44,7 +63,10 @@
     "/work/bathroom/bathroom_05.jpeg",
     "/work/bathroom/bathroom_06.jpeg",
     "/work/bathroom/bathroom_07.jpeg",
-    "/work/bathroom/bathroom_08.jpeg"
+    "/work/bathroom/bathroom_08.jpeg",
+    "/work/bathroom/bathroom_09.jpeg",
+    "/work/bathroom/bathroom_10.jpeg",
+    "/work/bathroom/bathroom_11.jpeg"
   ],
   "dining": [
     "/work/dining/dining_01.jpeg",
@@ -54,7 +76,10 @@
     "/work/dining/dining_05.jpeg",
     "/work/dining/dining_06.jpeg",
     "/work/dining/dining_07.jpeg",
-    "/work/dining/dining_08.jpeg"
+    "/work/dining/dining_08.jpeg",
+    "/work/dining/dining_09.jpeg",
+    "/work/dining/dining_10.jpeg",
+    "/work/dining/dining_11.jpeg"
   ],
   "wardrobe": [
     "/work/wardrobe/wardrobe_01.jpeg",
@@ -64,7 +89,10 @@
     "/work/wardrobe/wardrobe_05.jpeg",
     "/work/wardrobe/wardrobe_06.jpeg",
     "/work/wardrobe/wardrobe_07.jpeg",
-    "/work/wardrobe/wardrobe_08.jpeg"
+    "/work/wardrobe/wardrobe_08.jpeg",
+    "/work/wardrobe/wardrobe_09.jpeg",
+    "/work/wardrobe/wardrobe_10.jpeg",
+    "/work/wardrobe/wardrobe_11.jpeg"
   ],
   "commercial": [
     "/work/commercial/commercial_01.jpeg",
@@ -74,24 +102,36 @@
     "/work/commercial/commercial_05.jpeg",
     "/work/commercial/commercial_06.jpeg",
     "/work/commercial/commercial_07.jpeg",
-    "/work/commercial/commercial_08.jpeg"
+    "/work/commercial/commercial_08.jpeg",
+    "/work/commercial/commercial_09.jpeg",
+    "/work/commercial/commercial_10.jpeg",
+    "/work/commercial/commercial_11.jpeg",
+    "/work/commercial/commercial_12.jpeg",
+    "/work/commercial/commercial_13.jpeg",
+    "/work/commercial/commercial_14.jpeg"
   ],
   "renovation": [
+    "/work/renovation/renovation_01.jpeg",
     "/work/renovation/renovation_02.jpeg",
     "/work/renovation/renovation_03.jpeg",
     "/work/renovation/renovation_04.jpeg",
     "/work/renovation/renovation_05.jpeg",
     "/work/renovation/renovation_06.jpeg",
     "/work/renovation/renovation_07.jpeg",
-    "/work/renovation/renovation_08.jpeg"
+    "/work/renovation/renovation_08.jpeg",
+    "/work/renovation/renovation_09.jpeg"
   ],
   "turnkey": [
+    "/work/turnkey/turnkey_01.jpeg",
     "/work/turnkey/turnkey_02.jpeg",
     "/work/turnkey/turnkey_03.jpeg",
     "/work/turnkey/turnkey_04.jpeg",
     "/work/turnkey/turnkey_05.jpeg",
     "/work/turnkey/turnkey_06.jpeg",
     "/work/turnkey/turnkey_07.jpeg",
-    "/work/turnkey/turnkey_08.jpeg"
+    "/work/turnkey/turnkey_08.jpeg",
+    "/work/turnkey/turnkey_09.jpeg",
+    "/work/turnkey/turnkey_10.jpeg",
+    "/work/turnkey/turnkey_11.jpeg"
   ]
 }
