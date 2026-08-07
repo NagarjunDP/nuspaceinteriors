@@ -71,7 +71,7 @@ export default function RootLayout({
       "addressCountry": "IN"
     },
     "telephone": "+919886527878",
-    "email": "nuspacedecor@gmail.com",
+    "email": ["nuspacebangalore@gmail.com", "nuspacedecor@gmail.com"],
     "taxID": "29DVLPP6022C1ZH",
     "priceRange": "$$$$"
   };

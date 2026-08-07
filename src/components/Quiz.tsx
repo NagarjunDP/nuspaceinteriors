@@ -42,6 +42,10 @@ export default function Quiz() {
     const [currentStep, setCurrentStep] = useState(0);
     const [answers, setAnswers] = useState<Record<string, string>>({});
     const [showForm, setShowForm] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [whatsappLink, setWhatsappLink] = useState("");
+    const [leadData, setLeadData] = useState({ name: "", email: "", phone: "" });
     const quizRef = useRef(null);
 
     const handleOptionSelect = (option: string) => {
@@ -60,6 +64,39 @@ export default function Quiz() {
             });
         } else {
             setShowForm(true);
+        }
+    };
+
+    const handleQuizSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        const messageText = `Hi Nuspace Creations,\n\nI completed the Style Quiz on your website! Here are my preferences:\n\n✨ *Style Vibe:* ${answers.vibe || "Contemporary"}\n🏠 *Space:* ${answers.space || "Full Home"}\n💰 *Budget:* ${answers.budget || "N/A"}\n\n📌 *Name:* ${leadData.name}\n📞 *Phone:* ${leadData.phone}\n✉️ *Email:* ${leadData.email}`;
+        const waUrl = `https://wa.me/919886527878?text=${encodeURIComponent(messageText)}`;
+        setWhatsappLink(waUrl);
+
+        try {
+            await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: leadData.name,
+                    phone: leadData.phone,
+                    email: leadData.email,
+                    projectType: answers.space || "Quiz Lead",
+                    budget: answers.budget || "N/A",
+                    source: "Interactive Style Quiz",
+                    quizAnswers: answers,
+                }),
+            });
+        } catch (err) {
+            console.error("Quiz submit error:", err);
+        } finally {
+            setIsSubmitting(false);
+            setIsSubmitted(true);
+            if (typeof window !== "undefined") {
+                window.open(waUrl, "_blank", "noopener,noreferrer");
+            }
         }
     };
 
@@ -264,72 +301,118 @@ export default function Quiz() {
                             We've created a custom mood board for you. Enter your details to receive it.
                         </p>
 
-                        <form
-                            style={{
-                                display: "grid",
-                                gridTemplateColumns: "repeat(2, 1fr)",
-                                gap: "1.5rem",
-                                maxWidth: "600px",
-                                margin: "0 auto",
-                            }}
-                        >
-                            <input
-                                type="text"
-                                placeholder="Full Name"
+                        {isSubmitted ? (
+                            <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem" }}>
+                                <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "1.1rem", color: "#2C2C2C" }}>
+                                    Thank you <strong>{leadData.name}</strong>! Your mood board & quiz details have been emailed to <strong>nuspacebangalore@gmail.com</strong> and <strong>nuspacedecor@gmail.com</strong>.
+                                </p>
+                                {whatsappLink && (
+                                    <a
+                                        href={whatsappLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        style={{
+                                            padding: "1.2rem 2.5rem",
+                                            borderRadius: "100px",
+                                            backgroundColor: "#25D366",
+                                            color: "#ffffff",
+                                            textDecoration: "none",
+                                            fontFamily: "var(--font-montserrat)",
+                                            fontSize: "11px",
+                                            fontWeight: 700,
+                                            letterSpacing: "0.15em",
+                                            textTransform: "uppercase",
+                                            display: "inline-flex",
+                                            alignItems: "center",
+                                            gap: "0.75rem",
+                                            boxShadow: "0 10px 30px rgba(37,211,102,0.3)",
+                                        }}
+                                    >
+                                        <span>Continue on WhatsApp (+91 98865 27878)</span>
+                                        <ArrowRight size={16} />
+                                    </a>
+                                )}
+                            </div>
+                        ) : (
+                            <form
+                                onSubmit={handleQuizSubmit}
                                 style={{
-                                    gridColumn: "span 2",
-                                    padding: "1.25rem 2rem",
-                                    borderRadius: "100px",
-                                    border: "1px solid rgba(0,0,0,0.1)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            />
-                            <input
-                                type="email"
-                                placeholder="Email Address"
-                                style={{
-                                    padding: "1.25rem 2rem",
-                                    borderRadius: "100px",
-                                    border: "1px solid rgba(0,0,0,0.1)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            />
-                            <input
-                                type="tel"
-                                placeholder="Phone Number"
-                                style={{
-                                    padding: "1.25rem 2rem",
-                                    borderRadius: "100px",
-                                    border: "1px solid rgba(0,0,0,0.1)",
-                                    fontFamily: "var(--font-dm-sans)",
-                                }}
-                            />
-                            <button
-                                type="submit"
-                                style={{
-                                    gridColumn: "span 2",
-                                    padding: "1.5rem",
-                                    borderRadius: "100px",
-                                    backgroundColor: "#4A90A4",
-                                    color: "#ffffff",
-                                    border: "none",
-                                    fontFamily: "var(--font-montserrat)",
-                                    fontSize: "11px",
-                                    fontWeight: 700,
-                                    letterSpacing: "0.2em",
-                                    textTransform: "uppercase",
-                                    cursor: "pointer",
-                                    marginTop: "1rem",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    gap: "1rem",
+                                    display: "grid",
+                                    gridTemplateColumns: "repeat(2, 1fr)",
+                                    gap: "1.5rem",
+                                    maxWidth: "600px",
+                                    margin: "0 auto",
                                 }}
                             >
-                                Get My Free Mood Board
-                                <ArrowRight size={16} />
-                            </button>
-                        </form>
+                                <input
+                                    type="text"
+                                    required
+                                    placeholder="Full Name"
+                                    value={leadData.name}
+                                    onChange={(e) => setLeadData({ ...leadData, name: e.target.value })}
+                                    style={{
+                                        gridColumn: "span 2",
+                                        padding: "1.25rem 2rem",
+                                        borderRadius: "100px",
+                                        border: "1px solid rgba(0,0,0,0.1)",
+                                        fontFamily: "var(--font-dm-sans)",
+                                    }}
+                                />
+                                <input
+                                    type="email"
+                                    required
+                                    placeholder="Email Address"
+                                    value={leadData.email}
+                                    onChange={(e) => setLeadData({ ...leadData, email: e.target.value })}
+                                    style={{
+                                        padding: "1.25rem 2rem",
+                                        borderRadius: "100px",
+                                        border: "1px solid rgba(0,0,0,0.1)",
+                                        fontFamily: "var(--font-dm-sans)",
+                                    }}
+                                />
+                                <input
+                                    type="tel"
+                                    required
+                                    placeholder="Phone Number"
+                                    value={leadData.phone}
+                                    onChange={(e) => setLeadData({ ...leadData, phone: e.target.value })}
+                                    style={{
+                                        padding: "1.25rem 2rem",
+                                        borderRadius: "100px",
+                                        border: "1px solid rgba(0,0,0,0.1)",
+                                        fontFamily: "var(--font-dm-sans)",
+                                    }}
+                                />
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    style={{
+                                        gridColumn: "span 2",
+                                        padding: "1.5rem",
+                                        borderRadius: "100px",
+                                        backgroundColor: "#4A90A4",
+                                        color: "#ffffff",
+                                        border: "none",
+                                        fontFamily: "var(--font-montserrat)",
+                                        fontSize: "11px",
+                                        fontWeight: 700,
+                                        letterSpacing: "0.2em",
+                                        textTransform: "uppercase",
+                                        cursor: isSubmitting ? "not-allowed" : "pointer",
+                                        opacity: isSubmitting ? 0.7 : 1,
+                                        marginTop: "1rem",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        gap: "1rem",
+                                    }}
+                                >
+                                    <span>{isSubmitting ? "Sending..." : "Get My Free Mood Board"}</span>
+                                    <ArrowRight size={16} />
+                                </button>
+                            </form>
+                        )}
                     </div>
                 )}
             </div>

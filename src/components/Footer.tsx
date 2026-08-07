@@ -110,9 +110,12 @@ export default function Footer() {
                                 <Phone size={14} color="#8B263E" />
                                 <a href="tel:+919886527878" style={{ color: "#ffffff", textDecoration: "none" }}>+91 98865 27878</a>
                             </div>
-                            <div style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
-                                <Mail size={14} color="#8B263E" />
-                                <a href="mailto:nuspacedecor@gmail.com" style={{ color: "#ffffff", textDecoration: "none" }}>nuspacedecor@gmail.com</a>
+                            <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
+                                <Mail size={14} color="#8B263E" style={{ marginTop: "3px", flexShrink: 0 }} />
+                                <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+                                    <a href="mailto:nuspacebangalore@gmail.com" style={{ color: "#ffffff", textDecoration: "none" }}>nuspacebangalore@gmail.com</a>
+                                    <a href="mailto:nuspacedecor@gmail.com" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "none" }}>nuspacedecor@gmail.com</a>
+                                </div>
                             </div>
                             <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
                                 <MapPin size={14} color="#8B263E" style={{ marginTop: "3px", flexShrink: 0 }} />

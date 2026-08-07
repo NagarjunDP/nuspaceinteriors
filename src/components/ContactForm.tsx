@@ -10,6 +10,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ContactForm() {
     const sectionRef = useRef(null);
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [whatsappLink, setWhatsappLink] = useState("");
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -49,9 +51,29 @@ export default function ContactForm() {
         return () => ctx.revert();
     }, []);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setSubmitted(true);
+        setIsSubmitting(true);
+
+        const messageText = `Hi Nuspace Creations,\n\nI would like to enquire about an interior design project.\n\n📌 *Name:* ${formData.name}\n📞 *Phone:* ${formData.phone}\n✉️ *Email:* ${formData.email}\n🏠 *Project Type:* ${formData.projectType}\n📍 *Location:* ${formData.location || "N/A"}\n💰 *Budget:* ${formData.budget || "N/A"}\n📝 *Details:* ${formData.message || "N/A"}`;
+        const waUrl = `https://wa.me/919886527878?text=${encodeURIComponent(messageText)}`;
+        setWhatsappLink(waUrl);
+
+        try {
+            await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...formData, source: "Main Contact Form" }),
+            });
+        } catch (err) {
+            console.error("Form submission error:", err);
+        } finally {
+            setIsSubmitting(false);
+            setSubmitted(true);
+            if (typeof window !== "undefined") {
+                window.open(waUrl, "_blank", "noopener,noreferrer");
+            }
+        }
     };
 
     return (
@@ -183,10 +205,7 @@ export default function ContactForm() {
                         </a>
 
                         {/* Email */}
-                        <a
-                            href="mailto:nuspacedecor@gmail.com"
-                            style={{ textDecoration: "none", color: "#ffffff", display: "flex", gap: "1.25rem", alignItems: "flex-start" }}
-                        >
+                        <div style={{ display: "flex", gap: "1.25rem", alignItems: "flex-start" }}>
                             <div
                                 style={{
                                     width: "3rem",
@@ -203,10 +222,13 @@ export default function ContactForm() {
                                 <Mail size={20} />
                             </div>
                             <div>
-                                <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.15em", display: "block" }}>Email Inquiry</span>
-                                <strong style={{ fontSize: "1.15rem", color: "#ffffff" }}>nuspacedecor@gmail.com</strong>
+                                <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.15em", display: "block" }}>Email Inquiries</span>
+                                <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+                                    <a href="mailto:nuspacebangalore@gmail.com" style={{ fontSize: "1rem", color: "#ffffff", textDecoration: "none" }}>nuspacebangalore@gmail.com</a>
+                                    <a href="mailto:nuspacedecor@gmail.com" style={{ fontSize: "1rem", color: "rgba(255,255,255,0.85)", textDecoration: "none" }}>nuspacedecor@gmail.com</a>
+                                </div>
                             </div>
-                        </a>
+                        </div>
 
                         {/* Studio Location */}
                         <div style={{ display: "flex", gap: "1.25rem", alignItems: "flex-start" }}>
@@ -273,15 +295,37 @@ export default function ContactForm() {
                         >
                             <CheckCircle2 size={48} color="#8B263E" />
                             <h3 style={{ fontFamily: "var(--font-serif)", fontSize: "2rem", color: "#ffffff", margin: 0 }}>
-                                Project Inquiry Received
+                                Project Inquiry Received!
                             </h3>
                             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.05rem", lineHeight: 1.6 }}>
-                                Thank you for contacting Nuspace Creations. Our design leadership team will review your requirements and get in touch with you shortly.
+                                Thank you for contacting Nuspace Creations. Your enquiry details have been automatically sent to <strong>nuspacebangalore@gmail.com</strong> and <strong>nuspacedecor@gmail.com</strong>.
                             </p>
+                            {whatsappLink && (
+                                <a
+                                    href={whatsappLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-primary"
+                                    style={{
+                                        backgroundColor: "#25D366",
+                                        borderColor: "#25D366",
+                                        color: "#ffffff",
+                                        padding: "0.85rem 1.75rem",
+                                        fontSize: "0.9rem",
+                                        textDecoration: "none",
+                                        display: "inline-flex",
+                                        alignItems: "center",
+                                        gap: "0.5rem",
+                                    }}
+                                >
+                                    <MessageCircle size={18} />
+                                    <span>Continue on WhatsApp (+91 98865 27878)</span>
+                                </a>
+                            )}
                             <button
                                 onClick={() => setSubmitted(false)}
                                 className="btn-secondary"
-                                style={{ color: "#ffffff", borderColor: "rgba(255,255,255,0.3)" }}
+                                style={{ color: "#ffffff", borderColor: "rgba(255,255,255,0.3)", marginTop: "0.5rem" }}
                             >
                                 Submit Another Inquiry
                             </button>
@@ -374,15 +418,18 @@ export default function ContactForm() {
 
                             <button
                                 type="submit"
+                                disabled={isSubmitting}
                                 className="btn-primary"
                                 style={{
                                     gridColumn: "span 2",
                                     padding: "1.2rem",
                                     justifyContent: "center",
                                     marginTop: "0.5rem",
+                                    opacity: isSubmitting ? 0.7 : 1,
+                                    cursor: isSubmitting ? "not-allowed" : "pointer",
                                 }}
                             >
-                                <span>Start a Conversation</span>
+                                <span>{isSubmitting ? "Sending Inquiry..." : "Start a Conversation"}</span>
                                 <ArrowRight size={18} />
                             </button>
 
