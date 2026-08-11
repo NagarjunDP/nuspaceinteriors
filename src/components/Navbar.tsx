@@ -129,13 +129,21 @@ export default function Navbar() {
                 style={{
                     cursor: "pointer",
                     display: "none",
-                    background: "none",
-                    border: "none",
-                    padding: "0.5rem",
+                    background: "rgba(255, 255, 255, 0.1)",
+                    backdropFilter: "blur(8px)",
+                    WebkitBackdropFilter: "blur(8px)",
+                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    borderRadius: "50%",
+                    width: "44px",
+                    height: "44px",
+                    padding: 0,
                     zIndex: 1001,
+                    transition: "all 0.25s ease",
                 }}
             >
-                {isMenuOpen ? <X size={26} color="#ffffff" /> : <Menu size={26} color="#ffffff" />}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "100%" }}>
+                    {isMenuOpen ? <X size={22} color="#ffffff" /> : <Menu size={22} color="#ffffff" />}
+                </div>
             </button>
 
             {/* ── Mobile Full-Screen Drawer ── */}
@@ -152,7 +160,7 @@ export default function Navbar() {
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: "1.75rem",
+                    gap: "1.35rem",
                     transform: isMenuOpen ? "translateX(0)" : "translateX(100%)",
                     transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
                     overflowY: "auto",
@@ -163,19 +171,20 @@ export default function Navbar() {
                 <div
                     style={{
                         position: "relative",
-                        width: "100px",
-                        height: "100px",
-                        borderRadius: "16px",
+                        width: "80px",
+                        height: "80px",
+                        borderRadius: "14px",
                         overflow: "hidden",
-                        marginBottom: "0.25rem",
-                        boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
+                        marginBottom: "0.15rem",
+                        boxShadow: "0 6px 20px rgba(0,0,0,0.4)",
+                        border: "1px solid rgba(255,255,255,0.12)",
                     }}
                 >
                     <Image
                         src={getCdnUrl("/nuspacelogo.png")}
                         alt="Nuspace Creations"
                         fill
-                        sizes="100px"
+                        sizes="80px"
                         style={{ objectFit: "cover" }}
                     />
                 </div>
@@ -183,54 +192,56 @@ export default function Navbar() {
                 <span
                     style={{
                         textTransform: "uppercase",
-                        letterSpacing: "0.35em",
+                        letterSpacing: "0.32em",
                         fontSize: "0.6rem",
-                        color: "#8B263E",
+                        color: "#C5A059",
                         fontWeight: 600,
                     }}
                 >
                     NUSPACE CREATIONS — BENGALURU
                 </span>
 
-                {NAV_LINKS.map((link) => (
-                    <a
-                        key={link}
-                        href={`#${link.toLowerCase()}`}
-                        onClick={() => setIsMenuOpen(false)}
-                        style={{
-                            fontFamily: "var(--font-serif)",
-                            fontSize: "2rem",
-                            fontWeight: 500,
-                            color: "#FAF8F5",
-                            textDecoration: "none",
-                            letterSpacing: "0.04em",
-                            transition: "color 0.25s ease",
-                        }}
-                        onMouseEnter={(e) => (e.currentTarget.style.color = "#8B263E")}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = "#FAF8F5")}
-                    >
-                        {link}
-                    </a>
-                ))}
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem" }}>
+                    {NAV_LINKS.map((link) => (
+                        <a
+                            key={link}
+                            href={`#${link.toLowerCase()}`}
+                            onClick={() => setIsMenuOpen(false)}
+                            style={{
+                                fontFamily: "var(--font-serif)",
+                                fontSize: "1.65rem",
+                                fontWeight: 400,
+                                color: "#FAF8F5",
+                                textDecoration: "none",
+                                letterSpacing: "0.03em",
+                                transition: "color 0.25s ease",
+                            }}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = "#C5A059")}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = "#FAF8F5")}
+                        >
+                            {link}
+                        </a>
+                    ))}
+                </div>
 
                 <a
                     href="#contact"
                     onClick={() => setIsMenuOpen(false)}
                     className="btn-primary"
-                    style={{ marginTop: "0.75rem", padding: "1rem 2.5rem" }}
+                    style={{ marginTop: "0.5rem", padding: "0.85rem 2.2rem", fontSize: "0.78rem" }}
                 >
                     Start Your Project
                 </a>
 
                 <div
                     style={{
-                        fontSize: "0.7rem",
+                        fontSize: "0.68rem",
                         color: "rgba(255,255,255,0.4)",
                         letterSpacing: "0.04em",
                         textAlign: "center",
                     }}
                 >
-                    +91 98865 27878 · nuspacebangalore@gmail.com · nuspacedecor@gmail.com
+                    +91 98865 27878 · nuspacebangalore@gmail.com
                 </div>
             </div>
 

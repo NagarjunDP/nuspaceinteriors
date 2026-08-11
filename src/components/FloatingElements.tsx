@@ -93,12 +93,12 @@ export default function FloatingElements() {
                     right: "2.5rem",
                     width: "3.75rem",
                     height: "3.75rem",
-                    backgroundColor: "#8B263E",
+                    backgroundColor: "#CE2029",
                     borderRadius: "50%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    boxShadow: "0 15px 35px rgba(139, 38, 62, 0.45)",
+                    boxShadow: "0 15px 35px rgba(206, 32, 41, 0.45)",
                     zIndex: 999,
                     cursor: "pointer",
                     transition: "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -165,33 +165,44 @@ export default function FloatingElements() {
                     bottom: 0,
                     left: 0,
                     width: "100%",
-                    backgroundColor: "#8B263E",
-                    padding: "0.85rem 1.5rem calc(0.85rem + env(safe-area-inset-bottom))",
+                    backgroundColor: "rgba(20, 19, 18, 0.95)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    borderTop: "1px solid rgba(255, 255, 255, 0.12)",
+                    padding: "0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom))",
                     display: "none",
                     justifyContent: "center",
                     alignItems: "center",
+                    gap: "0.75rem",
                     zIndex: 1001,
-                    boxShadow: "0 -10px 30px rgba(0,0,0,0.3)",
+                    boxShadow: "0 -10px 30px rgba(0,0,0,0.4)",
                 }}
                 className="mobile-cta-bar"
             >
                 <a
                     href="tel:+919886527878"
                     style={{
+                        backgroundColor: "#CE2029",
                         color: "#ffffff",
                         fontFamily: "var(--font-sans)",
-                        fontSize: "0.8rem",
+                        fontSize: "0.76rem",
                         fontWeight: 600,
-                        letterSpacing: "0.15em",
+                        letterSpacing: "0.12em",
                         textTransform: "uppercase",
                         textDecoration: "none",
                         display: "flex",
                         alignItems: "center",
-                        gap: "0.75rem",
+                        justifyContent: "center",
+                        gap: "0.5rem",
+                        padding: "0.65rem 1.4rem",
+                        borderRadius: "9999px",
+                        width: "100%",
+                        maxWidth: "340px",
+                        boxShadow: "0 4px 15px rgba(206, 32, 41, 0.4)",
                     }}
                 >
-                    <PhoneCall size={16} />
-                    Call Us Now: +91 98865 27878
+                    <PhoneCall size={15} />
+                    <span>Call Us: +91 98865 27878</span>
                 </a>
             </div>
 
@@ -201,14 +212,14 @@ export default function FloatingElements() {
             display: flex !important;
           }
           .whatsapp-float-btn {
-            bottom: calc(4.5rem + env(safe-area-inset-bottom)) !important;
-            right: 1.25rem !important;
+            bottom: calc(4.75rem + env(safe-area-inset-bottom)) !important;
+            right: 1.15rem !important;
             width: 3.25rem !important;
             height: 3.25rem !important;
           }
           .call-float-btn {
-            bottom: calc(8.5rem + env(safe-area-inset-bottom)) !important;
-            right: 1.25rem !important;
+            bottom: calc(8.6rem + env(safe-area-inset-bottom)) !important;
+            right: 1.15rem !important;
             width: 3.25rem !important;
             height: 3.25rem !important;
           }
@@ -217,10 +228,10 @@ export default function FloatingElements() {
             display: none !important;
           }
           .scroll-top-btn {
-            bottom: calc(12.25rem + env(safe-area-inset-bottom)) !important;
-            right: 1.25rem !important;
-            width: 2.75rem !important;
-            height: 2.75rem !important;
+            bottom: calc(12.4rem + env(safe-area-inset-bottom)) !important;
+            right: 1.15rem !important;
+            width: 2.6rem !important;
+            height: 2.6rem !important;
           }
         }
       `}</style>

@@ -389,15 +389,15 @@ export default function Quiz() {
                                     disabled={isSubmitting}
                                     style={{
                                         gridColumn: "span 2",
-                                        padding: "1.5rem",
+                                        padding: "1.25rem 2rem",
                                         borderRadius: "100px",
-                                        backgroundColor: "#4A90A4",
+                                        backgroundColor: "#CE2029",
                                         color: "#ffffff",
                                         border: "none",
-                                        fontFamily: "var(--font-montserrat)",
-                                        fontSize: "11px",
-                                        fontWeight: 700,
-                                        letterSpacing: "0.2em",
+                                        fontFamily: "var(--font-sans)",
+                                        fontSize: "12px",
+                                        fontWeight: 600,
+                                        letterSpacing: "0.15em",
                                         textTransform: "uppercase",
                                         cursor: isSubmitting ? "not-allowed" : "pointer",
                                         opacity: isSubmitting ? 0.7 : 1,
@@ -405,7 +405,8 @@ export default function Quiz() {
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
-                                        gap: "1rem",
+                                        gap: "0.75rem",
+                                        boxShadow: "0 10px 25px rgba(206, 32, 41, 0.35)",
                                     }}
                                 >
                                     <span>{isSubmitting ? "Sending..." : "Get My Free Mood Board"}</span>
@@ -421,6 +422,20 @@ export default function Quiz() {
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 640px) {
+          .quiz-step-grid {
+            grid-template-columns: 1fr !important;
+          }
+          form {
+            grid-template-columns: 1fr !important;
+          }
+          form input {
+            grid-column: span 1 !important;
+          }
+          form button {
+            grid-column: span 1 !important;
+          }
         }
       `}</style>
         </section>

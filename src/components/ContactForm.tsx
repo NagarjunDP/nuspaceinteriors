@@ -441,6 +441,26 @@ export default function ContactForm() {
                     )}
                 </div>
             </div>
+
+            <style jsx>{`
+        @media (max-width: 768px) {
+          .contact-left {
+            padding: 3.5rem 1.5rem !important;
+          }
+          .contact-right {
+            padding: 3.5rem 1.5rem !important;
+          }
+          .contact-form-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .contact-form-grid > div {
+            grid-column: span 1 !important;
+          }
+          .contact-form-grid button {
+            grid-column: span 1 !important;
+          }
+        }
+      `}</style>
         </section>
     );
 }

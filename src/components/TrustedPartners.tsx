@@ -10,19 +10,20 @@ interface Partner {
   category: string;
   logo: string;
   bg?: string;
+  scale?: number;
 }
 
 const partners: Partner[] = [
-  { name: "Greenply", category: "Plywood & Veneers", logo: getCdnUrl("/images/partners/greenply.svg") },
-  { name: "CenturyPly", category: "Plywood & Laminates", logo: getCdnUrl("/images/partners/centuryply.png") },
-  { name: "Merino", category: "Surface Laminates", logo: getCdnUrl("/images/partners/merino.png") },
-  { name: "Greenlam", category: "Architectural Cladding", logo: getCdnUrl("/images/partners/greenlam.png") },
-  { name: "Hettich", category: "German Hardware", logo: getCdnUrl("/images/partners/hettich.svg") },
-  { name: "Action Tesa", category: "HDMR & MDF Boards", logo: getCdnUrl("/images/partners/actiontesa.png") },
-  { name: "Häfele", category: "Architectural Fittings", logo: getCdnUrl("/images/partners/hafele.svg") },
-  { name: "Ebco", category: "Furniture Accessories", logo: getCdnUrl("/images/partners/ebco.avif"), bg: "#0B1E36" },
-  { name: "Asian Paints", category: "Paints & Coatings", logo: getCdnUrl("/images/partners/asianpaints.avif") },
-  { name: "Saint-Gobain", category: "High Performance Glass", logo: getCdnUrl("/images/partners/saintgobain.png") },
+  { name: "Greenply", category: "Plywood & Veneers", logo: getCdnUrl("/images/partners/greenply.svg"), scale: 1.05 },
+  { name: "CenturyPly", category: "Plywood & Laminates", logo: getCdnUrl("/images/partners/centuryply.png"), scale: 1.05 },
+  { name: "Merino", category: "Surface Laminates", logo: getCdnUrl("/merinologo.jpg.webp"), bg: "#E11D24", scale: 1.0 },
+  { name: "Greenlam", category: "Architectural Cladding", logo: getCdnUrl("/images/partners/greenlam.png"), scale: 1.05 },
+  { name: "Hettich", category: "German Hardware", logo: getCdnUrl("/images/partners/hettich.svg"), scale: 1.1 },
+  { name: "Action Tesa", category: "HDMR & MDF Boards", logo: getCdnUrl("/images/partners/actiontesa.png"), scale: 1.05 },
+  { name: "Häfele", category: "Architectural Fittings", logo: getCdnUrl("/images/partners/hafele.svg"), scale: 1.1 },
+  { name: "Ebco", category: "Furniture Accessories", logo: getCdnUrl("/images/partners/ebco.avif"), bg: "#0B1E36", scale: 1.05 },
+  { name: "Asian Paints", category: "Paints & Coatings", logo: getCdnUrl("/images/partners/asianpaints.avif"), scale: 1.1 },
+  { name: "Saint-Gobain", category: "High Performance Glass", logo: getCdnUrl("/images/partners/saintgobain.png"), scale: 1.0 },
 ];
 
 function useInView(threshold = 0.1) {
@@ -164,8 +165,18 @@ export default function TrustedPartners() {
         }
 
         .marquee-item {
-          width: 220px;
+          width: 210px;
           flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+          .marquee-item {
+            width: 165px;
+          }
+          .marquee-track {
+            gap: 0.85rem;
+            animation-duration: 24s;
+          }
         }
 
         @keyframes marquee-flow {
@@ -185,6 +196,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
   const [hovered, setHovered] = useState(false);
   const cardBg = partner.bg || "#FFFFFF";
   const isDark = cardBg !== "#FFFFFF";
+  const isMerino = partner.name === "Merino";
 
   return (
     <div
@@ -198,12 +210,13 @@ function PartnerCard({ partner }: { partner: Partner }) {
           : isDark
           ? "1px solid rgba(255, 255, 255, 0.12)"
           : "1px solid rgba(0, 0, 0, 0.08)",
-        height: "105px",
-        padding: "1rem 1.35rem",
+        height: "96px",
+        padding: isMerino ? "0.35rem 0.6rem" : "0.75rem 1.15rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         position: "relative",
+        overflow: "hidden",
         boxShadow: hovered
           ? "0 14px 32px -6px rgba(139, 38, 62, 0.28)"
           : isDark
@@ -219,11 +232,10 @@ function PartnerCard({ partner }: { partner: Partner }) {
           position: "relative",
           width: "100%",
           height: "100%",
-          filter: "none",
-          opacity: 1,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          transform: partner.scale ? `scale(${partner.scale})` : "none",
         }}
       >
         <Image

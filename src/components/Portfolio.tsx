@@ -119,12 +119,18 @@ export default function Portfolio() {
 
         {/* ── Category Filter Tabs ── */}
         <div
+          className="portfolio-cat-tabs"
           style={{
             display: "flex",
             gap: "0.5rem",
             flexWrap: "wrap",
             justifyContent: "center",
             marginBottom: "2.5rem",
+            maxWidth: "100%",
+            overflowX: "auto",
+            paddingBottom: "0.5rem",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
         >
           {CATEGORIES.map((cat) => {
@@ -134,10 +140,10 @@ export default function Portfolio() {
                 key={cat.id}
                 onClick={() => { setActiveCategory(cat.id); setVisibleCount(24); }}
                 style={{
-                  padding: "0.5rem 1.1rem",
+                  padding: "0.55rem 1.15rem",
                   borderRadius: "9999px",
-                  border: isActive ? "1px solid #8B263E" : "1px solid rgba(28,27,26,0.2)",
-                  backgroundColor: isActive ? "#8B263E" : "transparent",
+                  border: isActive ? "1px solid #CE2029" : "1px solid rgba(28,27,26,0.18)",
+                  backgroundColor: isActive ? "#CE2029" : "transparent",
                   color: isActive ? "#ffffff" : "#1C1B1A",
                   fontFamily: "var(--font-sans)",
                   fontSize: "0.72rem",
@@ -146,6 +152,8 @@ export default function Portfolio() {
                   textTransform: "uppercase",
                   cursor: "pointer",
                   transition: "all 0.25s ease",
+                  flexShrink: 0,
+                  whiteSpace: "nowrap",
                 }}
               >
                 {cat.label}

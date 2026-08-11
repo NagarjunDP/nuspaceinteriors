@@ -159,25 +159,27 @@ export default function Hero() {
             display: "inline-flex",
             alignItems: "center",
             gap: "0.6rem",
-            padding: "0.4rem 1.3rem",
+            padding: "0.4rem 1.25rem",
             borderRadius: "9999px",
-            backgroundColor: "rgba(20, 19, 18, 0.75)",
-            border: "1px solid rgba(197, 160, 89, 0.35)",
+            backgroundColor: "rgba(20, 19, 18, 0.8)",
+            border: "1px solid rgba(197, 160, 89, 0.4)",
             backdropFilter: "blur(12px)",
+            maxWidth: "100%",
           }}
         >
-          <Sparkles size={13} color="#C5A059" strokeWidth={1.5} />
+          <Sparkles size={12} color="#C5A059" strokeWidth={1.5} style={{ flexShrink: 0 }} />
           <span
+            className="hero-badge-text"
             style={{
               fontFamily: "var(--font-sans)",
               fontSize: "0.68rem",
               fontWeight: 600,
-              letterSpacing: "0.3em",
+              letterSpacing: "0.22em",
               textTransform: "uppercase",
               color: "#FAF8F5",
             }}
           >
-            NUSPACE CREATIONS — EST. 2015 BENGALURU
+            NUSPACE CREATIONS · EST. 2015 · BENGALURU
           </span>
         </div>
 
@@ -448,12 +450,35 @@ export default function Hero() {
         }
 
         @media (max-width: 640px) {
+          .hero-badge {
+            padding: 0.35rem 0.85rem !important;
+            gap: 0.4rem !important;
+          }
+          .hero-badge-text {
+            font-size: 0.58rem !important;
+            letter-spacing: 0.12em !important;
+            white-space: nowrap !important;
+          }
+          .hero-cta-group {
+            flex-direction: column;
+            width: 100%;
+          }
+          .hero-cta-group a {
+            width: 100%;
+            max-width: 300px;
+            justify-content: center;
+          }
           .hero-stat-divider {
             display: none;
           }
           .hero-stat-strip {
-            flex-direction: column;
-            gap: 0.4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem 0.5rem;
+            text-align: center;
+          }
+          .hero-stat-item {
+            justify-content: center;
           }
         }
       `}</style>
