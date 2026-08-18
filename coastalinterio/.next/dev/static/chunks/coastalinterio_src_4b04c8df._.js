@@ -2,16 +2,20 @@
 "[project]/coastalinterio/src/lib/cdn.ts [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/**
- * Helper to convert image paths to jsDelivr CDN URLs for GitHub repository assets.
- */ __turbopack_context__.s([
+__turbopack_context__.s([
     "getCdnUrl",
     ()=>getCdnUrl
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/coastalinterio/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+/**
+ * Helper to convert image paths to jsDelivr CDN URLs for GitHub repository assets.
+ */ const CDN_BASE_URL = "https://cdn.jsdelivr.net/gh/NagarjunDP/nuspaceinteriors@main/public";
 function getCdnUrl(path) {
     if (!path) return path;
     if (path.startsWith("http://") || path.startsWith("https://")) return path;
     const cleanPath = path.startsWith("/") ? path : `/${path}`;
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
     return cleanPath;
 }
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
@@ -382,7 +386,7 @@ function Navbar() {
                             textAlign: "center"
                         },
                         className: "jsx-f89dfb353173520d",
-                        children: "+91 98865 27878 · nuspacebangalore@gmail.com"
+                        children: "+91 98865 27878 · nuspacedecor@gmail.com"
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Navbar.tsx",
                         lineNumber: 236,
@@ -450,7 +454,7 @@ const FLOATING_THUMBS = [
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/bedroom/bedroom_02.jpeg"),
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/kitchen/kitchen_03.jpeg"),
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/living_room/living_room_01.jpeg"),
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/dining/dining_01.jpeg"),
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/kitchen/kitchen_01.jpeg"),
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/renovation/renovation_02.jpeg"),
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/wardrobe/wardrobe_01.jpeg"),
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/commercial/commercial_02.jpeg")
@@ -4710,7 +4714,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 }),
 "[project]/coastalinterio/src/data/portfolio_manifest.json (json)", ((__turbopack_context__) => {
 
-__turbopack_context__.v({"living_room":["/work/living_room/living_room_01.jpeg","/work/living_room/living_room_02.jpeg","/work/living_room/living_room_03.jpeg","/work/living_room/living_room_04.jpeg","/work/living_room/living_room_05.jpeg","/work/living_room/living_room_06.jpeg","/work/living_room/living_room_07.jpeg","/work/living_room/living_room_08.jpeg","/work/living_room/living_room_09.jpeg","/work/living_room/living_room_10.jpeg","/work/living_room/living_room_11.jpeg","/work/living_room/living_room_12.jpeg","/work/living_room/living_room_13.jpeg","/work/living_room/living_room_14.jpeg","/work/living_room/living_room_15.jpeg","/work/living_room/living_room_16.jpeg","/work/living_room/living_room_17.jpeg","/work/living_room/living_room_18.jpeg"],"bedroom":["/work/bedroom/bedroom_01.jpeg","/work/bedroom/bedroom_02.jpeg","/work/bedroom/bedroom_03.jpeg","/work/bedroom/bedroom_04.jpeg","/work/bedroom/bedroom_05.jpeg","/work/bedroom/bedroom_06.jpeg","/work/bedroom/bedroom_07.jpeg","/work/bedroom/bedroom_08.jpeg","/work/bedroom/bedroom_09.jpeg","/work/bedroom/bedroom_10.jpeg","/work/bedroom/bedroom_11.jpeg","/work/bedroom/bedroom_12.jpeg","/work/bedroom/bedroom_13.jpeg","/work/bedroom/bedroom_14.jpeg","/work/bedroom/bedroom_15.jpeg","/work/bedroom/bedroom_16.jpeg","/work/bedroom/bedroom_17.jpeg","/work/bedroom/bedroom_18.jpeg"],"kitchen":["/work/kitchen/kitchen_01.jpeg","/work/kitchen/kitchen_02.jpeg","/work/kitchen/kitchen_03.jpeg","/work/kitchen/kitchen_04.jpeg","/work/kitchen/kitchen_05.jpeg","/work/kitchen/kitchen_07.jpeg","/work/kitchen/kitchen_08.jpeg","/work/kitchen/kitchen_09.jpeg","/work/kitchen/kitchen_10.jpeg","/work/kitchen/kitchen_11.jpeg","/work/kitchen/kitchen_12.jpeg","/work/kitchen/kitchen_13.jpeg","/work/kitchen/kitchen_14.jpeg"],"dining":["/work/dining/dining_01.jpeg","/work/dining/dining_02.jpeg","/work/dining/dining_03.jpeg","/work/dining/dining_04.jpeg","/work/dining/dining_05.jpeg","/work/dining/dining_06.jpeg","/work/dining/dining_07.jpeg","/work/dining/dining_08.jpeg","/work/dining/dining_09.jpeg","/work/dining/dining_10.jpeg","/work/dining/dining_11.jpeg"],"wardrobe":["/work/wardrobe/wardrobe_01.jpeg","/work/wardrobe/wardrobe_02.jpeg","/work/wardrobe/wardrobe_03.jpeg","/work/wardrobe/wardrobe_04.jpeg","/work/wardrobe/wardrobe_05.jpeg","/work/wardrobe/wardrobe_06.jpeg","/work/wardrobe/wardrobe_07.jpeg","/work/wardrobe/wardrobe_08.jpeg","/work/wardrobe/wardrobe_09.jpeg","/work/wardrobe/wardrobe_10.jpeg","/work/wardrobe/wardrobe_11.jpeg"],"commercial":["/work/commercial/commercial_01.jpeg","/work/commercial/commercial_02.jpeg","/work/commercial/commercial_03.jpeg","/work/commercial/commercial_04.jpeg","/work/commercial/commercial_05.jpeg","/work/commercial/commercial_06.jpeg","/work/commercial/commercial_07.jpeg","/work/commercial/commercial_08.jpeg","/work/commercial/commercial_09.jpeg","/work/commercial/commercial_10.jpeg","/work/commercial/commercial_11.jpeg","/work/commercial/commercial_12.jpeg","/work/commercial/commercial_13.jpeg","/work/commercial/commercial_14.jpeg"],"renovation":["/work/renovation/renovation_01.jpeg","/work/renovation/renovation_02.jpeg","/work/renovation/renovation_03.jpeg","/work/renovation/renovation_04.jpeg","/work/renovation/renovation_05.jpeg","/work/renovation/renovation_06.jpeg","/work/renovation/renovation_07.jpeg","/work/renovation/renovation_08.jpeg","/work/renovation/renovation_09.jpeg"],"turnkey":["/work/turnkey/turnkey_01.jpeg","/work/turnkey/turnkey_02.jpeg","/work/turnkey/turnkey_03.jpeg","/work/turnkey/turnkey_04.jpeg","/work/turnkey/turnkey_05.jpeg","/work/turnkey/turnkey_06.jpeg","/work/turnkey/turnkey_07.jpeg","/work/turnkey/turnkey_08.jpeg","/work/turnkey/turnkey_09.jpeg","/work/turnkey/turnkey_10.jpeg","/work/turnkey/turnkey_11.jpeg"]});}),
+__turbopack_context__.v({"living_room":["/work/living_room/living_room_01.jpeg","/work/living_room/living_room_02.jpeg","/work/living_room/living_room_03.jpeg","/work/living_room/living_room_04.jpeg","/work/living_room/living_room_05.jpeg","/work/living_room/living_room_06.jpeg","/work/living_room/living_room_07.jpeg","/work/living_room/living_room_08.jpeg","/work/living_room/living_room_09.jpeg","/work/living_room/living_room_10.jpeg","/work/living_room/living_room_11.jpeg","/work/living_room/living_room_12.jpeg","/work/living_room/living_room_13.jpeg","/work/living_room/living_room_14.jpeg","/work/living_room/living_room_15.jpeg","/work/living_room/living_room_16.jpeg","/work/living_room/living_room_17.jpeg","/work/living_room/living_room_18.jpeg"],"bedroom":["/work/bedroom/bedroom_01.jpeg","/work/bedroom/bedroom_02.jpeg","/work/bedroom/bedroom_03.jpeg","/work/bedroom/bedroom_04.png","/work/bedroom/bedroom_05.jpeg","/work/bedroom/bedroom_06.jpeg","/work/bedroom/bedroom_07.jpeg","/work/bedroom/bedroom_08.jpeg"],"kitchen":["/work/kitchen/kitchen_01.jpeg","/work/kitchen/kitchen_02.jpeg","/work/kitchen/kitchen_03.jpeg","/work/kitchen/kitchen_04.jpeg","/work/kitchen/kitchen_05.jpeg","/work/kitchen/kitchen_06.jpeg","/work/kitchen/kitchen_07.jpeg","/work/kitchen/kitchen_08.jpeg","/work/kitchen/kitchen_09.jpeg","/work/kitchen/kitchen_10.jpeg","/work/kitchen/kitchen_11.jpeg","/work/kitchen/kitchen_12.jpeg","/work/kitchen/kitchen_13.jpeg","/work/kitchen/kitchen_14.jpeg","/work/kitchen/kitchen_15.jpeg","/work/kitchen/kitchen_16.jpeg"],"wardrobe":["/work/wardrobe/wardrobe_01.jpeg","/work/wardrobe/wardrobe_02.jpeg","/work/wardrobe/wardrobe_03.jpeg","/work/wardrobe/wardrobe_04.jpeg","/work/wardrobe/wardrobe_05.jpeg","/work/wardrobe/wardrobe_06.jpeg","/work/wardrobe/wardrobe_07.jpeg","/work/wardrobe/wardrobe_08.jpeg","/work/wardrobe/wardrobe_09.jpeg","/work/wardrobe/wardrobe_10.jpeg","/work/wardrobe/wardrobe_11.jpeg","/work/wardrobe/wardrobe_12.jpeg","/work/wardrobe/wardrobe_13.jpeg","/work/wardrobe/wardrobe_14.jpeg","/work/wardrobe/wardrobe_15.jpeg","/work/wardrobe/wardrobe_16.jpeg","/work/wardrobe/wardrobe_17.jpeg","/work/wardrobe/wardrobe_18.jpeg"],"commercial":["/work/commercial/commercial_01.jpeg","/work/commercial/commercial_02.jpeg","/work/commercial/commercial_03.jpeg","/work/commercial/commercial_04.jpeg","/work/commercial/commercial_05.jpeg","/work/commercial/commercial_06.jpeg","/work/commercial/commercial_07.jpeg","/work/commercial/commercial_08.png","/work/commercial/commercial_09.jpeg","/work/commercial/commercial_10.png","/work/commercial/commercial_11.jpeg","/work/commercial/commercial_12.jpeg","/work/commercial/commercial_13.jpeg","/work/commercial/commercial_14.jpeg","/work/commercial/commercial_15.jpeg","/work/commercial/commercial_16.png"],"renovation":["/work/renovation/renovation_01.jpeg","/work/renovation/renovation_02.jpeg","/work/renovation/renovation_03.jpeg","/work/renovation/renovation_04.jpeg","/work/renovation/renovation_05.jpeg","/work/renovation/renovation_06.jpeg","/work/renovation/renovation_07.jpeg","/work/renovation/renovation_08.jpeg","/work/renovation/renovation_09.jpeg","/work/renovation/renovation_10.jpeg","/work/renovation/renovation_11.jpeg","/work/renovation/renovation_12.jpeg"],"turnkey":["/work/turnkey/turnkey_01.jpeg","/work/turnkey/turnkey_02.jpeg","/work/turnkey/turnkey_03.jpeg","/work/turnkey/turnkey_04.jpeg","/work/turnkey/turnkey_05.jpeg","/work/turnkey/turnkey_06.jpeg","/work/turnkey/turnkey_07.jpeg","/work/turnkey/turnkey_08.jpeg","/work/turnkey/turnkey_09.png","/work/turnkey/turnkey_10.jpeg","/work/turnkey/turnkey_11.jpeg","/work/turnkey/turnkey_12.jpeg","/work/turnkey/turnkey_13.jpeg","/work/turnkey/turnkey_14.jpeg"]});}),
 "[project]/coastalinterio/src/components/Portfolio.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -4754,10 +4758,6 @@ const CATEGORIES = [
     {
         id: "kitchen",
         label: "Kitchen"
-    },
-    {
-        id: "dining",
-        label: "Dining"
     },
     {
         id: "wardrobe",
@@ -4888,7 +4888,7 @@ function Portfolio() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 106,
+                                        lineNumber: 105,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4903,7 +4903,7 @@ function Portfolio() {
                                         children: "OUR WORK"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 107,
+                                        lineNumber: 106,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4914,13 +4914,13 @@ function Portfolio() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 110,
+                                        lineNumber: 109,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 105,
+                                lineNumber: 104,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -4934,7 +4934,7 @@ function Portfolio() {
                                 children: "Spaces We've Transformed"
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 112,
+                                lineNumber: 111,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4948,13 +4948,13 @@ function Portfolio() {
                                 children: "Every project is a bespoke story of craft, material, and light — delivered across Bengaluru since 2015."
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 115,
+                                lineNumber: 114,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 104,
+                        lineNumber: 103,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4997,13 +4997,13 @@ function Portfolio() {
                                 children: cat.label
                             }, cat.id, false, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 139,
+                                lineNumber: 138,
                                 columnNumber: 15
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 121,
+                        lineNumber: 120,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5049,7 +5049,7 @@ function Portfolio() {
                                         loading: "lazy"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 200,
+                                        lineNumber: 199,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5076,23 +5076,23 @@ function Portfolio() {
                                             children: photo.label
                                         }, void 0, false, {
                                             fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                            lineNumber: 225,
+                                            lineNumber: 224,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 212,
+                                        lineNumber: 211,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, photo.id, true, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 175,
+                                lineNumber: 174,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 166,
+                        lineNumber: 165,
                         columnNumber: 9
                     }, this),
                     visibleCount < filtered.length && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5113,20 +5113,20 @@ function Portfolio() {
                                         children: "Load More Projects"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 250,
+                                        lineNumber: 249,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                         size: 16
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 251,
+                                        lineNumber: 250,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 245,
+                                lineNumber: 244,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5144,13 +5144,13 @@ function Portfolio() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 253,
+                                lineNumber: 252,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 244,
+                        lineNumber: 243,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5173,7 +5173,7 @@ function Portfolio() {
                                 children: "Ready to Begin Your Project?"
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 270,
+                                lineNumber: 269,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5187,7 +5187,7 @@ function Portfolio() {
                                 children: "Discuss your space with our design team. Free initial consultation — Bengaluru wide."
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 273,
+                                lineNumber: 272,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -5205,32 +5205,32 @@ function Portfolio() {
                                         children: "Book Free Consultation"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 281,
+                                        lineNumber: 280,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                         size: 16
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 282,
+                                        lineNumber: 281,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 276,
+                                lineNumber: 275,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 260,
+                        lineNumber: 259,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                lineNumber: 101,
+                lineNumber: 100,
                 columnNumber: 7
             }, this),
             lightbox && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5267,12 +5267,12 @@ function Portfolio() {
                             size: 22
                         }, void 0, false, {
                             fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                            lineNumber: 320,
+                            lineNumber: 319,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 302,
+                        lineNumber: 301,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5295,24 +5295,24 @@ function Portfolio() {
                             priority: true
                         }, void 0, false, {
                             fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                            lineNumber: 333,
+                            lineNumber: 332,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 323,
+                        lineNumber: 322,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                lineNumber: 289,
+                lineNumber: 288,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-        lineNumber: 92,
+        lineNumber: 91,
         columnNumber: 5
     }, this);
 }
@@ -6905,37 +6905,21 @@ function ContactForm() {
                                                         gap: "0.25rem"
                                                     },
                                                     className: "jsx-c351b47515e34f55",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                            href: "mailto:nuspacebangalore@gmail.com",
-                                                            style: {
-                                                                fontSize: "1rem",
-                                                                color: "#ffffff",
-                                                                textDecoration: "none"
-                                                            },
-                                                            className: "jsx-c351b47515e34f55",
-                                                            children: "nuspacebangalore@gmail.com"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                            lineNumber: 227,
-                                                            columnNumber: 37
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                            href: "mailto:nuspacedecor@gmail.com",
-                                                            style: {
-                                                                fontSize: "1rem",
-                                                                color: "rgba(255,255,255,0.85)",
-                                                                textDecoration: "none"
-                                                            },
-                                                            className: "jsx-c351b47515e34f55",
-                                                            children: "nuspacedecor@gmail.com"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                            lineNumber: 228,
-                                                            columnNumber: 37
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                        href: "mailto:nuspacedecor@gmail.com",
+                                                        style: {
+                                                            fontSize: "1rem",
+                                                            color: "#ffffff",
+                                                            textDecoration: "none"
+                                                        },
+                                                        className: "jsx-c351b47515e34f55",
+                                                        children: "nuspacedecor@gmail.com"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
+                                                        lineNumber: 227,
+                                                        columnNumber: 37
+                                                    }, this)
+                                                }, void 0, false, {
                                                     fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
                                                     lineNumber: 226,
                                                     columnNumber: 33
@@ -6977,12 +6961,12 @@ function ContactForm() {
                                                 size: 20
                                             }, void 0, false, {
                                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                lineNumber: 248,
+                                                lineNumber: 247,
                                                 columnNumber: 33
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                            lineNumber: 235,
+                                            lineNumber: 234,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7000,7 +6984,7 @@ function ContactForm() {
                                                     children: "Studio Location"
                                                 }, void 0, false, {
                                                     fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                    lineNumber: 251,
+                                                    lineNumber: 250,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7011,22 +6995,22 @@ function ContactForm() {
                                                         lineHeight: 1.5
                                                     },
                                                     className: "jsx-c351b47515e34f55",
-                                                    children: "Vinayaka Layout, Abbigere, Bengaluru, Karnataka – 560090"
+                                                    children: "Shop No: 03, 1/15, Near Vinayaka Layout Bus Stop, Abbigere Road, Medrahalli, Chikkabanavara, Bangalore - 560090"
                                                 }, void 0, false, {
                                                     fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                    lineNumber: 252,
+                                                    lineNumber: 251,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                            lineNumber: 250,
+                                            lineNumber: 249,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                    lineNumber: 234,
+                                    lineNumber: 233,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7044,7 +7028,7 @@ function ContactForm() {
                                             color: "rgba(255,255,255,0.4)"
                                         }, void 0, false, {
                                             fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                            lineNumber: 260,
+                                            lineNumber: 259,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7064,19 +7048,19 @@ function ContactForm() {
                                                     children: "29DVLPP6022C1ZH"
                                                 }, void 0, false, {
                                                     fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                    lineNumber: 262,
+                                                    lineNumber: 261,
                                                     columnNumber: 40
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                            lineNumber: 261,
+                                            lineNumber: 260,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                    lineNumber: 259,
+                                    lineNumber: 258,
                                     columnNumber: 25
                                 }, this)
                             ]
@@ -7132,7 +7116,7 @@ function ContactForm() {
                                 color: "#8B263E"
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 296,
+                                lineNumber: 295,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -7146,7 +7130,7 @@ function ContactForm() {
                                 children: "Project Inquiry Received!"
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 297,
+                                lineNumber: 296,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -7160,26 +7144,17 @@ function ContactForm() {
                                     "Thank you for contacting Nuspace Creations. Your enquiry details have been automatically sent to ",
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                         className: "jsx-c351b47515e34f55",
-                                        children: "nuspacebangalore@gmail.com"
-                                    }, void 0, false, {
-                                        fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 301,
-                                        columnNumber: 130
-                                    }, this),
-                                    " and ",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                        className: "jsx-c351b47515e34f55",
                                         children: "nuspacedecor@gmail.com"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 301,
-                                        columnNumber: 178
+                                        lineNumber: 300,
+                                        columnNumber: 130
                                     }, this),
                                     "."
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 300,
+                                lineNumber: 299,
                                 columnNumber: 29
                             }, this),
                             whatsappLink && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -7203,7 +7178,7 @@ function ContactForm() {
                                         size: 18
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 321,
+                                        lineNumber: 320,
                                         columnNumber: 37
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7211,13 +7186,13 @@ function ContactForm() {
                                         children: "Continue on WhatsApp (+91 98865 27878)"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 322,
+                                        lineNumber: 321,
                                         columnNumber: 37
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 304,
+                                lineNumber: 303,
                                 columnNumber: 33
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7231,13 +7206,13 @@ function ContactForm() {
                                 children: "Submit Another Inquiry"
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 325,
+                                lineNumber: 324,
                                 columnNumber: 29
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                        lineNumber: 283,
+                        lineNumber: 282,
                         columnNumber: 25
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                         onSubmit: handleSubmit,
@@ -7268,7 +7243,7 @@ function ContactForm() {
                                         children: "Full Name *"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 336,
+                                        lineNumber: 335,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -7293,13 +7268,13 @@ function ContactForm() {
                                         className: "jsx-c351b47515e34f55"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 337,
+                                        lineNumber: 336,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 335,
+                                lineNumber: 334,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7322,7 +7297,7 @@ function ContactForm() {
                                         children: "Phone Number *"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 348,
+                                        lineNumber: 347,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -7347,13 +7322,13 @@ function ContactForm() {
                                         className: "jsx-c351b47515e34f55"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 349,
+                                        lineNumber: 348,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 347,
+                                lineNumber: 346,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7376,7 +7351,7 @@ function ContactForm() {
                                         children: "Email Address *"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 360,
+                                        lineNumber: 359,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -7401,13 +7376,13 @@ function ContactForm() {
                                         className: "jsx-c351b47515e34f55"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 361,
+                                        lineNumber: 360,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 359,
+                                lineNumber: 358,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7430,7 +7405,7 @@ function ContactForm() {
                                         children: "Project Type"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 372,
+                                        lineNumber: 371,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -7457,7 +7432,7 @@ function ContactForm() {
                                                 children: "Residential"
                                             }, void 0, false, {
                                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                lineNumber: 378,
+                                                lineNumber: 377,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -7466,7 +7441,7 @@ function ContactForm() {
                                                 children: "Commercial"
                                             }, void 0, false, {
                                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                lineNumber: 379,
+                                                lineNumber: 378,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -7475,7 +7450,7 @@ function ContactForm() {
                                                 children: "Renovation"
                                             }, void 0, false, {
                                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                lineNumber: 380,
+                                                lineNumber: 379,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -7484,7 +7459,7 @@ function ContactForm() {
                                                 children: "Turnkey Project"
                                             }, void 0, false, {
                                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                lineNumber: 381,
+                                                lineNumber: 380,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -7493,19 +7468,19 @@ function ContactForm() {
                                                 children: "Other"
                                             }, void 0, false, {
                                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                                lineNumber: 382,
+                                                lineNumber: 381,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 373,
+                                        lineNumber: 372,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 371,
+                                lineNumber: 370,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7528,7 +7503,7 @@ function ContactForm() {
                                         children: "Location / Area in Bengaluru"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 387,
+                                        lineNumber: 386,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -7552,13 +7527,13 @@ function ContactForm() {
                                         className: "jsx-c351b47515e34f55"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 388,
+                                        lineNumber: 387,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 386,
+                                lineNumber: 385,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7581,7 +7556,7 @@ function ContactForm() {
                                         children: "Approximate Budget"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 398,
+                                        lineNumber: 397,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -7605,13 +7580,13 @@ function ContactForm() {
                                         className: "jsx-c351b47515e34f55"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 399,
+                                        lineNumber: 398,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 397,
+                                lineNumber: 396,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7634,7 +7609,7 @@ function ContactForm() {
                                         children: "Project Details / Message"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 409,
+                                        lineNumber: 408,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -7659,13 +7634,13 @@ function ContactForm() {
                                         className: "jsx-c351b47515e34f55"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 410,
+                                        lineNumber: 409,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 408,
+                                lineNumber: 407,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7686,20 +7661,20 @@ function ContactForm() {
                                         children: isSubmitting ? "Sending Inquiry..." : "Start a Conversation"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 432,
+                                        lineNumber: 431,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                         size: 18
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 433,
+                                        lineNumber: 432,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 419,
+                                lineNumber: 418,
                                 columnNumber: 29
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7717,7 +7692,7 @@ function ContactForm() {
                                         size: 12
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 437,
+                                        lineNumber: 436,
                                         columnNumber: 33
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -7728,29 +7703,29 @@ function ContactForm() {
                                         children: "Your privacy is guaranteed. No unsolicited marketing."
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                        lineNumber: 438,
+                                        lineNumber: 437,
                                         columnNumber: 33
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                                lineNumber: 436,
+                                lineNumber: 435,
                                 columnNumber: 29
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                        lineNumber: 334,
+                        lineNumber: 333,
                         columnNumber: 25
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                    lineNumber: 281,
+                    lineNumber: 280,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/coastalinterio/src/components/ContactForm.tsx",
-                lineNumber: 270,
+                lineNumber: 269,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -8137,33 +8112,19 @@ function Footer() {
                                                         flexDirection: "column",
                                                         gap: "0.25rem"
                                                     },
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                            href: "mailto:nuspacebangalore@gmail.com",
-                                                            style: {
-                                                                color: "#ffffff",
-                                                                textDecoration: "none"
-                                                            },
-                                                            children: "nuspacebangalore@gmail.com"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                                                            lineNumber: 116,
-                                                            columnNumber: 37
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                                            href: "mailto:nuspacedecor@gmail.com",
-                                                            style: {
-                                                                color: "rgba(255,255,255,0.85)",
-                                                                textDecoration: "none"
-                                                            },
-                                                            children: "nuspacedecor@gmail.com"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                                                            lineNumber: 117,
-                                                            columnNumber: 37
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                                        href: "mailto:nuspacedecor@gmail.com",
+                                                        style: {
+                                                            color: "#ffffff",
+                                                            textDecoration: "none"
+                                                        },
+                                                        children: "nuspacedecor@gmail.com"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/coastalinterio/src/components/Footer.tsx",
+                                                        lineNumber: 116,
+                                                        columnNumber: 37
+                                                    }, this)
+                                                }, void 0, false, {
                                                     fileName: "[project]/coastalinterio/src/components/Footer.tsx",
                                                     lineNumber: 115,
                                                     columnNumber: 33
@@ -8190,20 +8151,20 @@ function Footer() {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                                                    lineNumber: 121,
+                                                    lineNumber: 120,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    children: "Vinayaka Layout, Abbigere, Bengaluru, Karnataka – 560090"
+                                                    children: "Shop No: 03, 1/15, Near Vinayaka Layout Bus Stop, Abbigere Road, Medrahalli, Chikkabanavara, Bangalore - 560090"
                                                 }, void 0, false, {
                                                     fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                                                    lineNumber: 122,
+                                                    lineNumber: 121,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                                            lineNumber: 120,
+                                            lineNumber: 119,
                                             columnNumber: 29
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8215,7 +8176,7 @@ function Footer() {
                                             children: "GSTIN: 29DVLPP6022C1ZH"
                                         }, void 0, false, {
                                             fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                                            lineNumber: 124,
+                                            lineNumber: 123,
                                             columnNumber: 29
                                         }, this)
                                     ]
@@ -8257,7 +8218,7 @@ function Footer() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                            lineNumber: 145,
+                            lineNumber: 144,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8270,26 +8231,26 @@ function Footer() {
                                     children: "Est. 2015 Bengaluru"
                                 }, void 0, false, {
                                     fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                                    lineNumber: 149,
+                                    lineNumber: 148,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     children: "Bespoke Interior Studio"
                                 }, void 0, false, {
                                     fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                                    lineNumber: 150,
+                                    lineNumber: 149,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                            lineNumber: 148,
+                            lineNumber: 147,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/coastalinterio/src/components/Footer.tsx",
-                    lineNumber: 132,
+                    lineNumber: 131,
                     columnNumber: 17
                 }, this)
             ]

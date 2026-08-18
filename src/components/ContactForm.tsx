@@ -224,8 +224,7 @@ export default function ContactForm() {
                             <div>
                                 <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.15em", display: "block" }}>Email Inquiries</span>
                                 <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-                                    <a href="mailto:nuspacebangalore@gmail.com" style={{ fontSize: "1rem", color: "#ffffff", textDecoration: "none" }}>nuspacebangalore@gmail.com</a>
-                                    <a href="mailto:nuspacedecor@gmail.com" style={{ fontSize: "1rem", color: "rgba(255,255,255,0.85)", textDecoration: "none" }}>nuspacedecor@gmail.com</a>
+                                    <a href="mailto:nuspacedecor@gmail.com" style={{ fontSize: "1rem", color: "#ffffff", textDecoration: "none" }}>nuspacedecor@gmail.com</a>
                                 </div>
                             </div>
                         </div>
@@ -250,7 +249,7 @@ export default function ContactForm() {
                             <div>
                                 <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: "0.15em", display: "block" }}>Studio Location</span>
                                 <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.85)", margin: 0, lineHeight: 1.5 }}>
-                                    Vinayaka Layout, Abbigere, Bengaluru, Karnataka – 560090
+                                    Shop No: 03, 1/15, Near Vinayaka Layout Bus Stop, Abbigere Road, Medrahalli, Chikkabanavara, Bangalore - 560090
                                 </p>
                             </div>
                         </div>
@@ -298,7 +297,7 @@ export default function ContactForm() {
                                 Project Inquiry Received!
                             </h3>
                             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.05rem", lineHeight: 1.6 }}>
-                                Thank you for contacting Nuspace Creations. Your enquiry details have been automatically sent to <strong>nuspacebangalore@gmail.com</strong> and <strong>nuspacedecor@gmail.com</strong>.
+                                Thank you for contacting Nuspace Creations. Your enquiry details have been automatically sent to <strong>nuspacedecor@gmail.com</strong>.
                             </p>
                             {whatsappLink && (
                                 <a

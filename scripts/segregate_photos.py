@@ -1,18 +1,9 @@
 #!/usr/bin/env python3
 """
-Nuspace Decor — Photo Segregator
-Reads WhatsApp images from public/, deduplicates using MD5 hashing,
-selects the best 117 photos, and populates the 9 categories according to the requested counts:
-- living_room: 18
-- bedroom: 18
-- kitchen: 14
-- bathroom: 11
-- dining: 11
-- wardrobe: 11
-- commercial: 14
-- renovation: 9
-- turnkey: 11
-(Residential category removed)
+Nuspace Decor — AI Photo Classifier with Perceptual Visual Deduplication
+1. Uses OpenAI CLIP vision model for strict Winner-Takes-All room classification.
+2. Uses CLIP feature embeddings to detect and remove near-duplicate/repeated photos of the same room.
+3. Populates public/work/<category>/ and updates src/data/portfolio_manifest.json.
 """
 
 import os
@@ -20,26 +11,50 @@ import shutil
 import hashlib
 import json
 from pathlib import Path
+from PIL import Image
+import torch
+from transformers import CLIPProcessor, CLIPModel
 
-PUBLIC_DIR   = Path("/Users/nagarjundp/coastalinterio/public")
-OUT_BASE     = PUBLIC_DIR / "work"
-MIN_SIZE_KB  = 45
+PUBLIC_DIR = Path("/Users/nagarjundp/coastalinterio/public")
+OUT_BASE   = PUBLIC_DIR / "work"
+MANIFEST   = PUBLIC_DIR.parent / "src" / "data" / "portfolio_manifest.json"
+MIN_SIZE_KB = 35
+SIMILARITY_THRESHOLD = 0.88  # Perceptual similarity threshold to filter near-duplicates
 
-# Target counts per category matching user request:
-TARGET_COUNTS = {
-    "living_room": 18,
-    "bedroom":     18,
-    "kitchen":     14,
-    "bathroom":    11,
-    "dining":      11,
-    "wardrobe":    11,
-    "commercial":  14,
-    "renovation":   9,
-    "turnkey":     11,
+CATEGORIES = {
+    "living_room": [
+        "a living room interior with a sofa, couch, TV wall unit, coffee table, and living hall seating",
+        "a luxury living room hall, lounge area, media console, and false ceiling with lights",
+        "a residential living space with sofa set and TV unit"
+    ],
+    "bedroom": [
+        "a bedroom interior with a bed, mattress, headboard, pillows, nightstand, and bedroom decor",
+        "a master bedroom or guest bedroom with bed frame, side tables, and bedroom backdrop"
+    ],
+    "kitchen": [
+        "a modular kitchen interior with kitchen cabinets, quartz countertop, chimney, gas stove, sink, and backsplash",
+        "a modern kitchen with storage drawers, overhead cabinets, and cooking area"
+    ],
+
+    "wardrobe": [
+        "a bedroom wardrobe, closet, sliding doors, walk-in wardrobe, dressing unit, or vanity mirror",
+        "custom fitted wardrobes with glass or wooden shutters and clothes storage"
+    ],
+    "commercial": [
+        "a commercial office, reception desk, workstation desks, corporate office room, conference table, or office lobby",
+        "a commercial office space, workspace interior, or commercial retail interior"
+    ],
+    "renovation": [
+        "an interior under renovation, ongoing civil work, unpainted brick walls, gypsum false ceiling metal framework, construction site, or scaffolding",
+        "home renovation in progress with raw site work, civil demolition, or exposed plaster"
+    ],
+    "turnkey": [
+        "a full turnkey apartment interior, open layout view of living hall and dining together",
+        "an expansive open plan home interior showing connected living, dining, and foyer spaces"
+    ]
 }
 
-def get_file_hash(path):
-    """MD5 hash to detect exact duplicates."""
+def get_hash(path):
     h = hashlib.md5()
     with open(path, "rb") as f:
         while chunk := f.read(8192):
@@ -47,74 +62,137 @@ def get_file_hash(path):
     return h.hexdigest()
 
 def main():
-    print("🔍 Scanning public/ for WhatsApp images …")
-    all_jpegs = sorted(
-        [p for p in PUBLIC_DIR.iterdir() if p.suffix.lower() in (".jpeg", ".jpg")],
+    print("🚀 Initializing AI Vision Classifier & Deduplicator...")
+    model_id = "openai/clip-vit-base-patch32"
+    model = CLIPModel.from_pretrained(model_id)
+    processor = CLIPProcessor.from_pretrained(model_id)
+    print("✅ CLIP Model Loaded.")
+
+    cat_keys = list(CATEGORIES.keys())
+    all_prompts = []
+    prompt_to_cat = []
+
+    for cat in cat_keys:
+        for prompt in CATEGORIES[cat]:
+            all_prompts.append(prompt)
+            prompt_to_cat.append(cat)
+
+    print("🔍 Gathering raw candidate photos...")
+    raw_files = sorted(
+        [p for p in PUBLIC_DIR.rglob("*") 
+         if p.is_file() and p.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp")
+         and "work" not in p.relative_to(PUBLIC_DIR).parts
+         and "images/partners" not in str(p) 
+         and "assets" not in str(p)],
         key=lambda p: p.stat().st_size,
-        reverse=True,
+        reverse=True
     )
-    print(f"   Found {len(all_jpegs)} jpeg files")
 
-    # 1. Filter by minimum size
-    filtered = [p for p in all_jpegs if p.stat().st_size >= MIN_SIZE_KB * 1024]
-    print(f"   After size filter (>= {MIN_SIZE_KB}KB): {len(filtered)} files")
-
-    # 2. Deduplicate by exact hash
     seen_hashes = set()
-    unique = []
-    for p in filtered:
-        h = get_file_hash(p)
-        if h not in seen_hashes:
-            seen_hashes.add(h)
-            unique.append(p)
-    print(f"   After dedup: {len(unique)} unique files")
+    unique_candidates = []
+    for p in raw_files:
+        if p.stat().st_size < MIN_SIZE_KB * 1024:
+            continue
+        try:
+            h = get_hash(p)
+            if h not in seen_hashes:
+                seen_hashes.add(h)
+                unique_candidates.append((p, h))
+        except Exception:
+            pass
 
-    total_target = sum(TARGET_COUNTS.values())
-    if len(unique) < total_target:
-        print(f"⚠️ Warning: Found {len(unique)} files, needed {total_target}. Will distribute available.")
-        selected = unique
-    else:
-        selected = unique[:total_target]
+    print(f"📷 Classifying and extracting visual features for {len(unique_candidates)} raw photos...")
+    classified = {cat: [] for cat in cat_keys}
 
-    print(f"   Selected top {len(selected)} photos for portfolio.")
+    for idx, (img_path, img_hash) in enumerate(unique_candidates, start=1):
+        try:
+            image = Image.open(img_path).convert("RGB")
+            inputs = processor(text=all_prompts, images=image, return_tensors="pt", padding=True)
+            with torch.no_grad():
+                outputs = model(**inputs)
+                logits = outputs.logits_per_image[0]
+                
+                # Image features tensor for perceptual deduplication
+                img_inputs = processor(images=image, return_tensors="pt")
+                res = model.get_image_features(**img_inputs)
+                tensor = res.pooler_output if hasattr(res, "pooler_output") else res[0]
+                norm_feat = tensor / torch.norm(tensor, p=2, dim=-1, keepdim=True)
+                
+                cat_scores = {cat: -999.0 for cat in cat_keys}
+                for p_idx, score in enumerate(logits):
+                    c = prompt_to_cat[p_idx]
+                    val = score.item()
+                    if val > cat_scores[c]:
+                        cat_scores[c] = val
 
-    # 3. Clean destination folder OUT_BASE
+            best_cat = max(cat_scores, key=cat_scores.get)
+            best_score = cat_scores[best_cat]
+            classified[best_cat].append((best_score, norm_feat, img_path))
+            
+            if idx % 50 == 0 or idx == len(unique_candidates):
+                print(f"   Processed [{idx}/{len(unique_candidates)}] photos...")
+
+        except Exception as e:
+            print(f"⚠️ Error processing {img_path.name}: {e}")
+
+    # Clean and re-create public/work/ directory
     if OUT_BASE.exists():
         shutil.rmtree(OUT_BASE)
     OUT_BASE.mkdir(parents=True, exist_ok=True)
 
-    # 4. Distribute into categories according to target counts
-    manifest = {}
-    photo_idx = 0
+    manifest_data = {}
+    total_organized = 0
+    MAX_PER_CAT = 18
 
-    for bucket, count in TARGET_COUNTS.items():
-        bucket_dir = OUT_BASE / bucket
-        bucket_dir.mkdir(parents=True, exist_ok=True)
-        manifest[bucket] = []
+    for cat in cat_keys:
+        cat_dir = OUT_BASE / cat
+        cat_dir.mkdir(parents=True, exist_ok=True)
+        manifest_data[cat] = []
 
-        for i in range(1, count + 1):
-            if photo_idx >= len(selected):
+        # Sort this category's winning photos by score descending
+        classified[cat].sort(key=lambda x: x[0], reverse=True)
+
+        selected_photos = []
+        selected_feats = []
+
+        for score, feat, src_path in classified[cat]:
+            if len(selected_photos) >= MAX_PER_CAT:
                 break
-            photo = selected[photo_idx]
-            photo_idx += 1
+            
+            # Check perceptual similarity against already selected photos in this category
+            is_near_dup = False
+            for prev_feat in selected_feats:
+                sim = (feat @ prev_feat.T).item()
+                if sim >= SIMILARITY_THRESHOLD:
+                    is_near_dup = True
+                    print(f"   [Deduplicated] Skipped near-repeat photo in {cat}: {src_path.name} (similarity {sim:.3f})")
+                    break
+            
+            if not is_near_dup:
+                selected_photos.append(src_path)
+                selected_feats.append(feat)
 
-            ext = photo.suffix.lower()
-            new_name = f"{bucket}_{i:02d}{ext}"
-            dest = bucket_dir / new_name
-            shutil.copy2(photo, dest)
+        for i, src_path in enumerate(selected_photos, start=1):
+            ext = src_path.suffix.lower()
+            if ext == ".jpg":
+                ext = ".jpeg"
+            dest_name = f"{cat}_{i:02d}{ext}"
+            dest_path = cat_dir / dest_name
+            shutil.copy2(src_path, dest_path)
 
-            web_path = f"/work/{bucket}/{new_name}"
-            manifest[bucket].append(web_path)
+            web_path = f"/work/{cat}/{dest_name}"
+            manifest_data[cat].append(web_path)
+            total_organized += 1
 
-    # 5. Save manifest JSON
-    manifest_path = PUBLIC_DIR.parent / "src" / "data" / "portfolio_manifest.json"
-    manifest_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(manifest_path, "w") as f:
-        json.dump(manifest, f, indent=2)
+        print(f"✨ Category '{cat:15s}': saved {len(selected_photos)} unique photos to {cat_dir}")
 
-    print(f"\n✅ Done! Manifest saved to: {manifest_path}")
-    for bucket, paths in manifest.items():
-        print(f"   {bucket:20s}: {len(paths)} photos")
+    # Save manifest JSON
+    MANIFEST.parent.mkdir(parents=True, exist_ok=True)
+    with open(MANIFEST, "w") as f:
+        json.dump(manifest_data, f, indent=2)
+
+    print(f"\n🎉 Done! Filtered near-duplicates & populated {total_organized} unique photos!")
+    print(f"📁 Manifest updated: {MANIFEST}")
 
 if __name__ == "__main__":
     main()

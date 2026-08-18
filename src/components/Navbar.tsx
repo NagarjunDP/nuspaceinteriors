@@ -241,7 +241,7 @@ export default function Navbar() {
                         textAlign: "center",
                     }}
                 >
-                    +91 98865 27878 · nuspacebangalore@gmail.com
+                    +91 98865 27878 · nuspacedecor@gmail.com
                 </div>
             </div>
 

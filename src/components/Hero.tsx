@@ -19,7 +19,7 @@ const FLOATING_THUMBS = [
   getCdnUrl("/work/bedroom/bedroom_02.jpeg"),
   getCdnUrl("/work/kitchen/kitchen_03.jpeg"),
   getCdnUrl("/work/living_room/living_room_01.jpeg"),
-  getCdnUrl("/work/dining/dining_01.jpeg"),
+  getCdnUrl("/work/kitchen/kitchen_01.jpeg"),
   getCdnUrl("/work/renovation/renovation_02.jpeg"),
   getCdnUrl("/work/wardrobe/wardrobe_01.jpeg"),
   getCdnUrl("/work/commercial/commercial_02.jpeg"),

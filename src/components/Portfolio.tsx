@@ -12,15 +12,14 @@ import manifest from "@/data/portfolio_manifest.json";
 gsap.registerPlugin(ScrollTrigger);
 
 const CATEGORIES = [
-  { id: "all",         label: "All Work" },
+  { id: "all", label: "All Work" },
   { id: "living_room", label: "Living Room" },
-  { id: "bedroom",     label: "Bedroom" },
-  { id: "kitchen",     label: "Kitchen" },
-  { id: "dining",      label: "Dining" },
-  { id: "wardrobe",    label: "Wardrobe" },
-  { id: "commercial",  label: "Commercial" },
-  { id: "renovation",  label: "Renovation" },
-  { id: "turnkey",     label: "Turnkey" },
+  { id: "bedroom", label: "Bedroom" },
+  { id: "kitchen", label: "Kitchen" },
+  { id: "wardrobe", label: "Wardrobe" },
+  { id: "commercial", label: "Commercial" },
+  { id: "renovation", label: "Renovation" },
+  { id: "turnkey", label: "Turnkey" },
 ];
 
 const ALL_PHOTOS = Object.entries(manifest).flatMap(([cat, paths]) =>

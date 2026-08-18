@@ -64,14 +64,14 @@ export default function RootLayout({
     "foundingDate": "2015",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Vinayaka Layout, Abbigere",
+      "streetAddress": "Shop No: 03, 1/15, Near Vinayaka Layout Bus Stop, Abbigere Road, Medrahalli, Chikkabanavara",
       "addressLocality": "Bengaluru",
       "addressRegion": "Karnataka",
       "postalCode": "560090",
       "addressCountry": "IN"
     },
     "telephone": "+919886527878",
-    "email": ["nuspacebangalore@gmail.com", "nuspacedecor@gmail.com"],
+    "email": ["nuspacedecor@gmail.com"],
     "taxID": "29DVLPP6022C1ZH",
     "priceRange": "$$$$"
   };

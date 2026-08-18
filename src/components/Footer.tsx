@@ -113,13 +113,12 @@ export default function Footer() {
                             <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
                                 <Mail size={14} color="#8B263E" style={{ marginTop: "3px", flexShrink: 0 }} />
                                 <div style={{ display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-                                    <a href="mailto:nuspacebangalore@gmail.com" style={{ color: "#ffffff", textDecoration: "none" }}>nuspacebangalore@gmail.com</a>
-                                    <a href="mailto:nuspacedecor@gmail.com" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "none" }}>nuspacedecor@gmail.com</a>
+                                    <a href="mailto:nuspacedecor@gmail.com" style={{ color: "#ffffff", textDecoration: "none" }}>nuspacedecor@gmail.com</a>
                                 </div>
                             </div>
                             <div style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
                                 <MapPin size={14} color="#8B263E" style={{ marginTop: "3px", flexShrink: 0 }} />
-                                <span>Vinayaka Layout, Abbigere, Bengaluru, Karnataka – 560090</span>
+                                <span>Shop No: 03, 1/15, Near Vinayaka Layout Bus Stop, Abbigere Road, Medrahalli, Chikkabanavara, Bangalore - 560090</span>
                             </div>
                             <div style={{ marginTop: "0.5rem", fontSize: "0.75rem", color: "rgba(255,255,255,0.4)" }}>
                                 GSTIN: 29DVLPP6022C1ZH

@@ -304,7 +304,7 @@ export default function Quiz() {
                         {isSubmitted ? (
                             <div style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem" }}>
                                 <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: "1.1rem", color: "#2C2C2C" }}>
-                                    Thank you <strong>{leadData.name}</strong>! Your mood board & quiz details have been emailed to <strong>nuspacebangalore@gmail.com</strong> and <strong>nuspacedecor@gmail.com</strong>.
+                                    Thank you <strong>{leadData.name}</strong>! Your mood board & quiz details have been emailed to <strong>nuspacedecor@gmail.com</strong>.
                                 </p>
                                 {whatsappLink && (
                                     <a
