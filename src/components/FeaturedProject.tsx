@@ -94,7 +94,7 @@ export default function FeaturedProject() {
                 >
                     {/* After Image (Background) */}
                     <Image
-                        src={getCdnUrl("/work/renovation/renovation_01.jpeg")}
+                        src={getCdnUrl("/work/living_room/living_room_01.jpeg")}
                         alt="After - Contemporary Living Room Transformation"
                         fill
                         style={{ objectFit: "cover" }}
@@ -138,7 +138,7 @@ export default function FeaturedProject() {
                             height: "100%"
                         }}>
                             <Image
-                                src={getCdnUrl("/work/renovation/renovation_02.jpeg")}
+                                src={getCdnUrl("/work/living_room/living_room_02.jpeg")}
                                 alt="Before - Original Layout"
                                 fill
                                 style={{ objectFit: "cover" }}

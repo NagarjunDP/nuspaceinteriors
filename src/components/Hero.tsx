@@ -6,37 +6,24 @@ import { ArrowRight, ChevronDown, Sparkles } from "lucide-react";
 import gsap from "gsap";
 import { getCdnUrl } from "@/lib/cdn";
 
-// ── 3 Luxury Full-Bleed Background Slides (Ken Burns Zoom) ──
-const HERO_SLIDES = [
-  getCdnUrl("/work/living_room/living_room_01.jpeg"),
-  getCdnUrl("/work/living_room/living_room_03.jpeg"),
-  getCdnUrl("/work/bedroom/bedroom_01.jpeg"),
-];
+// ── Stagnant Hero Background Image ──
+const HERO_BG = getCdnUrl("/work/living_room/living_room_01.jpeg");
 
-// ── Floating thumbnail strip (cleaned up with zero person images) ──
+// ── Floating thumbnail strip ──
 const FLOATING_THUMBS = [
   getCdnUrl("/work/living_room/living_room_02.jpeg"),
   getCdnUrl("/work/bedroom/bedroom_02.jpeg"),
   getCdnUrl("/work/kitchen/kitchen_03.jpeg"),
   getCdnUrl("/work/living_room/living_room_01.jpeg"),
   getCdnUrl("/work/kitchen/kitchen_01.jpeg"),
-  getCdnUrl("/work/renovation/renovation_02.jpeg"),
+  getCdnUrl("/work/wardrobe/wardrobe_02.jpeg"),
   getCdnUrl("/work/wardrobe/wardrobe_01.jpeg"),
-  getCdnUrl("/work/commercial/commercial_02.jpeg"),
+  getCdnUrl("/work/bedroom/bedroom_03.jpeg"),
 ];
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const primaryCtaRef = useRef<HTMLAnchorElement>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  // Auto-advance slides every 6 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((s) => (s + 1) % HERO_SLIDES.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
 
   // Magnetic hover effect for Primary CTA Button
   const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -87,32 +74,26 @@ export default function Hero() {
         padding: "8rem 1.5rem 6rem",
       }}
     >
-      {/* ── Full-Bleed Crossfade Background with Ken-Burns Slow Zoom ── */}
-      {HERO_SLIDES.map((src, idx) => (
-        <div
-          key={src}
-          className={`kenburns-slide ${idx === currentSlide ? "active" : ""}`}
+      {/* ── Single Stagnant Hero Background Image ── */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
+        }}
+      >
+        <Image
+          src={HERO_BG}
+          alt="Nuspace Creations luxury interior background"
+          fill
+          priority
+          sizes="100vw"
           style={{
-            position: "absolute",
-            inset: 0,
-            zIndex: 1,
-            opacity: idx === currentSlide ? 1 : 0,
-            transition: "opacity 1.8s ease-in-out",
+            objectFit: "cover",
+            objectPosition: "center",
           }}
-        >
-          <Image
-            src={src}
-            alt="Nuspace Creations luxury interior background"
-            fill
-            priority={idx === 0}
-            sizes="100vw"
-            style={{
-              objectFit: "cover",
-              objectPosition: "center",
-            }}
-          />
-        </div>
-      ))}
+        />
+      </div>
 
       {/* ── Multi-Stop Vignette Overlay for High Legibility ── */}
       <div
@@ -333,9 +314,6 @@ export default function Hero() {
                 e.currentTarget.style.transform = "scale(1)";
                 e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
               }}
-              onClick={() => {
-                setCurrentSlide(i % HERO_SLIDES.length);
-              }}
             >
               <Image
                 src={src}
@@ -346,26 +324,6 @@ export default function Hero() {
                 loading="lazy"
               />
             </div>
-          ))}
-        </div>
-
-        {/* Slide Indicators */}
-        <div style={{ display: "flex", gap: "0.5rem", marginTop: "0.25rem" }}>
-          {HERO_SLIDES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrentSlide(i)}
-              aria-label={`Slide ${i + 1}`}
-              style={{
-                width: i === currentSlide ? "1.6rem" : "0.4rem",
-                height: "4px",
-                borderRadius: "9999px",
-                backgroundColor: i === currentSlide ? "#8B263E" : "rgba(255,255,255,0.35)",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-            />
           ))}
         </div>
       </div>
