@@ -157,7 +157,7 @@ export default function VisionMission() {
               }}
             >
               <Image
-                src={getCdnUrl("/work/living_room/living_room_02.jpeg")}
+                src={getCdnUrl("/work/turnkey/turnkey_03.jpeg")}
                 alt="Turnkey Craftsmanship Background"
                 fill
                 sizes="(max-width: 768px) 100vw, 600px"

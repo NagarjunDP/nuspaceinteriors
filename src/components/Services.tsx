@@ -23,7 +23,7 @@ const services = [
     icon: RefreshCw,
     accent: "#6b4f3a",
     highlights: ["Structural Layout Overhaul", "Modern Facelift & Finishes", "Space Optimisation"],
-    src: getCdnUrl("/work/bedroom/bedroom_01.jpeg"),
+    src: getCdnUrl("/work/renovation/renovation_02.jpeg"),
   },
   {
     id: "turnkey",
@@ -33,7 +33,7 @@ const services = [
     icon: Key,
     accent: "#3a5e6b",
     highlights: ["Single Point of Accountability", "Transparent BOQ & Costing", "On-time Delivery Tracking"],
-    src: getCdnUrl("/work/kitchen/kitchen_01.jpeg"),
+    src: getCdnUrl("/work/turnkey/turnkey_03.jpeg"),
   },
   {
     id: "interior",

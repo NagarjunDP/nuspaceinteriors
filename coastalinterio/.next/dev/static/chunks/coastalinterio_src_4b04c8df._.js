@@ -444,17 +444,6 @@ var _s = __turbopack_context__.k.signature();
 ;
 // ── Stagnant Hero Background Image ──
 const HERO_BG = (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/living_room/living_room_01.jpeg");
-// ── Floating thumbnail strip ──
-const FLOATING_THUMBS = [
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/living_room/living_room_02.jpeg"),
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/bedroom/bedroom_02.jpeg"),
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/kitchen/kitchen_03.jpeg"),
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/living_room/living_room_01.jpeg"),
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/kitchen/kitchen_01.jpeg"),
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/wardrobe/wardrobe_02.jpeg"),
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/wardrobe/wardrobe_01.jpeg"),
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/bedroom/bedroom_03.jpeg")
-];
 function Hero() {
     _s();
     const heroRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -521,20 +510,12 @@ function Hero() {
                         ease: "power3.out",
                         delay: 1.1
                     });
-                    __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].from(".hero-thumb", {
-                        y: 25,
-                        opacity: 0,
-                        duration: 0.7,
-                        stagger: 0.06,
-                        ease: "power3.out",
-                        delay: 1.25
-                    });
                     __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$gsap$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"].from(".hero-scroll-cue", {
                         opacity: 0,
                         y: -10,
                         duration: 1,
                         ease: "power2.out",
-                        delay: 1.5
+                        delay: 1.3
                     });
                 }
             }["Hero.useEffect.ctx"], heroRef);
@@ -578,12 +559,12 @@ function Hero() {
                     }
                 }, void 0, false, {
                     fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                    lineNumber: 85,
+                    lineNumber: 70,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                lineNumber: 78,
+                lineNumber: 63,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -596,7 +577,7 @@ function Hero() {
                 className: "jsx-7822f63c25d3f694"
             }, void 0, false, {
                 fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                lineNumber: 99,
+                lineNumber: 84,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -625,7 +606,7 @@ function Hero() {
                         className: "jsx-7822f63c25d3f694" + " " + "hero-gold-line"
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                        lineNumber: 125,
+                        lineNumber: 110,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -651,7 +632,7 @@ function Hero() {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                lineNumber: 151,
+                                lineNumber: 136,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -667,13 +648,13 @@ function Hero() {
                                 children: "NUSPACE CREATIONS · EST. 2015 · BENGALURU"
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                lineNumber: 152,
+                                lineNumber: 137,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                        lineNumber: 137,
+                        lineNumber: 122,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -697,7 +678,7 @@ function Hero() {
                                 children: "Spaces Designed for Living."
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                lineNumber: 180,
+                                lineNumber: 165,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -712,13 +693,13 @@ function Hero() {
                                 children: "Crafted for Life."
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                lineNumber: 183,
+                                lineNumber: 168,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                        lineNumber: 168,
+                        lineNumber: 153,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -734,7 +715,7 @@ function Hero() {
                         children: "Bespoke residential & commercial interiors crafted with architectural precision, custom woodwork, and timeless material balance across Bengaluru."
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                        lineNumber: 198,
+                        lineNumber: 183,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -764,7 +745,7 @@ function Hero() {
                                         children: "View Portfolio"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                        lineNumber: 236,
+                                        lineNumber: 221,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
@@ -772,13 +753,13 @@ function Hero() {
                                         strokeWidth: 1.5
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                        lineNumber: 237,
+                                        lineNumber: 222,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                lineNumber: 225,
+                                lineNumber: 210,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -789,18 +770,18 @@ function Hero() {
                                     children: "Book Consultation"
                                 }, void 0, false, {
                                     fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                    lineNumber: 240,
+                                    lineNumber: 225,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                lineNumber: 239,
+                                lineNumber: 224,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                        lineNumber: 214,
+                        lineNumber: 199,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -836,92 +817,36 @@ function Hero() {
                                             children: item
                                         }, void 0, false, {
                                             fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                            lineNumber: 264,
+                                            lineNumber: 249,
                                             columnNumber: 17
                                         }, this),
                                         idx < 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "jsx-7822f63c25d3f694" + " " + "hero-stat-divider"
                                         }, void 0, false, {
                                             fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                            lineNumber: 276,
+                                            lineNumber: 261,
                                             columnNumber: 29
                                         }, this)
                                     ]
                                 }, item, true, {
                                     fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                    lineNumber: 263,
+                                    lineNumber: 248,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                            lineNumber: 256,
+                            lineNumber: 241,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                        lineNumber: 245,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        style: {
-                            display: "flex",
-                            gap: "0.6rem",
-                            overflowX: "auto",
-                            paddingBottom: "0.25rem",
-                            scrollbarWidth: "none",
-                            msOverflowStyle: "none",
-                            maxWidth: "100%"
-                        },
-                        className: "jsx-7822f63c25d3f694",
-                        children: FLOATING_THUMBS.map((src, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                style: {
-                                    position: "relative",
-                                    width: "84px",
-                                    height: "56px",
-                                    borderRadius: "8px",
-                                    overflow: "hidden",
-                                    flexShrink: 0,
-                                    border: "1px solid rgba(255,255,255,0.15)",
-                                    transition: "transform 0.3s ease, border-color 0.3s ease",
-                                    cursor: "pointer"
-                                },
-                                onMouseEnter: (e)=>{
-                                    e.currentTarget.style.transform = "scale(1.06)";
-                                    e.currentTarget.style.borderColor = "#8B263E";
-                                },
-                                onMouseLeave: (e)=>{
-                                    e.currentTarget.style.transform = "scale(1)";
-                                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
-                                },
-                                className: "jsx-7822f63c25d3f694" + " " + "hero-thumb",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    src: src,
-                                    alt: "Nuspace interior sample",
-                                    fill: true,
-                                    sizes: "84px",
-                                    style: {
-                                        objectFit: "cover"
-                                    },
-                                    loading: "lazy"
-                                }, void 0, false, {
-                                    fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                    lineNumber: 318,
-                                    columnNumber: 15
-                                }, this)
-                            }, i, false, {
-                                fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                                lineNumber: 295,
-                                columnNumber: 13
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                        lineNumber: 283,
+                        lineNumber: 230,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                lineNumber: 110,
+                lineNumber: 95,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -955,7 +880,7 @@ function Hero() {
                         children: "SCROLL"
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                        lineNumber: 351,
+                        lineNumber: 288,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
@@ -964,13 +889,13 @@ function Hero() {
                         className: "scroll-chevron-anim"
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                        lineNumber: 362,
+                        lineNumber: 299,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-                lineNumber: 332,
+                lineNumber: 269,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$styled$2d$jsx$2f$style$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -980,7 +905,7 @@ function Hero() {
         ]
     }, void 0, true, {
         fileName: "[project]/coastalinterio/src/components/Hero.tsx",
-        lineNumber: 62,
+        lineNumber: 47,
         columnNumber: 5
     }, this);
 }
@@ -1848,7 +1773,7 @@ const services = [
             "Modern Facelift & Finishes",
             "Space Optimisation"
         ],
-        src: (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/bedroom/bedroom_01.jpeg")
+        src: (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/renovation/renovation_02.jpeg")
     },
     {
         id: "turnkey",
@@ -1862,7 +1787,7 @@ const services = [
             "Transparent BOQ & Costing",
             "On-time Delivery Tracking"
         ],
-        src: (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/kitchen/kitchen_01.jpeg")
+        src: (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/turnkey/turnkey_03.jpeg")
     },
     {
         id: "interior",
@@ -3513,7 +3438,7 @@ function VisionMission() {
                                         },
                                         className: "jsx-406577cfb19e5d80",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                            src: (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/living_room/living_room_02.jpeg"),
+                                            src: (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$lib$2f$cdn$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getCdnUrl"])("/work/turnkey/turnkey_03.jpeg"),
                                             alt: "Turnkey Craftsmanship Background",
                                             fill: true,
                                             sizes: "(max-width: 768px) 100vw, 600px",
@@ -4659,7 +4584,7 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 }),
 "[project]/coastalinterio/src/data/portfolio_manifest.json (json)", ((__turbopack_context__) => {
 
-__turbopack_context__.v({"living_room":["/work/living_room/living_room_01.jpeg","/work/living_room/living_room_02.jpeg","/work/living_room/living_room_03.jpeg","/work/living_room/living_room_04.jpeg","/work/living_room/living_room_05.jpeg","/work/living_room/living_room_06.jpeg","/work/living_room/living_room_07.jpeg"],"bedroom":["/work/bedroom/bedroom_01.jpeg","/work/bedroom/bedroom_02.jpeg","/work/bedroom/bedroom_03.jpeg","/work/bedroom/bedroom_04.jpeg","/work/bedroom/bedroom_05.jpeg","/work/bedroom/bedroom_06.jpeg","/work/bedroom/bedroom_07.jpeg","/work/bedroom/bedroom_08.jpeg","/work/bedroom/bedroom_09.jpeg"],"kitchen":["/work/kitchen/kitchen_01.jpeg","/work/kitchen/kitchen_02.jpeg","/work/kitchen/kitchen_03.jpeg","/work/kitchen/kitchen_04.jpeg","/work/kitchen/kitchen_05.jpeg","/work/kitchen/kitchen_06.jpeg","/work/kitchen/kitchen_07.jpeg"],"wardrobe":["/work/wardrobe/wardrobe_01.jpeg","/work/wardrobe/wardrobe_02.jpeg","/work/wardrobe/wardrobe_03.jpeg","/work/wardrobe/wardrobe_04.jpeg","/work/wardrobe/wardrobe_05.jpeg","/work/wardrobe/wardrobe_06.jpeg","/work/wardrobe/wardrobe_07.jpeg","/work/wardrobe/wardrobe_08.jpeg","/work/wardrobe/wardrobe_09.jpeg"]});}),
+__turbopack_context__.v({"living_room":["/work/living_room/living_room_01.jpeg","/work/living_room/living_room_03.jpeg","/work/living_room/living_room_04.jpeg","/work/living_room/living_room_05.jpeg","/work/living_room/living_room_06.jpeg","/work/living_room/living_room_07.jpeg","/work/living_room/living_room_08.jpeg","/work/living_room/living_room_09.jpeg","/work/living_room/living_room_10.jpeg","/work/living_room/living_room_11.jpeg","/work/living_room/living_room_12.jpeg","/work/living_room/living_room_13.jpeg","/work/living_room/living_room_14.jpeg","/work/living_room/living_room_15.jpeg","/work/living_room/living_room_16.jpeg","/work/living_room/living_room_17.jpeg","/work/living_room/living_room_18.jpeg","/work/living_room/living_room_19.jpeg","/work/living_room/living_room_20.jpeg","/work/living_room/living_room_21.jpeg","/work/living_room/living_room_22.jpeg","/work/living_room/living_room_23.jpeg","/work/living_room/living_room_24.jpeg","/work/living_room/living_room_25.jpeg"],"bedroom":["/work/bedroom/bedroom_01.jpeg","/work/bedroom/bedroom_02.jpeg","/work/bedroom/bedroom_03.jpeg","/work/bedroom/bedroom_04.jpeg","/work/bedroom/bedroom_04.png","/work/bedroom/bedroom_05.jpeg","/work/bedroom/bedroom_06.jpeg","/work/bedroom/bedroom_07.jpeg","/work/bedroom/bedroom_09.jpeg","/work/bedroom/bedroom_10.jpeg","/work/bedroom/bedroom_11.jpeg","/work/bedroom/bedroom_12.jpeg","/work/bedroom/bedroom_13.jpeg","/work/bedroom/bedroom_14.jpeg","/work/bedroom/bedroom_15.jpeg","/work/bedroom/bedroom_16.jpeg","/work/bedroom/bedroom_17.jpeg","/work/bedroom/bedroom_18.jpeg"],"kitchen":["/work/kitchen/kitchen_01.jpeg","/work/kitchen/kitchen_02.jpeg","/work/kitchen/kitchen_03.jpeg","/work/kitchen/kitchen_04.jpeg","/work/kitchen/kitchen_05.jpeg","/work/kitchen/kitchen_06.jpeg","/work/kitchen/kitchen_07.jpeg","/work/kitchen/kitchen_08.jpeg","/work/kitchen/kitchen_09.jpeg","/work/kitchen/kitchen_10.jpeg","/work/kitchen/kitchen_11.jpeg","/work/kitchen/kitchen_12.jpeg","/work/kitchen/kitchen_13.jpeg","/work/kitchen/kitchen_14.jpeg","/work/kitchen/kitchen_15.jpeg","/work/kitchen/kitchen_16.jpeg","/work/kitchen/kitchen_17.jpeg","/work/kitchen/kitchen_18.jpeg","/work/kitchen/kitchen_19.jpeg","/work/kitchen/kitchen_20.jpeg","/work/kitchen/kitchen_21.jpeg","/work/kitchen/kitchen_22.jpeg","/work/kitchen/kitchen_23.jpeg"],"wardrobe":["/work/wardrobe/wardrobe_01.jpeg","/work/wardrobe/wardrobe_02.jpeg","/work/wardrobe/wardrobe_03.jpeg","/work/wardrobe/wardrobe_04.jpeg","/work/wardrobe/wardrobe_05.jpeg","/work/wardrobe/wardrobe_06.jpeg","/work/wardrobe/wardrobe_07.jpeg","/work/wardrobe/wardrobe_08.jpeg","/work/wardrobe/wardrobe_09.jpeg","/work/wardrobe/wardrobe_10.jpeg","/work/wardrobe/wardrobe_11.jpeg","/work/wardrobe/wardrobe_12.jpeg","/work/wardrobe/wardrobe_13.jpeg","/work/wardrobe/wardrobe_14.jpeg","/work/wardrobe/wardrobe_15.jpeg","/work/wardrobe/wardrobe_16.jpeg","/work/wardrobe/wardrobe_17.jpeg","/work/wardrobe/wardrobe_18.jpeg","/work/wardrobe/wardrobe_19.jpeg","/work/wardrobe/wardrobe_20.jpeg","/work/wardrobe/wardrobe_21.jpeg","/work/wardrobe/wardrobe_22.jpeg","/work/wardrobe/wardrobe_23.jpeg","/work/wardrobe/wardrobe_24.jpeg","/work/wardrobe/wardrobe_25.jpeg","/work/wardrobe/wardrobe_26.jpeg","/work/wardrobe/wardrobe_27.jpeg"],"commercial":["/work/commercial/commercial_01.jpeg","/work/commercial/commercial_02.jpeg","/work/commercial/commercial_03.jpeg","/work/commercial/commercial_04.jpeg","/work/commercial/commercial_05.jpeg","/work/commercial/commercial_06.jpeg","/work/commercial/commercial_07.jpeg","/work/commercial/commercial_08.png","/work/commercial/commercial_09.jpeg","/work/commercial/commercial_10.png","/work/commercial/commercial_11.jpeg","/work/commercial/commercial_12.jpeg","/work/commercial/commercial_13.jpeg","/work/commercial/commercial_14.jpeg","/work/commercial/commercial_15.jpeg"],"renovation":["/work/renovation/renovation_01.jpeg","/work/renovation/renovation_02.jpeg","/work/renovation/renovation_03.jpeg","/work/renovation/renovation_04.jpeg","/work/renovation/renovation_05.jpeg","/work/renovation/renovation_06.jpeg","/work/renovation/renovation_07.jpeg","/work/renovation/renovation_08.jpeg","/work/renovation/renovation_09.jpeg","/work/renovation/renovation_10.jpeg","/work/renovation/renovation_11.jpeg"],"turnkey":["/work/turnkey/turnkey_01.jpeg","/work/turnkey/turnkey_02.jpeg","/work/turnkey/turnkey_03.jpeg","/work/turnkey/turnkey_04.jpeg","/work/turnkey/turnkey_05.jpeg","/work/turnkey/turnkey_06.jpeg","/work/turnkey/turnkey_07.jpeg","/work/turnkey/turnkey_08.jpeg","/work/turnkey/turnkey_09.png","/work/turnkey/turnkey_10.jpeg","/work/turnkey/turnkey_11.jpeg","/work/turnkey/turnkey_12.jpeg","/work/turnkey/turnkey_13.jpeg","/work/turnkey/turnkey_14.jpeg"]});}),
 "[project]/coastalinterio/src/components/Portfolio.tsx [app-client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
@@ -4707,6 +4632,18 @@ const CATEGORIES = [
     {
         id: "wardrobe",
         label: "Wardrobe"
+    },
+    {
+        id: "commercial",
+        label: "Commercial"
+    },
+    {
+        id: "renovation",
+        label: "Renovation"
+    },
+    {
+        id: "turnkey",
+        label: "Turnkey"
     }
 ];
 const ALL_PHOTOS = Object.entries(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$src$2f$data$2f$portfolio_manifest$2e$json__$28$json$29$__["default"]).flatMap(_c = ([cat, paths])=>paths.map((path, idx)=>({
@@ -4821,7 +4758,7 @@ function Portfolio() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 102,
+                                        lineNumber: 105,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4836,7 +4773,7 @@ function Portfolio() {
                                         children: "OUR WORK"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 103,
+                                        lineNumber: 106,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4847,13 +4784,13 @@ function Portfolio() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 106,
+                                        lineNumber: 109,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 101,
+                                lineNumber: 104,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -4867,7 +4804,7 @@ function Portfolio() {
                                 children: "Spaces We've Transformed"
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 108,
+                                lineNumber: 111,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -4881,13 +4818,13 @@ function Portfolio() {
                                 children: "Every project is a bespoke story of craft, material, and light — delivered across Bengaluru since 2015."
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 111,
+                                lineNumber: 114,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 100,
+                        lineNumber: 103,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4930,13 +4867,13 @@ function Portfolio() {
                                 children: cat.label
                             }, cat.id, false, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 135,
+                                lineNumber: 138,
                                 columnNumber: 15
                             }, this);
                         })
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 117,
+                        lineNumber: 120,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4982,7 +4919,7 @@ function Portfolio() {
                                         loading: "lazy"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 196,
+                                        lineNumber: 199,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5009,23 +4946,23 @@ function Portfolio() {
                                             children: photo.label
                                         }, void 0, false, {
                                             fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                            lineNumber: 221,
+                                            lineNumber: 224,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 208,
+                                        lineNumber: 211,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, photo.id, true, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 171,
+                                lineNumber: 174,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 162,
+                        lineNumber: 165,
                         columnNumber: 9
                     }, this),
                     visibleCount < filtered.length && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5046,20 +4983,20 @@ function Portfolio() {
                                         children: "Load More Projects"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 246,
+                                        lineNumber: 249,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                         size: 16
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 247,
+                                        lineNumber: 250,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 241,
+                                lineNumber: 244,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5077,13 +5014,13 @@ function Portfolio() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 249,
+                                lineNumber: 252,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 240,
+                        lineNumber: 243,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5106,7 +5043,7 @@ function Portfolio() {
                                 children: "Ready to Begin Your Project?"
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 266,
+                                lineNumber: 269,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5120,7 +5057,7 @@ function Portfolio() {
                                 children: "Discuss your space with our design team. Free initial consultation — Bengaluru wide."
                             }, void 0, false, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 269,
+                                lineNumber: 272,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -5138,32 +5075,32 @@ function Portfolio() {
                                         children: "Book Free Consultation"
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 277,
+                                        lineNumber: 280,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                         size: 16
                                     }, void 0, false, {
                                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                        lineNumber: 278,
+                                        lineNumber: 281,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                                lineNumber: 272,
+                                lineNumber: 275,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 256,
+                        lineNumber: 259,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                lineNumber: 97,
+                lineNumber: 100,
                 columnNumber: 7
             }, this),
             lightbox && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5200,12 +5137,12 @@ function Portfolio() {
                             size: 22
                         }, void 0, false, {
                             fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                            lineNumber: 316,
+                            lineNumber: 319,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 298,
+                        lineNumber: 301,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$coastalinterio$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5228,24 +5165,24 @@ function Portfolio() {
                             priority: true
                         }, void 0, false, {
                             fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                            lineNumber: 329,
+                            lineNumber: 332,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                        lineNumber: 319,
+                        lineNumber: 322,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-                lineNumber: 285,
+                lineNumber: 288,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/coastalinterio/src/components/Portfolio.tsx",
-        lineNumber: 88,
+        lineNumber: 91,
         columnNumber: 5
     }, this);
 }

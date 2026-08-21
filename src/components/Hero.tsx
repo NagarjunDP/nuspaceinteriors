@@ -9,18 +9,6 @@ import { getCdnUrl } from "@/lib/cdn";
 // ── Stagnant Hero Background Image ──
 const HERO_BG = getCdnUrl("/work/living_room/living_room_01.jpeg");
 
-// ── Floating thumbnail strip ──
-const FLOATING_THUMBS = [
-  getCdnUrl("/work/living_room/living_room_02.jpeg"),
-  getCdnUrl("/work/bedroom/bedroom_02.jpeg"),
-  getCdnUrl("/work/kitchen/kitchen_03.jpeg"),
-  getCdnUrl("/work/living_room/living_room_01.jpeg"),
-  getCdnUrl("/work/kitchen/kitchen_01.jpeg"),
-  getCdnUrl("/work/wardrobe/wardrobe_02.jpeg"),
-  getCdnUrl("/work/wardrobe/wardrobe_01.jpeg"),
-  getCdnUrl("/work/bedroom/bedroom_03.jpeg"),
-];
-
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
   const primaryCtaRef = useRef<HTMLAnchorElement>(null);
@@ -50,10 +38,7 @@ export default function Hero() {
       gsap.from(".hero-subtext", { y: 25, opacity: 0, duration: 1.3, ease: "power3.out", delay: 0.7 });
       gsap.from(".hero-cta-group", { y: 20, opacity: 0, duration: 1.2, ease: "power3.out", delay: 0.9 });
       gsap.from(".hero-stats", { y: 20, opacity: 0, duration: 1.2, ease: "power3.out", delay: 1.1 });
-      gsap.from(".hero-thumb", {
-        y: 25, opacity: 0, duration: 0.7, stagger: 0.06, ease: "power3.out", delay: 1.25,
-      });
-      gsap.from(".hero-scroll-cue", { opacity: 0, y: -10, duration: 1, ease: "power2.out", delay: 1.5 });
+      gsap.from(".hero-scroll-cue", { opacity: 0, y: -10, duration: 1, ease: "power2.out", delay: 1.3 });
     }, heroRef);
     return () => ctx.revert();
   }, []);
@@ -277,54 +262,6 @@ export default function Hero() {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Horizontal Real Work Photo Strip */}
-        <div
-          style={{
-            display: "flex",
-            gap: "0.6rem",
-            overflowX: "auto",
-            paddingBottom: "0.25rem",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-            maxWidth: "100%",
-          }}
-        >
-          {FLOATING_THUMBS.map((src, i) => (
-            <div
-              key={i}
-              className="hero-thumb"
-              style={{
-                position: "relative",
-                width: "84px",
-                height: "56px",
-                borderRadius: "8px",
-                overflow: "hidden",
-                flexShrink: 0,
-                border: "1px solid rgba(255,255,255,0.15)",
-                transition: "transform 0.3s ease, border-color 0.3s ease",
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "scale(1.06)";
-                e.currentTarget.style.borderColor = "#8B263E";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
-              }}
-            >
-              <Image
-                src={src}
-                alt="Nuspace interior sample"
-                fill
-                sizes="84px"
-                style={{ objectFit: "cover" }}
-                loading="lazy"
-              />
-            </div>
-          ))}
         </div>
       </div>
 

@@ -17,6 +17,9 @@ const CATEGORIES = [
   { id: "bedroom", label: "Bedroom" },
   { id: "kitchen", label: "Kitchen" },
   { id: "wardrobe", label: "Wardrobe" },
+  { id: "commercial", label: "Commercial" },
+  { id: "renovation", label: "Renovation" },
+  { id: "turnkey", label: "Turnkey" },
 ];
 
 const ALL_PHOTOS = Object.entries(manifest).flatMap(([cat, paths]) =>
