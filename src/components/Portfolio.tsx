@@ -18,7 +18,6 @@ const CATEGORIES = [
   { id: "kitchen", label: "Kitchen" },
   { id: "wardrobe", label: "Wardrobe" },
   { id: "commercial", label: "Commercial" },
-  { id: "renovation", label: "Renovation" },
   { id: "turnkey", label: "Turnkey" },
 ];
 
